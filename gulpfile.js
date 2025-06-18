@@ -28,6 +28,7 @@ var sass = require('gulp-sass')(require('sass'));
 var wait = require('gulp-wait');
 var sourcemaps = require('gulp-sourcemaps');
 var fileinclude = require('gulp-file-include');
+const fse = require('fs-extra');
 
 // Define paths
 
@@ -288,8 +289,33 @@ gulp.task('copy:dev:vendor', function () {
         .pipe(gulp.dest(paths.dev.vendor));
 });
 
+gulp.task('end:dist', async () => {
+    fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
+    const jVarLocalYesterday = new Date(Date.now() - 86400000);
+    const jVarLocalToday = new Date();
+    const jVarLocalTomorrow = new Date(Date.now() + 86400000);
+
+    fse.writeFileSync(`${paths.dist.base}/data.json`, JSON.stringify([{
+        title: "3rd",
+        start: jVarLocalYesterday.toISOString().split('T')[0],
+        className: 'bg-danger'
+    },
+    {
+        title: "1st",
+        start: jVarLocalToday.toISOString().split('T')[0],
+        className: 'bg-success'
+    },
+    {
+        title: "2nd",
+        start: jVarLocalTomorrow.toISOString().split('T')[0],
+        className: 'bg-primary'
+    }]));
+
+    return await true;
+});
+
 gulp.task('build:dev', gulp.series('clean:dev', 'copy:dev:css', 'copy:dev:html', 'copy:dev:html:index', 'copy:dev:assets', 'beautify:css', 'copy:dev:vendor'));
-gulp.task('build:dist', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor'));
+gulp.task('build:dist', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor','end:dist'));
 
 // Default
 gulp.task('default', gulp.series('serve'));

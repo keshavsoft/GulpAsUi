@@ -59,8 +59,8 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#"></a>Student_Crud</li>
                             <li class="breadcrumb-item"><a href="#"></a>Pages</li>
-                            <li class="breadcrumb-item"><a href="../../pages/index.html"></a>Student</li>
-                            <li class="breadcrumb-item active" aria-current="page">Index</li>
+                            <li class="breadcrumb-item">Student</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="#" class="RefreshBSTableClass">AsIs</a></li>
                         </ol>
                     </nav>
                     <!-- <p class="mb-0">Show all the students.</p> -->
@@ -79,9 +79,11 @@
         })
     </main>
 
-    @@include('./Students/_scripts.html', {
+    @@include('./Crud/_scriptsWithBSTable.html', {
     "path": "../.."
     })
+
+    <script type="module" src="../../Js/Crud/Show/entryFile.js"></script>
 </body>
 
 </html>
