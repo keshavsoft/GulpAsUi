@@ -1,6 +1,0 @@
-    {
-    "routePath": "binV3",
-    "tableName": "Openings",
-    "PostUrl": "/binV4/StudentNames/UploadImage/ImageAndMail",
-    "PostUrl1": "/binV3/StudentNames/Create/SendMail"
-}
