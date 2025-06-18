@@ -1,0 +1,105 @@
+<nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+    <div class="sidebar-inner px-4 pt-3">
+        <div
+            class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
+            <div class="d-flex align-items-center">
+                <div class="avatar-lg me-4">
+                    <img src="@@path/assets/img/team/profile-picture-3.jpg"
+                        class="card-img-top rounded-circle border-white" alt="Bonnie Green">
+                </div>
+                <div class="d-block">
+                    <h2 class="h5 mb-3">Hi, Jane</h2>
+                    <a href="@@path/pages/examples/sign-in.html"
+                        class="btn btn-secondary btn-sm d-inline-flex align-items-center">
+                        <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                        Sign Out
+                    </a>
+                </div>
+            </div>
+            <div class="collapse-close d-md-none">
+                <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+                </a>
+            </div>
+        </div>
+        <ul class="nav flex-column pt-3 pt-md-0">
+            <li class="nav-item">
+                <a href="@@path/../index.html" class="nav-link d-flex align-items-center">
+                    <span class="sidebar-icon text-white">
+                        <i class="bi bi-grid"></i>
+                    </span>
+                    <span class="mt-1 ms-1 sidebar-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item @@if (context.page === 'index') { active }">
+                <a href="@@path/pages/index.html" class="nav-link">
+                    <span class="sidebar-icon text-danger">
+                        <i class="bi bi-speedometer2"></i>
+                    </span>
+                    <span class="sidebar-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../../V1/Landing/index.html" class="nav-link">
+                    <span class="sidebar-icon text-warning">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+                        </svg>
+                    </span>
+                    <span class="sidebar-text">Parent</span>
+                </a>
+            </li>
+            <!-- <li class="nav-item">
+                <a href="#" target="_blank" class="nav-link d-flex justify-content-between">
+                    <span>
+                        <span class="sidebar-icon text-info">
+                            <i class="bi bi-person-circle"></i>
+                        </span>
+                        <span class="sidebar-text">Students</span>
+                    </span>
+                </a>
+            </li> -->
+            <li class="nav-item">
+                <a href="./FrConf" class="nav-link d-flex justify-content-between">
+                    <span>
+                        <span class="sidebar-icon text-success">
+                            <i class="bi bi-gear-fill"></i>
+                        </span>
+                        <span class="sidebar-text">From Config</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="./Students/index.html" class="nav-link d-flex justify-content-between">
+                    <span>
+                        <span class="sidebar-icon text-secondary">
+                            <i class="bi bi-window-stack"></i>
+                        </span>
+                        <span class="sidebar-text">UI</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="./Tasks/calendar.html" class="nav-link d-flex justify-content-between">
+                    <span>
+                        <span class="sidebar-icon text-secondary">
+                            <i class="bi bi-window-stack"></i>
+                        </span>
+                        <span class="sidebar-text">Tasks</span>
+                    </span>
+                </a>
+            </li>
+
+
+        </ul>
+
+    </div>
+</nav>

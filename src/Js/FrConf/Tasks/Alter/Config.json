@@ -1,0 +1,6 @@
+{
+    "StartRoute": "binV4",
+    "tableName": "MastersCustomers",
+    "GetUrl": "/binV4/StudentNames/Show/DataOnly",
+    "DeleteUrl": "/binV4/MastersCustomers/Delete"
+}

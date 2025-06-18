@@ -1,0 +1,28 @@
+{
+    "toolbar": "#toolbar",
+    "search": "true",
+    "searchable": "true",
+    "idfield": "pk",
+    "showFooter": "true",
+    "pagination": "true",
+    "pageList": "[5,10,25,50,100,all]",
+    "data": [],
+    "columns": [
+        {
+            "field": "KS-Serial",
+            "title": "#",
+            "formatter": "jFLocalSerialColumn"
+        },
+        {
+            "field": "StudentName",
+            "title": "StudentName"
+        },
+        {
+            "field": "Mobile",
+            "title": "Mobile",
+            "align": "right",
+            "formatter": "",
+            "footerFormatter":""
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "toolbar": "#toolbar",
+    "search": "true",
+    "searchable": "true",
+    "idfield": "pk",
+    "showFooter": "true",
+    "pagination": "true",
+    "pageList": "[5,10,25,50,100,all]",
+    "data": [],
+    "columns": [
+        {
+            "field": "KS-Serial",
+            "title": "#",
+            "formatter": "jFLocalSerialColumn"
+        },
+        {
+            "field": "AddOnService",
+            "title": "AddOn Service"
+        },
+        {
+            "field": "AddOnRate",
+            "title": "AddOn Rate",
+            "align": "right",
+            "formatter": "",
+            "footerFormatter":""
+        },
+        {
+            "field": "KS-Opts",
+            "title": "Alter ",
+            "formatter": "jFLocalOptsFormater"
+
+        }
+    ]
+}
