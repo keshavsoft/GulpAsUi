@@ -4,6 +4,9 @@
     "description": "Volt - Bootstrap 5 Dashboard",
     "main": "gulpfile.js",
     "author": "Themesberg",
+    "scripts": {
+        "dist": "gulp build:dist"
+    },
     "keywords": [
         "bootstrap",
         "bootstrap5",
