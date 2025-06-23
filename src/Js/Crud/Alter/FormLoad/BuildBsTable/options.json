@@ -28,6 +28,11 @@
         {
             "field": "LONGITUDE",
             "title": "Longitude"
+        },
+        {
+            "field": "Alter",
+            "title": "Alter ",
+            "formatter": "jFLocalOptsFormater"
         }
     ]
 }

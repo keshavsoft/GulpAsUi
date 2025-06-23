@@ -28,6 +28,11 @@
         {
             "field": "LONGITUDE",
             "title": "Longitude"
+        },
+        {
+            "field": "Delete",
+            "title": "Delete",
+            "formatter": "jFLocalOptsFormater"
         }
     ]
 }
