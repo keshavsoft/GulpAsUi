@@ -26,18 +26,18 @@
 </head>
 
 <body>
-    @@include('./Crud/_nav.html', {
+    @@include('./CommonConfig/_nav.html', {
     "path": "../.."
     })
 
-    @@include('./Crud/_sidenav.html', {
+    @@include('./CommonConfig/_sidenav.html', {
     "path": "../..",
     "page": "create",
     "page_group":"create"
     })
 
     <main class="content">
-        @@include('./Crud/_topbarEmpty.html', {
+        @@include('./CommonConfig/_topbarEmpty.html', {
         "path": "../.."
         })
 
@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="breadcrumb-item"><a href="#"></a>Pages</li>
-                            <li class="breadcrumb-item">Crud</li>
+                            <li class="breadcrumb-item">CommonConfig</li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="#"
                                     class="RefreshBSTableClass">Create</a></li>
                         </ol>
@@ -128,11 +128,11 @@
         })
     </main>
 
-    @@include('./Crud/_scriptsWithBSTable.html', {
+    @@include('./CommonConfig/_scriptsWithBSTable.html', {
     "path": "../.."
     })
 
-    <script type="module" src="../../Js/Crud/Create/startFunc.js"></script>
+    <script type="module" src="../../Js/CommonConfig/Create/startFunc.js"></script>
 </body>
 
 </html>

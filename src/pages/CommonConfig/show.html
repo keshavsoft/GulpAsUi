@@ -26,18 +26,18 @@
 </head>
 
 <body>
-    @@include('./Crud/_nav.html', {
+    @@include('./CommonConfig/_nav.html', {
     "path": "../.."
     })
 
-    @@include('./Crud/_sidenav.html', {
+    @@include('./CommonConfig/_sidenav.html', {
     "path": "../..",
     "page": "show",
     "page_group":"show"
     })
 
     <main class="content">
-        @@include('./Crud/_topbarEmpty.html', {
+        @@include('./CommonConfig/_topbarEmpty.html', {
         "path": "../.."
         })
         <div id="toolbar">
@@ -69,7 +69,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#"></a>Student_Crud</li>
+                            <li class="breadcrumb-item"><a href="#"></a>Student_CommonConfig</li>
                             <li class="breadcrumb-item"><a href="#"></a>Pages</li>
                             <li class="breadcrumb-item">Student</li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="#"
@@ -92,11 +92,11 @@
         })
     </main>
 
-    @@include('./Crud/_scriptsWithBSTable.html', {
+    @@include('./CommonConfig/_scriptsWithBSTable.html', {
     "path": "../.."
     })
 
-    <script type="module" src="../../Js/Crud/Show/entryFile.js"></script>
+    <script type="module" src="../../Js/CommonConfig/Show/entryFile.js"></script>
 </body>
 
 </html>
