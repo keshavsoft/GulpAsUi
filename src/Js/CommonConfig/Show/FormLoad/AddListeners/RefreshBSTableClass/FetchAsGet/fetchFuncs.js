@@ -1,7 +1,12 @@
 import getUrlJson from './getUrl.json' with {type: 'json'};
+import commonConfig from '../../../../../commonConfig.json' with {type: 'json'};
 
 let StartFunc = async () => {
-    let jVarLocalFetchUrl = getUrlJson.GetEndPoint;
+    let jVarTableName = commonConfig.TableName;
+
+    let jVarLocalGetEndPoint = getUrlJson.GetEndPoint;
+
+    let jVarLocalFetchUrl = `${jVarTableName}/${jVarLocalGetEndPoint}`
 
     let response = await fetch(jVarLocalFetchUrl);
 
