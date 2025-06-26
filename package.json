@@ -5,7 +5,8 @@
     "main": "gulpfile.js",
     "author": "Themesberg",
     "scripts": {
-        "dist": "gulp build:dist"
+        "dist": "gulp build:dist",
+        "dev": "gulp"
     },
     "keywords": [
         "bootstrap",
