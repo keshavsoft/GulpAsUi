@@ -16,19 +16,22 @@
 
 */
 
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-var cleanCss = require('gulp-clean-css');
-var del = require('del');
-const htmlmin = require('gulp-htmlmin');
-const cssbeautify = require('gulp-cssbeautify');
 var gulp = require('gulp');
-const npmDist = require('gulp-npm-dist');
-var sass = require('gulp-sass')(require('sass'));
+var del = require('del');
 var wait = require('gulp-wait');
+var sass = require('gulp-sass')(require('sass'));
 var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync').create();
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
+var cssbeautify = require('gulp-cssbeautify');
 var fileinclude = require('gulp-file-include');
+const htmlmin = require('gulp-htmlmin');
+const npmDist = require('gulp-npm-dist');
 const fse = require('fs-extra');
+const path = require('path');
+const glob = require('glob');
+const fs = require('fs');
 
 // Define paths
 
@@ -289,33 +292,91 @@ gulp.task('copy:dev:vendor', function () {
         .pipe(gulp.dest(paths.dev.vendor));
 });
 
+
 gulp.task('end:dist', async () => {
     fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
-    const jVarLocalYesterday = new Date(Date.now() - 86400000);
-    const jVarLocalToday = new Date();
-    const jVarLocalTomorrow = new Date(Date.now() + 86400000);
 
-    fse.writeFileSync(`${paths.dist.base}/data.json`, JSON.stringify([{
-        title: "3rd",
-        start: jVarLocalYesterday.toISOString().split('T')[0],
-        className: 'bg-danger'
-    },
-    {
-        title: "1st",
-        start: jVarLocalToday.toISOString().split('T')[0],
-        className: 'bg-success'
-    },
-    {
-        title: "2nd",
-        start: jVarLocalTomorrow.toISOString().split('T')[0],
-        className: 'bg-primary'
-    }]));
+    const schemaUIs = ['Donors', 'GpsTable'];
 
-    return await true;
+    schemaUIs.forEach(name => {
+        const srcJsFolder = path.join(paths.dist.base, 'Js', 'CommonConfigColumns');
+        const destJsFolder = path.join(paths.dist.base, 'Js', name);
+        fse.copySync(srcJsFolder, destJsFolder);
+
+        const srcHtmlFolder = path.join(paths.dist.base, 'pages', 'CommonConfigColumns');
+        const destHtmlFolder = path.join(paths.dist.base, 'pages', name);
+
+        if (fse.existsSync(srcHtmlFolder)) {
+            const htmlFiles = glob.sync('*.html', { cwd: srcHtmlFolder });
+
+            htmlFiles.forEach(file => {
+                const srcFile = path.join(srcHtmlFolder, file);
+                const destFile = path.join(destHtmlFolder, file);
+                fse.ensureDirSync(destHtmlFolder);
+
+                let content = fs.readFileSync(srcFile, 'utf8');
+                const replacedContent = content.replace(/CommonConfigColumns/g, name);
+
+                fs.writeFileSync(destFile, replacedContent, 'utf8');
+                console.log(`Copied & replaced ${file} → ${destHtmlFolder}`);
+            });
+        } else {
+            console.warn(` HTML template folder not found: ${srcHtmlFolder}`);
+        }
+
+        const schemaFile = path.join(__dirname, `${name}.json`);
+        const schemaDest = path.join(paths.dist.base, `${name}.json`);
+        if (fse.existsSync(schemaFile)) {
+            fse.copySync(schemaFile, schemaDest);
+        }
+
+        const columnsJsonPath = path.join(destJsFolder, 'commonColumns.json');
+        if (fse.existsSync(schemaFile)) {
+            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+
+            const newColumns = [
+                {
+                    field: "KS-Serial",
+                    title: "#",
+                    formatter: "jFLocalSerialColumn"
+                },
+                ...schemaJson.map(col => ({
+                    field: col.ColumnName,
+                    title: col.ColumnName
+                }))
+            ];
+
+            fs.writeFileSync(columnsJsonPath, JSON.stringify(newColumns, null, 4), 'utf8');
+            console.log(` commonColumns.json generated for ${name}`);
+        }
+
+        const statusFilePath = path.join(destJsFolder, 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
+        if (fse.existsSync(schemaFile) && fse.existsSync(statusFilePath)) {
+            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+
+            let statusContent = fs.readFileSync(statusFilePath, 'utf8');
+
+            schemaJson.forEach(col => {
+                const original = col.ColumnName;
+
+                const regexKey = new RegExp(`jVarLocalData\\.[A-Z_]*${original.toUpperCase()}[A-Z_]*`, 'g');
+                statusContent = statusContent.replace(regexKey, `jVarLocalData.${original}`);
+
+                const regexInParam = new RegExp(`in[A-Za-z]*${original.toUpperCase()}[A-Za-z]*\\s*:\\s*jVarLocalData\\.[A-Z_]*${original.toUpperCase()}[A-Z_]*`, 'g');
+                statusContent = statusContent.replace(regexInParam, `in${original}: jVarLocalData.${original}`);
+            });
+
+            fs.writeFileSync(statusFilePath, statusContent, 'utf8');
+            console.log(`status200.js updated for ${name}`);
+        }
+    });
+
+    return true;
 });
 
+
 gulp.task('build:dev', gulp.series('clean:dev', 'copy:dev:css', 'copy:dev:html', 'copy:dev:html:index', 'copy:dev:assets', 'beautify:css', 'copy:dev:vendor'));
-gulp.task('build:dist', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor','end:dist'));
+gulp.task('build:dist', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'end:dist'));
 
 // Default
 gulp.task('default', gulp.series('serve'));

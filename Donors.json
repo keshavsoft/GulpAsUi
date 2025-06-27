@@ -1,0 +1,11 @@
+[
+    {
+        "ColumnName": "DonorName",
+        "type": "STRING"
+    },
+    {
+        "ColumnName": "DonorMobile",
+        "unique": false,
+        "type": "NUMBER"
+    }
+]
