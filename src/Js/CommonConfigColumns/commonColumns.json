@@ -1,0 +1,23 @@
+[
+    {
+        "field": "KS-Serial",
+        "title": "#",
+        "formatter": "jFLocalSerialColumn"
+    },
+    {
+        "field": "DATETIME",
+        "title": "DateTime"
+    },
+    {
+        "field": "TREENAME",
+        "title": "TreeName"
+    },
+    {
+        "field": "LATITUDE",
+        "title": "Latitude"
+    },
+    {
+        "field": "LONGITUDE",
+        "title": "Longitude"
+    }
+]
