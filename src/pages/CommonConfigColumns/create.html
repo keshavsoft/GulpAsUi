@@ -73,47 +73,7 @@
         <div class="card mt-3">
             <div class="card-body">
                 <form onsubmit="return false" id="FormId">
-                    <div class="mb-3 row">
-                        <label class="col-sm-4 col-form-label">DateTime</label>
-                        <div class="col-sm-8">
-                            <input name="DateTime" type="date" class="form-control" required autocomplete="off"
-                                autofocus>
-                            <div class="invalid-feedback">
-                                DateTime should not be empty
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-4 col-form-label">TreeName</label>
-                        <div class="col-sm-8">
-                            <input name="TreeName" type="tel" class="form-control" pattern="[0-9]{10}" maxlength="10"
-                                required>
-                            <div class="invalid-feedback">
-                                Please enter a valid TreeName!
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-4 col-form-label">Latitude</label>
-                        <div class="col-sm-8">
-                            <input name="Latitude" type="text" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please enter Latitude
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-4 col-form-label">Longitude</label>
-                        <div class="col-sm-8">
-                            <input name="Longitude" type="text" class="form-control" required>
-                            <div class="invalid-feedback">
-                                Please enter Longitude
-                            </div>
-                        </div>
-                    </div>
+                    <!-- FORM_COLUMNS_PLACEHOLDER -->
 
                     <div class="text-center mt-4">
                         <button id="SaveButtonId" class="btn btn-primary px-4 RefreshBSTableClass">Create</button>
