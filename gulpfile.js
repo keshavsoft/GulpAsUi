@@ -292,13 +292,32 @@ gulp.task('copy:dev:vendor', function () {
         .pipe(gulp.dest(paths.dev.vendor));
 });
 
-
 gulp.task('end:dist', async () => {
+    const paths = {
+        src: { base: './src' },
+        dist: { base: './dist' },
+        partials: { base: './src/partials' }
+    };
+
     fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
 
     const schemaUIs = ['Donors', 'GpsTable'];
 
     schemaUIs.forEach(name => {
+        const srcPartialFolder = path.join(paths.partials.base, 'CommonConfigColumns');
+        const destPartialFolder = path.join(paths.partials.base, name);
+
+        if (fse.existsSync(srcPartialFolder)) {
+            if (fse.existsSync(destPartialFolder)) {
+                console.warn(`Partials already exist for ${name} at ${destPartialFolder}`);
+            } else {
+                fse.copySync(srcPartialFolder, destPartialFolder);
+                console.log(` Partials copied to → ${destPartialFolder}`);
+            }
+        } else {
+            console.warn(`Source partials not found: ${srcPartialFolder}`);
+        }
+
         const srcJsFolder = path.join(paths.dist.base, 'Js', 'CommonConfigColumns');
         const destJsFolder = path.join(paths.dist.base, 'Js', name);
         fse.copySync(srcJsFolder, destJsFolder);
@@ -308,6 +327,7 @@ gulp.task('end:dist', async () => {
 
         if (fse.existsSync(srcHtmlFolder)) {
             const htmlFiles = glob.sync('*.html', { cwd: srcHtmlFolder });
+            const schemaFile = path.join(__dirname, `${name}.json`);
 
             htmlFiles.forEach(file => {
                 const srcFile = path.join(srcHtmlFolder, file);
@@ -315,13 +335,40 @@ gulp.task('end:dist', async () => {
                 fse.ensureDirSync(destHtmlFolder);
 
                 let content = fs.readFileSync(srcFile, 'utf8');
-                const replacedContent = content.replace(/CommonConfigColumns/g, name);
+                content = content.replace(/CommonConfigColumns/g, name);
 
-                fs.writeFileSync(destFile, replacedContent, 'utf8');
-                console.log(`Copied & replaced ${file} → ${destHtmlFolder}`);
+                if ((file.toLowerCase().includes('create') || file.toLowerCase().includes('update')) && fse.existsSync(schemaFile)) {
+                    const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+
+                    const formInputs = schemaJson.map(col => {
+                        const field = col.ColumnName;
+                        const lowerField = field.toLowerCase();
+                        const inputId = `${field}Id`;
+
+                        let inputType = "text";
+                        if (lowerField.includes("date") || lowerField.includes("dob")) inputType = "date";
+                        else if (lowerField.includes("email")) inputType = "email";
+                        else if (lowerField.includes("mobile") || lowerField.includes("phone")) inputType = "tel";
+                        else if (lowerField.includes("amount") || lowerField.includes("lat") || lowerField.includes("long") || lowerField.includes("id")) inputType = "number";
+
+                        return `
+                            <div class="mb-3 row">
+                                <label for="${inputId}" class="col-sm-4 col-form-label">${field}</label>
+                                <div class="col-sm-8">
+                                    <input type="${inputType}" class="form-control" id="${inputId}" name="${field}" required autocomplete="off">
+                                    <div class="invalid-feedback">Please enter ${field}</div>
+                                </div>
+                            </div>`;
+                    }).join('\n');
+
+                    content = content.replace('<!-- FORM_COLUMNS_PLACEHOLDER -->', formInputs);
+                }
+
+                fs.writeFileSync(destFile, content, 'utf8');
+                console.log(` Copied & processed ${file} → ${destHtmlFolder}`);
             });
         } else {
-            console.warn(` HTML template folder not found: ${srcHtmlFolder}`);
+            console.warn(`HTML template folder not found: ${srcHtmlFolder}`);
         }
 
         const schemaFile = path.join(__dirname, `${name}.json`);
@@ -350,11 +397,12 @@ gulp.task('end:dist', async () => {
             console.log(` commonColumns.json generated for ${name}`);
         }
 
-        const statusFilePath = path.join(destJsFolder, 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
-        if (fse.existsSync(schemaFile) && fse.existsSync(statusFilePath)) {
-            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+        const templateStatusFile = path.join(paths.dist.base, 'Js', 'CommonConfigColumns', 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
+        const destStatusFile = path.join(destJsFolder, 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
 
-            let statusContent = fs.readFileSync(statusFilePath, 'utf8');
+        if (fse.existsSync(schemaFile) && fse.existsSync(templateStatusFile)) {
+            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+            let statusContent = fs.readFileSync(templateStatusFile, 'utf8');
 
             schemaJson.forEach(col => {
                 const original = col.ColumnName;
@@ -366,8 +414,8 @@ gulp.task('end:dist', async () => {
                 statusContent = statusContent.replace(regexInParam, `in${original}: jVarLocalData.${original}`);
             });
 
-            fs.writeFileSync(statusFilePath, statusContent, 'utf8');
-            console.log(`status200.js updated for ${name}`);
+            fs.writeFileSync(destStatusFile, statusContent, 'utf8');
+            console.log(` status200.js updated for ${name}`);
         }
     });
 
