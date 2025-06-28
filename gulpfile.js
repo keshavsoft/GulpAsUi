@@ -16,16 +16,16 @@
 
 */
 
-var gulp = require('gulp');
-var del = require('del');
-var wait = require('gulp-wait');
-var sass = require('gulp-sass')(require('sass'));
-var sourcemaps = require('gulp-sourcemaps');
-var browserSync = require('browser-sync').create();
-var autoprefixer = require('gulp-autoprefixer');
-var cleanCss = require('gulp-clean-css');
-var cssbeautify = require('gulp-cssbeautify');
-var fileinclude = require('gulp-file-include');
+const gulp = require('gulp');
+const del = require('del');
+const wait = require('gulp-wait');
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
+const browserSync = require('browser-sync').create();
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCss = require('gulp-clean-css');
+const cssbeautify = require('gulp-cssbeautify');
+const fileinclude = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin');
 const npmDist = require('gulp-npm-dist');
 const fse = require('fs-extra');
@@ -72,8 +72,13 @@ const paths = {
         html: './.temp/pages',
         assets: './.temp/assets',
         vendor: './.temp/vendor'
+    },
+    partials: {
+        base: './src/partials'
     }
+
 };
+
 
 // Compile SCSS
 gulp.task('scss', function () {
@@ -197,7 +202,13 @@ gulp.task('clean:dev', function () {
 
 // Compile and copy scss/css
 gulp.task('copy:dist:css', function () {
-    return gulp.src([paths.src.scss + '/volt/**/*.scss', paths.src.scss + '/custom/**/*.scss', paths.src.scss + '/volt.scss'])
+    const scssFiles = [
+        './src/scss/volt/**/*.scss',
+        './src/scss/custom/**/*.scss',
+        './src/scss/volt.scss'
+    ];
+
+    return gulp.src(scssFiles)
         .pipe(wait(500))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -205,8 +216,9 @@ gulp.task('copy:dist:css', function () {
             overrideBrowserslist: ['> 1%']
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(paths.dist.css))
+        .pipe(gulp.dest('./dist/css'));
 });
+
 
 gulp.task('copy:dev:css', function () {
     return gulp.src([paths.src.scss + '/volt/**/*.scss', paths.src.scss + '/custom/**/*.scss', paths.src.scss + '/volt.scss'])
@@ -292,136 +304,189 @@ gulp.task('copy:dev:vendor', function () {
         .pipe(gulp.dest(paths.dev.vendor));
 });
 
-gulp.task('end:dist', async () => {
-    const paths = {
-        src: { base: './src' },
-        dist: { base: './dist' },
-        partials: { base: './src/partials' }
-    };
+const schemaUIs = ['Donors', 'GpsTable'];
 
+const copyCommonJs = () => {
     fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
+};
 
-    const schemaUIs = ['Donors', 'GpsTable'];
+const copyPartials = (name) => {
+    const src = path.join(paths.partials.base, 'CommonConfigColumns');
+    const dest = path.join(paths.partials.base, name);
+
+    if (fse.existsSync(src)) {
+        if (!fse.existsSync(dest)) {
+            fse.copySync(src, dest);
+            console.log(` Partials copied to → ${dest}`);
+        } else {
+            console.warn(`Partials already exist for ${name} at ${dest}`);
+        }
+    } else {
+        console.warn(`Source partials not found: ${src}`);
+    }
+};
+
+const copyJsFolder = (name) => {
+    const src = path.join(paths.dist.base, 'Js', 'CommonConfigColumns');
+    const dest = path.join(paths.dist.base, 'Js', name);
+    fse.copySync(src, dest);
+};
+
+const processHtmlTemplates = (name) => {
+    const srcHtmlFolder = path.join(paths.dist.base, 'pages', 'CommonConfigColumns');
+    const destHtmlFolder = path.join(paths.dist.base, 'pages', name);
+    const schemaFile = path.join(__dirname, `${name}.json`);
+
+    if (!fse.existsSync(srcHtmlFolder)) {
+        console.warn(`HTML template folder not found: ${srcHtmlFolder}`);
+        return;
+    }
+
+    const htmlFiles = glob.sync('*.html', { cwd: srcHtmlFolder });
+
+    htmlFiles.forEach(file => {
+        const srcFile = path.join(srcHtmlFolder, file);
+        const destFile = path.join(destHtmlFolder, file);
+        fse.ensureDirSync(destHtmlFolder);
+
+        let content = fs.readFileSync(srcFile, 'utf8');
+        content = content.replace(/CommonConfigColumns/g, name);
+
+        if ((file.toLowerCase().includes('create') || file.toLowerCase().includes('update')) && fse.existsSync(schemaFile)) {
+            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+
+            const formInputs = schemaJson.map(col => {
+                const field = col.ColumnName;
+                const lowerField = field.toLowerCase();
+                const inputId = `${field}Id`;
+
+                let inputType = "text";
+                if (lowerField.includes("date") || lowerField.includes("dob")) inputType = "date";
+                else if (lowerField.includes("email")) inputType = "email";
+                else if (lowerField.includes("mobile") || lowerField.includes("phone")) inputType = "tel";
+                else if (lowerField.includes("amount") || lowerField.includes("lat") || lowerField.includes("long") || lowerField.includes("id")) inputType = "number";
+
+                return `
+                    <div class="mb-3 row">
+                        <label for="${inputId}" class="col-sm-4 col-form-label">${field}</label>
+                        <div class="col-sm-8">
+                            <input type="${inputType}" class="form-control" id="${inputId}" name="${field}" required autocomplete="off">
+                            <div class="invalid-feedback">Please enter ${field}</div>
+                        </div>
+                    </div>`;
+            }).join('\n');
+
+            content = content.replace('<!-- FORM_COLUMNS_PLACEHOLDER -->', formInputs);
+        }
+
+        fs.writeFileSync(destFile, content, 'utf8');
+        console.log(` Copied & processed ${file} → ${destHtmlFolder}`);
+    });
+};
+
+const copySchemaJson = (name) => {
+    const schemaFile = path.join(__dirname, `${name}.json`);
+    const schemaDest = path.join(paths.dist.base, `${name}.json`);
+
+    if (fse.existsSync(schemaFile)) {
+        fse.copySync(schemaFile, schemaDest);
+    }
+};
+
+const generateCommonColumns = (name) => {
+    const schemaFile = path.join(__dirname, `${name}.json`);
+    const destJsFolder = path.join(paths.dist.base, 'Js', name);
+    const columnsJsonPath = path.join(destJsFolder, 'commonColumns.json');
+
+    if (fse.existsSync(schemaFile)) {
+        const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+
+        const newColumns = [
+            {
+                field: "KS-Serial",
+                title: "#",
+                formatter: "jFLocalSerialColumn"
+            },
+            ...schemaJson.map(col => ({
+                field: col.ColumnName,
+                title: col.ColumnName
+            }))
+        ];
+
+        fs.writeFileSync(columnsJsonPath, JSON.stringify(newColumns, null, 4), 'utf8');
+        console.log(` commonColumns.json generated for ${name}`);
+    }
+};
+
+const updateStatus200 = (name) => {
+    const schemaFile = path.join(__dirname, `${name}.json`);
+    const templateStatusFile = path.join(
+        paths.dist.base,
+        'Js',
+        'CommonConfigColumns',
+        'Update',
+        'FormLoad',
+        'RowDataFromGet',
+        'AfterFetch',
+        'status200.js'
+    );
+
+    const destStatusFile = path.join(
+        paths.dist.base,
+        'Js',
+        name,
+        'Update',
+        'FormLoad',
+        'RowDataFromGet',
+        'AfterFetch',
+        'status200.js'
+    );
+
+    if (!fse.existsSync(schemaFile) || !fse.existsSync(templateStatusFile)) {
+        console.warn(`Schema or template missing for ${name}`);
+        return;
+    }
+
+    const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
+    let statusContent = fs.readFileSync(templateStatusFile, 'utf8');
+
+    const dataCallPattern = /jVarLocalData\.[\w$]+/g;
+    const idPattern = /'[\w$]+Id'/g;
+
+    const dataMatches = statusContent.match(dataCallPattern) || [];
+    const idMatches = statusContent.match(idPattern) || [];
+
+    schemaJson.forEach((col, index) => {
+        const column = col.ColumnName;
+
+        if (dataMatches[index]) {
+            statusContent = statusContent.replace(dataMatches[index], `jVarLocalData.${column}`);
+        }
+
+        if (idMatches[index]) {
+            statusContent = statusContent.replace(idMatches[index], `'${column}Id'`);
+        }
+    });
+
+    fse.ensureDirSync(path.dirname(destStatusFile));
+    fs.writeFileSync(destStatusFile, statusContent, 'utf8');
+    console.log(` status200.js updated for ${name}`);
+};
+
+gulp.task('end:dist', async () => {
+    copyCommonJs();
 
     schemaUIs.forEach(name => {
-        const srcPartialFolder = path.join(paths.partials.base, 'CommonConfigColumns');
-        const destPartialFolder = path.join(paths.partials.base, name);
-
-        if (fse.existsSync(srcPartialFolder)) {
-            if (fse.existsSync(destPartialFolder)) {
-                console.warn(`Partials already exist for ${name} at ${destPartialFolder}`);
-            } else {
-                fse.copySync(srcPartialFolder, destPartialFolder);
-                console.log(` Partials copied to → ${destPartialFolder}`);
-            }
-        } else {
-            console.warn(`Source partials not found: ${srcPartialFolder}`);
-        }
-
-        const srcJsFolder = path.join(paths.dist.base, 'Js', 'CommonConfigColumns');
-        const destJsFolder = path.join(paths.dist.base, 'Js', name);
-        fse.copySync(srcJsFolder, destJsFolder);
-
-        const srcHtmlFolder = path.join(paths.dist.base, 'pages', 'CommonConfigColumns');
-        const destHtmlFolder = path.join(paths.dist.base, 'pages', name);
-
-        if (fse.existsSync(srcHtmlFolder)) {
-            const htmlFiles = glob.sync('*.html', { cwd: srcHtmlFolder });
-            const schemaFile = path.join(__dirname, `${name}.json`);
-
-            htmlFiles.forEach(file => {
-                const srcFile = path.join(srcHtmlFolder, file);
-                const destFile = path.join(destHtmlFolder, file);
-                fse.ensureDirSync(destHtmlFolder);
-
-                let content = fs.readFileSync(srcFile, 'utf8');
-                content = content.replace(/CommonConfigColumns/g, name);
-
-                if ((file.toLowerCase().includes('create') || file.toLowerCase().includes('update')) && fse.existsSync(schemaFile)) {
-                    const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
-
-                    const formInputs = schemaJson.map(col => {
-                        const field = col.ColumnName;
-                        const lowerField = field.toLowerCase();
-                        const inputId = `${field}Id`;
-
-                        let inputType = "text";
-                        if (lowerField.includes("date") || lowerField.includes("dob")) inputType = "date";
-                        else if (lowerField.includes("email")) inputType = "email";
-                        else if (lowerField.includes("mobile") || lowerField.includes("phone")) inputType = "tel";
-                        else if (lowerField.includes("amount") || lowerField.includes("lat") || lowerField.includes("long") || lowerField.includes("id")) inputType = "number";
-
-                        return `
-                            <div class="mb-3 row">
-                                <label for="${inputId}" class="col-sm-4 col-form-label">${field}</label>
-                                <div class="col-sm-8">
-                                    <input type="${inputType}" class="form-control" id="${inputId}" name="${field}" required autocomplete="off">
-                                    <div class="invalid-feedback">Please enter ${field}</div>
-                                </div>
-                            </div>`;
-                    }).join('\n');
-
-                    content = content.replace('<!-- FORM_COLUMNS_PLACEHOLDER -->', formInputs);
-                }
-
-                fs.writeFileSync(destFile, content, 'utf8');
-                console.log(` Copied & processed ${file} → ${destHtmlFolder}`);
-            });
-        } else {
-            console.warn(`HTML template folder not found: ${srcHtmlFolder}`);
-        }
-
-        const schemaFile = path.join(__dirname, `${name}.json`);
-        const schemaDest = path.join(paths.dist.base, `${name}.json`);
-        if (fse.existsSync(schemaFile)) {
-            fse.copySync(schemaFile, schemaDest);
-        }
-
-        const columnsJsonPath = path.join(destJsFolder, 'commonColumns.json');
-        if (fse.existsSync(schemaFile)) {
-            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
-
-            const newColumns = [
-                {
-                    field: "KS-Serial",
-                    title: "#",
-                    formatter: "jFLocalSerialColumn"
-                },
-                ...schemaJson.map(col => ({
-                    field: col.ColumnName,
-                    title: col.ColumnName
-                }))
-            ];
-
-            fs.writeFileSync(columnsJsonPath, JSON.stringify(newColumns, null, 4), 'utf8');
-            console.log(` commonColumns.json generated for ${name}`);
-        }
-
-        const templateStatusFile = path.join(paths.dist.base, 'Js', 'CommonConfigColumns', 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
-        const destStatusFile = path.join(destJsFolder, 'Update', 'FormLoad', 'RowDataFromGet', 'AfterFetch', 'status200.js');
-
-        if (fse.existsSync(schemaFile) && fse.existsSync(templateStatusFile)) {
-            const schemaJson = JSON.parse(fs.readFileSync(schemaFile, 'utf8'));
-            let statusContent = fs.readFileSync(templateStatusFile, 'utf8');
-
-            schemaJson.forEach(col => {
-                const original = col.ColumnName;
-
-                const regexKey = new RegExp(`jVarLocalData\\.[A-Z_]*${original.toUpperCase()}[A-Z_]*`, 'g');
-                statusContent = statusContent.replace(regexKey, `jVarLocalData.${original}`);
-
-                const regexInParam = new RegExp(`in[A-Za-z]*${original.toUpperCase()}[A-Za-z]*\\s*:\\s*jVarLocalData\\.[A-Z_]*${original.toUpperCase()}[A-Z_]*`, 'g');
-                statusContent = statusContent.replace(regexInParam, `in${original}: jVarLocalData.${original}`);
-            });
-
-            fs.writeFileSync(destStatusFile, statusContent, 'utf8');
-            console.log(` status200.js updated for ${name}`);
-        }
+        copyPartials(name);
+        copyJsFolder(name);
+        processHtmlTemplates(name);
+        copySchemaJson(name);
+        generateCommonColumns(name);
+        updateStatus200(name);
     });
 
     return true;
 });
-
 
 gulp.task('build:dev', gulp.series('clean:dev', 'copy:dev:css', 'copy:dev:html', 'copy:dev:html:index', 'copy:dev:assets', 'beautify:css', 'copy:dev:vendor'));
 gulp.task('build:dist', gulp.series('clean:dist', 'copy:dist:css', 'copy:dist:html', 'copy:dist:html:index', 'copy:dist:assets', 'minify:css', 'minify:html', 'minify:html:index', 'copy:dist:vendor', 'end:dist'));
