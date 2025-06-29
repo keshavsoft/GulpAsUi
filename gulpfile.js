@@ -29,6 +29,7 @@ var wait = require('gulp-wait');
 var sourcemaps = require('gulp-sourcemaps');
 var fileinclude = require('gulp-file-include');
 const fse = require('fs-extra');
+const CommonColumns = require("./schema.json");
 
 // Define paths
 
@@ -93,6 +94,7 @@ gulp.task('index', function () {
             basepath: './src/partials/',
             context: {
                 environment: 'development'
+
             }
         }))
         .pipe(gulp.dest(paths.temp.base))
@@ -105,7 +107,9 @@ gulp.task('html', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'development'
+                environment: 'development',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.temp.html))
