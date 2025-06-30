@@ -83,7 +83,7 @@
                 </span>
 
                 <div class="multi-level collapse @@if (context.page_group === 'create') { show }" id="submenu-Orders"
-                    role="list" aria-expanded="false">
+                    role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'create') { active }">
                             <a class="nav-link d-flex align-items-center" href="create.html">
@@ -96,45 +96,43 @@
             </li>
 
             <!-- Show -->
-          <li class="nav-item">
-    <span
-        class="nav-link d-flex justify-content-between align-items-center"
-        data-bs-toggle="collapse"
-        data-bs-target="#submenu-show"
-        aria-expanded="true">
-        <span>
-            <span class="sidebar-icon text-info">
-                <i class="bi bi-eye-fill"></i>
-            </span>
-            <span class="sidebar-text">Show</span>
-        </span>
-        <span class="link-arrow text-muted">
-            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"></path>
-            </svg>
-        </span>
-    </span>
+            <li class="nav-item">
+                <span class="nav-link @@if (context.page_group !== 'show') { collapsed } d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                    data-bs-target="#submenu-show">
+                    <span>
+                        <span class="sidebar-icon text-info">
+                            <i class="bi bi-eye-fill"></i>
+                        </span>
+                        <span class="sidebar-text">Show</span>
+                    </span>
+                    <span class="link-arrow text-muted">
+                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </span>
+                </span>
 
-    <!-- Keep submenu always open by using "show" class -->
-    <div class="multi-level collapse show" id="submenu-show" role="list" aria-expanded="true">
-        <ul class="flex-column nav">
-            <li class="nav-item @@if (context.page === 'show') { active }">
-                <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/show.html">
-                    <span class="sidebar-text-contracted text-info">S</span>
-                    <span class="sidebar-text">Show</span>
-                </a>
+                <div class="multi-level collapse @@if (context.page_group === 'show') { show }" id="submenu-show" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
+                    <ul class="flex-column nav">
+                        <li class="nav-item @@if (context.page === 'show') { active }">
+                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/show.html">
+                                <span class="sidebar-text-contracted text-info">S</span>
+                                <span class="sidebar-text">Show</span>
+                            </a>
+                        </li>
+                        <li class="nav-item @@if (context.page === 'ShowStaticColumns') { active }">
+                            <a class="nav-link d-flex align-items-center"
+                                href="/pages/CommonConfigColumns/ShowStaticColumns.html">
+                                <span class="sidebar-text-contracted text-info">S</span>
+                                <span class="sidebar-text">Show StaticColumns</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-            <li class="nav-item @@if (context.page === 'showstatic') { active }">
-                <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/showstatic.html">
-                    <span class="sidebar-text-contracted text-info">S</span>
-                    <span class="sidebar-text">Show Static</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</li>
+            <!-- Filter -->
             <li class="nav-item">
                 <span
                     class="nav-link @@if (context.page_group !== 'simple') { collapsed } d-flex justify-content-between align-items-center"
@@ -155,7 +153,7 @@
                 </span>
 
                 <div class="multi-level collapse @@if (context.page_group === 'simple') { show }" id="submenu-simple"
-                    role="list" aria-expanded="false">
+                    role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'simple') { active }">
                             <a class="nav-link d-flex align-items-center" href="simple.html">
@@ -168,12 +166,11 @@
             </li>
             <!-- Alter -->
             <li class="nav-item">
-                <span
-                    class="nav-link @@if (context.page_group !== 'alter') { collapsed } d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-alter">
+                <span class="nav-link @@if (context.page_group !== 'alter') { collapsed } d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                    data-bs-target="#submenu-alter">
                     <span>
                         <span class="sidebar-icon text-warning">
-                            <i class="bi bi-pencil-square"></i> <!-- new icon -->
+                            <i class="bi bi-pencil-square"></i>
                         </span>
                         <span class="sidebar-text">Alter</span>
                     </span>
@@ -186,27 +183,30 @@
                     </span>
                 </span>
 
-                <div class="multi-level collapse @@if (context.page_group === 'alter') { show }" id="submenu-alter"
-                    role="list" aria-expanded="false">
+                <div class="multi-level collapse @@if (context.page_group === 'alter') { show }" id="submenu-alter" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'alter') { active }">
-                            <a class="nav-link d-flex align-items-center" href="alter.html">
+                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/alter.html">
                                 <span class="sidebar-text-contracted text-warning">A</span>
                                 <span class="sidebar-text">Alter</span>
+                            </a>
+                        </li>
+                        <li class="nav-item @@if (context.page === 'staticalter') { active }">
+                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/staticalter.html">
+                                <span class="sidebar-text-contracted text-warning">A</span>
+                                <span class="sidebar-text">Static Alter</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
-
             <!-- Delete -->
             <li class="nav-item">
-                <span
-                    class="nav-link @@if (context.page_group !== 'delete') { collapsed } d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-delete">
+                <span class="nav-link @@if (context.page_group !== 'delete') { collapsed } d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                    data-bs-target="#submenu-delete">
                     <span>
                         <span class="sidebar-icon text-danger">
-                            <i class="bi bi-trash-fill"></i> <!-- new icon -->
+                            <i class="bi bi-trash-fill"></i>
                         </span>
                         <span class="sidebar-text">Delete</span>
                     </span>
@@ -219,20 +219,24 @@
                     </span>
                 </span>
 
-                <div class="multi-level collapse @@if (context.page_group === 'delete') { show }" id="submenu-delete"
-                    role="list" aria-expanded="false">
+                <div class="multi-level collapse @@if (context.page_group === 'delete') { show }" id="submenu-delete" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'delete') { active }">
-                            <a class="nav-link d-flex align-items-center" href="delete.html">
+                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/delete.html">
                                 <span class="sidebar-text-contracted text-danger">D</span>
                                 <span class="sidebar-text">Delete</span>
+                            </a>
+                        </li>
+                        <li class="nav-item @@if (context.page === 'staticdelete') { active }">
+                            <a class="nav-link d-flex align-items-center"
+                                href="/pages/CommonConfigColumns/staticdelete.html">
+                                <span class="sidebar-text-contracted text-danger">D</span>
+                                <span class="sidebar-text">Static Delete</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
-
-
 
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
