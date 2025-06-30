@@ -73,6 +73,13 @@ const paths = {
     }
 };
 
+// Shared context configuration
+const getFileIncludeContext = (environment) => ({
+    environment: environment,
+    name: "KeshavSoft",
+    Columns: CommonColumns.ColumnsAsArray
+});
+
 // Compile SCSS
 gulp.task('scss', function () {
     return gulp.src([paths.src.scss + '/custom/**/*.scss', paths.src.scss + '/volt/**/*.scss', paths.src.scss + '/volt.scss'])
@@ -92,10 +99,7 @@ gulp.task('index', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'development'
-
-            }
+            context: getFileIncludeContext('development')
         }))
         .pipe(gulp.dest(paths.temp.base))
         .pipe(browserSync.stream());
@@ -106,11 +110,7 @@ gulp.task('html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'development',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('development')
         }))
         .pipe(gulp.dest(paths.temp.html))
         .pipe(browserSync.stream());
@@ -165,11 +165,7 @@ gulp.task('minify:html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'production',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('production')
         }))
         .pipe(gulp.dest(paths.dist.html))
 });
@@ -182,11 +178,7 @@ gulp.task('minify:html:index', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'production',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('production')
         }))
         .pipe(gulp.dest(paths.dist.base))
 });
@@ -231,11 +223,7 @@ gulp.task('copy:dist:html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'production',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('production')
         }))
         .pipe(gulp.dest(paths.dist.html));
 });
@@ -245,11 +233,7 @@ gulp.task('copy:dev:html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'development',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('development')
         }))
         .pipe(gulp.dest(paths.dev.html));
 });
@@ -260,11 +244,7 @@ gulp.task('copy:dist:html:index', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'production',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('production')
         }))
         .pipe(gulp.dest(paths.dist.base))
 });
@@ -274,11 +254,7 @@ gulp.task('copy:dev:html:index', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'development',
-                name: "KeshavSoft",
-                Columns: CommonColumns.ColumnsAsArray
-            }
+            context: getFileIncludeContext('development')
         }))
         .pipe(gulp.dest(paths.dev.base))
 });
