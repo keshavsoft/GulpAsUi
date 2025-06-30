@@ -166,7 +166,9 @@ gulp.task('minify:html', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'production'
+                environment: 'production',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dist.html))
@@ -181,7 +183,9 @@ gulp.task('minify:html:index', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'production'
+                environment: 'production',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dist.base))
@@ -228,7 +232,9 @@ gulp.task('copy:dist:html', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'production'
+                environment: 'production',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dist.html));
@@ -240,7 +246,9 @@ gulp.task('copy:dev:html', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'development'
+                environment: 'development',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dev.html));
@@ -253,7 +261,9 @@ gulp.task('copy:dist:html:index', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'production'
+                environment: 'production',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dist.base))
@@ -265,7 +275,9 @@ gulp.task('copy:dev:html:index', function () {
             prefix: '@@',
             basepath: './src/partials/',
             context: {
-                environment: 'development'
+                environment: 'development',
+                name: "KeshavSoft",
+                Columns: CommonColumns.ColumnsAsArray
             }
         }))
         .pipe(gulp.dest(paths.dev.base))
