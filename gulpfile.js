@@ -110,9 +110,7 @@ gulp.task('html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-            context: {
-                environment: 'development'
-            }
+            context: getFileIncludeContext('production')
         }))
         .pipe(gulp.dest(paths.temp.html))
         .pipe(browserSync.stream());
@@ -239,7 +237,7 @@ gulp.task('copy:dev:html', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: './src/partials/',
-             context: {
+            context: {
                 environment: 'development'
             }
         }))
