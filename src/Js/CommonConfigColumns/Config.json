@@ -1,5 +1,5 @@
 {
-    "TableName": "/V4/GpsTable",
+    "TableName": "/V1/TasksTable",
     "Columns": [
         {
             "field": "KS-Serial",
@@ -7,20 +7,16 @@
             "formatter": "jFLocalSerialColumn"
         },
         {
-            "field": "DATETIME",
-            "title": "DateTime"
+            "field": "className",
+            "title": "className"
         },
         {
-            "field": "TREENAME",
-            "title": "TreeName"
+            "field": "start",
+            "title": "start"
         },
         {
-            "field": "LATITUDE",
-            "title": "Latitude"
-        },
-        {
-            "field": "LONGITUDE",
-            "title": "Longitude"
+            "field": "title",
+            "title": "title"
         }
     ]
 }
