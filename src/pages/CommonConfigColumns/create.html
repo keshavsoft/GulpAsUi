@@ -77,15 +77,8 @@
                     <div class="card-body">
                         <div class="row mb-4">
 
-                            @@for (var i = 0; i < Columns.length; i++) { <div class="col-12"><!-- Form -->
-                                <div class="mb-4"><label for="HtmlId-`+Columns[i]+`">`+Columns[i]+`</label> <input type="text"
-                                        class="form-control" id="HtmlId-`+Columns[i]+`" name="`+Columns[i]+`" autocomplete="off">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email
-                                        with
-                                        anyone else.</small>
-                                </div><!-- End of Form --><!-- Form -->
-
-                        </div>
+                            @@for (var i = 0; i < Columns.length; i++) {
+                              @@include('./_loopArray.html', `+(JSON.stringify(Columns[i]))+`)
                         }
 
 

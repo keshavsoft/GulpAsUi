@@ -78,7 +78,7 @@ const paths = {
 const getFileIncludeContext = (environment) => ({
   environment: environment,
   name: "KeshavSoft",
-  Columns: CommonColumns.ColumnsAsArray,
+  Columns: CommonColumns.Columns,
 });
 
 // Gulp tasks
