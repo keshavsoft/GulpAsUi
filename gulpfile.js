@@ -27,11 +27,7 @@ var fileinclude = require("gulp-file-include");
 const fse = require("fs-extra");
 
 // Load and enhance schema.json
-const schemaData = require("./schema.json");
-const CommonColumns = {
-  ...schemaData,
-  ColumnsAsArray: schemaData.Columns.map((col) => col.ColumnName),
-};
+const CommonColumns = require("./schema.json");
 
 // Define paths
 const paths = {
@@ -78,7 +74,7 @@ const paths = {
 const getFileIncludeContext = (environment) => ({
   environment: environment,
   name: "KeshavSoft",
-  Columns: CommonColumns.Columns,
+  Columns: CommonColumns,
 });
 
 // Gulp tasks
