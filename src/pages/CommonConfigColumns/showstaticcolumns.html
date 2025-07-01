@@ -85,11 +85,9 @@
             <table id="table" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        @@for (var i = 0; i < Columns.length; i++) { <div class="col-12"><!-- Form -->
-                            <th data-field="`+Columns[i]+`" rowspan="2" data-valign="middle">
-                                `+Columns[i]+`
+                        @@for (var i = 0; i < Columns.length; i++) { <th data-field="`+Columns[i]+`">
+                            `+Columns[i]+`
                             </th>
-
                             }
                     </tr>
                 </thead>

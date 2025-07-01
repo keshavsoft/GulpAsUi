@@ -1,0 +1,27 @@
+{
+    "Columns": [
+        {
+            "ColumnName": "DateTime",
+            "type": "STRING"
+        },
+        {
+            "ColumnName": "TreeName",
+            "unique": false,
+            "type": "NUMBER"
+        },
+        {
+            "ColumnName": "Latitude",
+            "type": "STRING"
+        },
+        {
+            "ColumnName": "Longitude",
+            "type": "STRING"
+        }
+    ],
+    "ColumnsAsArray": [
+        "DateTime",
+        "TreeName",
+        "Latitude",
+        "Longitude"
+    ]
+}

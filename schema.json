@@ -1,27 +1,24 @@
 {
     "Columns": [
         {
-            "ColumnName": "DateTime",
+            "ColumnName": "title",
+            "unique": true,
             "type": "STRING"
         },
         {
-            "ColumnName": "TreeName",
+            "ColumnName": "start",
             "unique": false,
-            "type": "NUMBER"
-        },
-        {
-            "ColumnName": "Latitude",
             "type": "STRING"
         },
         {
-            "ColumnName": "Longitude",
+            "ColumnName": "className",
+            "unique": false,
             "type": "STRING"
         }
     ],
     "ColumnsAsArray": [
-        "DateTime",
-        "TreeName",
-        "Latitude",
-        "Longitude"
+        "title",
+        "start",
+        "className"
     ]
 }
