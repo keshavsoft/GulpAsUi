@@ -15,10 +15,5 @@
             "unique": false,
             "type": "STRING"
         }
-    ],
-    "ColumnsAsArray": [
-        "title",
-        "start",
-        "className"
     ]
 }
