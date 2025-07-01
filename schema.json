@@ -1,19 +1,19 @@
 {
     "Columns": [
         {
-            "ColumnName": "title",
+            "field": "title",
             "title": "Title",
             "unique": true,
             "type": "STRING",
             "HtmlComment":"Enter the title for the task"
         },
         {
-            "ColumnName": "start",
+            "field": "start",
             "unique": false,
             "type": "STRING"
         },
         {
-            "ColumnName": "className",
+            "field": "className",
             "title": "Class Name",
             "unique": false,
             "type": "STRING"
