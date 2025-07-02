@@ -5,10 +5,11 @@
             "title": "Title",
             "unique": true,
             "type": "STRING",
-            "HtmlComment":"Enter the title for the task"
+            "HtmlComment": "Enter the title for the task"
         },
         {
             "field": "FarmerMobile",
+            "title": "Mobile",
             "unique": false,
             "type": "STRING"
         }
