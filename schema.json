@@ -2,14 +2,13 @@
     "Columns": [
         {
             "field": "FarmerName",
-            "title": "Title",
+            "title": "Farmer Name",
             "unique": true,
             "type": "STRING",
             "HtmlComment": "Enter the title for the task"
         },
         {
             "field": "FarmerMobile",
-            "title": "Mobile",
             "unique": false,
             "type": "STRING"
         }

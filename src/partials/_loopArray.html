@@ -1,6 +1,11 @@
 <div class="col-12">
-    <div class="mb-4"><label for="HtmlId-`+Columns[i]+`">@@title</label> <input type="text"
-            class="form-control" id="HtmlId-@@field" name=@@field autocomplete="off">
+    <div class="mb-4"><label for="HtmlId-`+Columns[i]+`">@@if (context.title) {
+        @@title
+            }
+        @@if (!context.title) {
+       @ @@field
+            }
+         </label> <input type="text" class="form-control" id="HtmlId-@@field" name=@@field autocomplete="off">
         <small id="HtmlHelpId-@@field" class="form-text text-muted">@@HtmlComment</small>
     </div>
 </div>
