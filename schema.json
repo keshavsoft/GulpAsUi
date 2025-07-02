@@ -10,7 +10,8 @@
         {
             "field": "FarmerMobile",
             "unique": false,
-            "type": "STRING"
+            "type": "STRING",
+            "HtmlComment": "Enter the title for the task"
         }
     ]
 }
