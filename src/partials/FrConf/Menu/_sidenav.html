@@ -24,12 +24,18 @@
             <div class="collapse-close d-md-none">
                 <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
                     aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
+                    <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
             </div>
         </div>
         <ul class="nav flex-column pt-3 pt-md-0">
             <li class="nav-item">
-                <a href="#" class="nav-link d-flex align-items-center">
+                <a href="@@path/../../index.html" class="nav-link d-flex align-items-center">
                     <span class="sidebar-icon text-white">
                         <i class="bi bi-grid"></i>
                     </span>
@@ -37,57 +43,43 @@
                 </a>
             </li>
             <li class="nav-item @@if (context.page === 'index') { active }">
-                <a href="@@path/pages/index.html" class="nav-link">
+                <a href="@@path/pages/FrConf/index.html" class="nav-link">
                     <span class="sidebar-icon text-danger">
-                        <i class="bi bi-speedometer2"></i>
+                        <i class="bi bi-speedometer2 fs-5"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
             </li>
-            
-          
             <li class="nav-item">
-                <a href="@@path/pages/CommonConfig/index.html" class="nav-link d-flex justify-content-between">
-                    <span>
-                        <span class="sidebar-icon  text-gray-400">
-                            <i class="bi bi-gear"></i>
-                        </span>
-                        <span class="sidebar-text">CommonConfig</span>
+                <a href="../" class="nav-link">
+                    <span class="sidebar-icon text-warning">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+                        </svg>
                     </span>
-                </a>
-            </li>
-             <li class="nav-item">
-                <a href="@@path/pages/CommonConfigColumns/index.html" class="nav-link d-flex justify-content-between">
-                    <span>
-                        <span class="sidebar-icon text-success">
-                            <i class="bi bi-columns-gap"></i>
-                        </span>
-                        <span class="sidebar-text">CommonConfigColumns</span>
-                    </span>
-                </a>
-            </li>
-             <li class="nav-item">
-                <a href="@@path/pages/Crud/index.html" class="nav-link d-flex justify-content-between">
-                    <span>
-                        <span class="sidebar-icon text-secondary">
-                            <i class="bi bi-pencil-square"></i>
-                        </span>
-                        <span class="sidebar-text">Crud</span>
-                    </span>
-                </a>
-            </li>
-             <li class="nav-item">
-                <a href="@@path/pages/StaticColumns/index.html" class="nav-link d-flex justify-content-between">
-                    <span>
-                        <span class="sidebar-icon text-info">
-                            <i class="bi bi-layout-sidebar-inset"></i>
-                        </span>
-                        <span class="sidebar-text">StaticColumns</span>
-                    </span>
+                    <span class="sidebar-text">Parent</span>
                 </a>
             </li>
 
+            <li class="nav-item @@if (context.page === 'overview') { active }">
+                <a href="./StRouWTName/index.html" class="nav-link">
+                    <span class="sidebar-icon text-success">
+                        <i class="bi bi-signpost-2-fill"></i>
+                    </span>
+                    <span class="sidebar-text">Start Route</span>
+                </a>
+            </li>
 
+            <li class="nav-item @@if (context.page === 'overview') { active }">
+                <a href="@@path/pages/FrConf/Tasks/index.html" class="nav-link">
+                    <span class="sidebar-icon text-warning">
+                        <i class="bi bi-arrow-right-square-fill"></i>
+                    </span>
+                    <span class="sidebar-text">Tasks</span>
+                </a>
+            </li>
         </ul>
 
     </div>

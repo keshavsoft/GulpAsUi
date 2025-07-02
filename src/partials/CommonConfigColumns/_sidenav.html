@@ -12,18 +12,21 @@
             </li>
 
             <!-- Parent -->
-            <li class="nav-item">
+             <li class="nav-item">
                 <a href="../" class="nav-link">
                     <span class="sidebar-icon text-warning">
-                        <!-- [SVG icon code unchanged] -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+                        </svg>
                     </span>
                     <span class="sidebar-text">Parent</span>
                 </a>
             </li>
-
             <!-- Dashboard -->
             <li class="nav-item @@if (context.page === 'index') { active }">
-                <a href="@@path/pages/Crud/index.html" class="nav-link">
+                <a href="@@path/../index.html" class="nav-link">
                     <span class="sidebar-icon text-danger"><i class="bi bi-speedometer2"></i></span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -71,14 +74,14 @@
         role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
         <ul class="flex-column nav">
             <li class="nav-item @@if (context.page === 'show') { active }">
-                <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/show.html">
+                <a class="nav-link d-flex align-items-center" href="@@path/pages/CommonConfigColumns/show.html">
                     <span class="sidebar-text-contracted text-info">S</span>
                     <span class="sidebar-text">Show</span>
                 </a>
             </li>
             <li class="nav-item @@if (context.page === 'staticshow') { active }">
                 <a class="nav-link d-flex align-items-center"
-                    href="/pages/CommonConfigColumns/staticColumnsShow.html">
+                    href="@@path/pages/CommonConfigColumns/staticColumnsShow.html">
                     <span class="sidebar-text-contracted text-info">S</span>
                     <span class="sidebar-text">Static Columns Show</span>
                 </a>
@@ -130,14 +133,14 @@
                     role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'alter') { active }">
-                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/alter.html">
+                            <a class="nav-link d-flex align-items-center" href="@@path/pages/CommonConfigColumns/alter.html">
                                 <span class="sidebar-text-contracted text-warning">A</span>
                                 <span class="sidebar-text">Alter</span>
                             </a>
                         </li>
                         <li class="nav-item @@if (context.page === 'staticalter') { active }">
                             <a class="nav-link d-flex align-items-center"
-                                href="/pages/CommonConfigColumns/staticColumnsAlter.html">
+                                href="@@path/pages/CommonConfigColumns/staticColumnsAlter.html">
                                 <span class="sidebar-text-contracted text-warning">A</span>
                                 <span class="sidebar-text">Static Columns Alter</span>
                             </a>
@@ -162,14 +165,14 @@
                     role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'delete') { active }">
-                            <a class="nav-link d-flex align-items-center" href="/pages/CommonConfigColumns/delete.html">
+                            <a class="nav-link d-flex align-items-center" href="@@path/pages/CommonConfigColumns/delete.html">
                                 <span class="sidebar-text-contracted text-danger">D</span>
                                 <span class="sidebar-text">Delete</span>
                             </a>
                         </li>
                         <li class="nav-item @@if (context.page === 'staticdelete') { active }">
                             <a class="nav-link d-flex align-items-center"
-                                href="/pages/CommonConfigColumns/staticColumnsDelete.html">
+                                href="@@path/pages/CommonConfigColumns/staticColumnsDelete.html">
                                 <span class="sidebar-text-contracted text-danger">D</span>
                                 <span class="sidebar-text">Static Columns Delete</span>
                             </a>
