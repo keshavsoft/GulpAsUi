@@ -70,6 +70,11 @@
 
         <div class="table-responsive">
             <table id="table" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        @@for (var i = 0; i < Columns.length; i++) { @@include('./_loopForTable.html',
+                            `+(JSON.stringify(Columns[i]))+`) } </tr>
+                </thead>
             </table>
         </div>
 
