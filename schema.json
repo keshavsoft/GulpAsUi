@@ -1,18 +1,11 @@
 {
     "Columns": [
         {
-            "field": "FarmerName",
-            "title": "Farmer Name",
+            "field": "Secret",
+            "title": "Secret",
             "unique": true,
-            "type": "STRING",
-            "errorMessage": "Please choose a valid username."
-        },
-        {
-            "field": "FarmerMobile",
-            "unique": false,
-            "type": "STRING",
-            "HtmlComment": "Enter the title for the task",
-            "errorMessage": "Please give a valid Mobile."
+            "type": "STRING"
         }
-    ]
+    ],
+    "Data": []
 }

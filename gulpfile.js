@@ -318,11 +318,21 @@ gulp.task("copy:dev:vendor", function () {
 
 gulp.task("end:dist", async () => {
   fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
+  LocalFuncReplaceSchema();
   return await true;
 });
 
-gulp.task("build:dev",gulp.series("clean:dev","copy:dev:css","copy:dev:html","copy:dev:html:index","copy:dev:assets","copy:dev:js","beautify:css","copy:dev:vendor"));
+const LocalFuncReplaceSchema = () => {
+  const filePath = `${paths.dist.base}/Js/CommonConfigColumns/Config.json`;
+  const content = fse.readFileSync(filePath, 'utf-8');
+  const contentAsJson = JSON.parse(content);
+  contentAsJson.Columns = CommonColumns.Columns;
 
-gulp.task("build:dist",gulp.series("clean:dist","copy:dist:css","copy:dist:html","copy:dist:html:index","copy:dist:assets","minify:css","minify:html","minify:html:index","copy:dist:vendor","end:dist"));
+  fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
+};
+
+gulp.task("build:dev", gulp.series("clean:dev", "copy:dev:css", "copy:dev:html", "copy:dev:html:index", "copy:dev:assets", "copy:dev:js", "beautify:css", "copy:dev:vendor"));
+
+gulp.task("build:dist", gulp.series("clean:dist", "copy:dist:css", "copy:dist:html", "copy:dist:html:index", "copy:dist:assets", "minify:css", "minify:html", "minify:html:index", "copy:dist:vendor", "end:dist"));
 
 gulp.task("default", gulp.series("serve"));
