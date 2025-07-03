@@ -72,34 +72,34 @@
 
 
         <div class="row">
-            <div class="col-12 mb-4">
+            <!-- <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
                         <div class="row mb-4">
+                            @@for (var i = 0; i < Columns.length; i++) { @@include('./_loopArray.html',
+                                `+(JSON.stringify(Columns[i]))+`) } </div>
 
-                            @@for (var i = 0; i < Columns.length; i++) {
-                              @@include('./_loopArray.html', `+(JSON.stringify(Columns[i]))+`)
-                        }
-
-
-
+                        </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-        </div>
+            </div> -->
 
 
-        <div class="card mt-3">
-            <div class="card-body">
-                <form onsubmit="return false" id="FormId">
-                    <!-- FORM_COLUMNS_PLACEHOLDER -->
+            <div class="card mt-3">
+                <div class="card-body">
+                    <form onsubmit="return false" id="FormId">
+                        <div class="row">
+                            @@for (var i = 0; i < Columns.length; i++) { <div class="col-md-6 col-lg-12">
+                                @@include('./_loopArray.html', `+(JSON.stringify(Columns[i]))+`)
+                        </div>
+                        }
+                </div>
 
-                    <div class="text-center mt-4">
-                        <button id="SaveButtonId" class="btn btn-primary px-4 RefreshBSTableClass">Create</button>
-                    </div>
+                <div class="text-center mt-4">
+                    <button id="SaveButtonId" class="btn btn-primary px-4 RefreshBSTableClass">Create</button>
+                </div>
                 </form>
+
             </div>
         </div>
 

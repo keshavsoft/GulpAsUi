@@ -1,5 +1,5 @@
 {
-    "TableName": "/V1/TasksTable",
+    "TableName": "/V1/Farmers",
     "Columns": [
         {
             "field": "KS-Serial",
