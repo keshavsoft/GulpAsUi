@@ -5,12 +5,13 @@
             "title": "Farmer Name",
             "unique": true,
             "type": "STRING",
-            "HtmlComment": "Enter the title for the task"
+            "errorMessage": "Please choose a valid username."
         },
         {
             "field": "FarmerMobile",
             "unique": false,
-            "type": "STRING"
+            "type": "STRING",
+            "errorMessage": "Please give a valid Mobile."
         }
     ]
 }
