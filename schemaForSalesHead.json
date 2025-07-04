@@ -14,5 +14,18 @@
         }
     ],
     "Data": [],
-    "Vertical": []
-}                
+    "Vertical": [
+        {
+            "field": "PARTYNAME",
+            "title": "Farmer Name",
+            "unique": true,
+            "type": "STRING"
+        },
+        {
+            "field": "DATE",
+            "title": "Date",
+            "unique": false,
+            "type": "STRING"
+        }
+    ]
+}

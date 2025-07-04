@@ -6,7 +6,7 @@ let StartFunc = async () => {
 
     if (jVarLocalDataNeeded !== null) {
         StartFuncAfterFetch({ inDataToShow: jVarLocalDataNeeded });
-    }
+    };
 };
 
 export { StartFunc }

@@ -1,5 +1,5 @@
 {
-    "RowData": "/V1/Saleshead/Read/RowDataWithPk",
+    "RowData": "/V2/Saleshead/Read/RowDataWithPk",
     "PostendPoint": "/V1/Saleshead/SubTable/Insert/InsertAsIs",
     "GetEndPoint": "/V1/Saleshead/SubTable/Read/AsIs",
     "AlterEndPoint": "/V1/Saleshead/SubTable/Alter/WithPk",

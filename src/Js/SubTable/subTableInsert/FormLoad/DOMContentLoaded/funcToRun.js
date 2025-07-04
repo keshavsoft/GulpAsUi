@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncAddListeners } from "./AddListeners/startFunc.js";
-import { StartFunc as RowDataGetFetch } from "./RowDataGetFetch/Entry.js";
+import { StartFunc as RowDataGetFetch } from "./RowDataGetFetch/entryFile.js";
 import { StartFunc as StartFuncshowOnDom } from "./showOnDom.js";
 import { StartFunc as StartFuncBuildBsTable } from "./BuildBsTable/EntryFile.js";
 

@@ -60,8 +60,8 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#"></a>Pages</li>
                             <li class="breadcrumb-item">SubTable</li>
-                            <li class="breadcrumb-item " ><a href="./subTableShow.html">SubTableShow</a></li>
-                            
+                            <li class="breadcrumb-item "><a href="./subTableShow.html">SubTableShow</a></li>
+
                         </ol>
                     </nav>
                     <!-- <p class="mb-0">Show all the students.</p> -->
@@ -73,6 +73,11 @@
             <div class="col mt-3">
                 <div class="container my-3 p-3 border rounded shadow-sm ">
                     <form>
+                        <div class="row">
+                            @@for (var i = 0; i < Vertical.length; i++) { 
+                                @@include('./_loopForVertical.html', `+(JSON.stringify(Vertical[i]))+`)
+                        }
+<!-- 
                         <div class="row mb-3 align-items-center">
                             <label for="PartyNameId" class="col-3 col-form-label fw-semibold">Party Name</label>
                             <div class="col-9">
@@ -85,7 +90,7 @@
                             <div class="col-9">
                                 <input type="text" class="form-control" id="dateId" value="Not found" readonly disabled>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
 

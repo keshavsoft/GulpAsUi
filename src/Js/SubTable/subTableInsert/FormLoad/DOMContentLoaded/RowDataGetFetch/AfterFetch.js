@@ -1,11 +1,18 @@
 let StartFunc = ({ inDataToShow }) => {
+   debugger
    let jVarLocalData = inDataToShow;
 
-   jFLocalToInputPartyNameId({ inPartyNameId: jVarLocalData.PARTYNAME });
-   jFLocalToInputVoucherTypeId({ inVoucherTypeId: jVarLocalData.VOUCHERTYPE });
-   jFLocalToInputdateId({ inDateId: jVarLocalData.DATE })
-   jFLocalToInputReferenceId({ inReference: jVarLocalData.REFERENCE })
-   jFLocalToInputVoucherCancelledId({ inVoucherCancell: jVarLocalData.VOUCHERCANCELLED })
+   for (const key in jVarLocalData) {
+      const emailInput = document.querySelector(`#HtmlFormVerticalId input[name="${key}"]`);
+      emailInput.value = jVarLocalData[key];
+   };
+
+
+   // jFLocalToInputPartyNameId({ inPartyNameId: jVarLocalData.PARTYNAME });
+   // jFLocalToInputVoucherTypeId({ inVoucherTypeId: jVarLocalData.VOUCHERTYPE });
+   // jFLocalToInputdateId({ inDateId: jVarLocalData.DATE })
+   // jFLocalToInputReferenceId({ inReference: jVarLocalData.REFERENCE })
+   // jFLocalToInputVoucherCancelledId({ inVoucherCancell: jVarLocalData.VOUCHERCANCELLED })
 };
 
 let jFLocalToInputPartyNameId = ({ inPartyNameId }) => {

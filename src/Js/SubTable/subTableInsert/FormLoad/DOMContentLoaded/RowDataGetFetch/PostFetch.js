@@ -18,7 +18,6 @@ let getUrlQueryParams = ({ inGetKey }) => {
     const parameters = new URLSearchParams(queryString);
     const value = parameters.get(inGetKey);
 
-
     return value;
 };
 
