@@ -1,0 +1,163 @@
+<!--
+
+=========================================================
+* Volt Free - Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./_headWithBSTable.html', {
+    "path": "../..",
+    "title": "Volt Free Bootstrap Dashboard - Bootstrap FixedCol"
+    })
+</head>
+
+<body>
+    @@include('./subTable/_nav.html', {
+    "path": "../.."
+    })
+
+    @@include('./subTable/_sidenav.html', {
+    "path": "../..",
+    "page": "alter",
+    "page_group":"alter"
+    })
+
+    <main class="content">
+        @@include('./subTable/_topbarEmpty.html', {
+        "path": "../.."
+        })
+
+        <div class="py-4">
+
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+                <div class="mb-3 mb-lg-0">
+                    <h1 class="h4">SubTableInsert</h1>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                        <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                            <li class="breadcrumb-item">
+                                <a href="../../../../index.html">
+                                    <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#"></a>Pages</li>
+                            <li class="breadcrumb-item">SubTable</li>
+                            <li class="breadcrumb-item " ><a href="./subTableShow.html">SubTableShow</a></li>
+                            
+                        </ol>
+                    </nav>
+                    <!-- <p class="mb-0">Show all the students.</p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col mt-3">
+                <div class="container my-3 p-3 border rounded shadow-sm ">
+                    <form>
+                        <div class="row mb-3 align-items-center">
+                            <label for="PartyNameId" class="col-3 col-form-label fw-semibold">Party Name</label>
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="PartyNameId" value="Not found" readonly
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3 align-items-center">
+                            <label for="dateId" class="col-3 col-form-label fw-semibold">Date</label>
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="dateId" value="Not found" readonly disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="toolbar" class="mt-2">
+                    <a id="RefreshATagId" href="#"
+                        class="btn d-flex justify-content-center align-items-center RefreshBSTableClass text-white"
+                        style="width: 37px; height: 37px; border-radius: 50%; background-color: rgba(99, 98, 97, 0.96);">
+                        <svg class="icon icon-xs" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 16 16" width="16" height="16">
+                            <path
+                                d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.8 6.8 0 0 0 1.16 8z" />
+                            <path
+                                d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="table-responsive mt-3">
+                    <table id="table" class="table" data-show-footer="true">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @@include('./subTable/_footer.html', {
+        "path": "../..",
+        "classes": "bg-gray-800 text-white"
+        })
+    </main>
+
+    @@include('./subTable/_scriptsWithBSTable.html', {
+    "path": "../.."
+    })
+    <script> function jFLocalSerialColumn(value, row, index) {
+            return index + 1;
+        };</script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <!-- Edit Modal -->
+    <!-- Edit Modal -->
+    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="EditModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EditModalLabel">Edit Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="FormId">
+                        <div class="mb-3 d-none">
+                            <label for="ModalPkInput" class="form-label">Pk</label>
+                            <input type="text" class="form-control" id="ModalPkInput" name="Pk">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ModalItemNameInput" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="ModalItemNameInput" name="ItemName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ModalRateInput" class="form-label">Rate</label>
+                            <input type="number" class="form-control" id="ModalRateInput" name="Rate">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="ModalUpdateButton">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../Js/SubTable/subTableInsert/entryFile.js"></script>
+</body>
+
+</html>

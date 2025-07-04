@@ -1,0 +1,8 @@
+{
+    "RowData": "/V1/Saleshead/Read/RowDataWithPk",
+    "PostendPoint": "/V1/Saleshead/SubTable/Insert/InsertAsIs",
+    "GetEndPoint": "/V1/Saleshead/SubTable/Read/AsIs",
+    "AlterEndPoint": "/V1/Saleshead/SubTable/Alter/WithPk",
+    "SubTableRowData": "/V1/Saleshead/SubTable/Read/RowData",
+    "DeleteEndPoint": "/V1/Saleshead/SubTable/Delete/WithPk"
+}
