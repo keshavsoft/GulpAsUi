@@ -1,5 +1,5 @@
 {
-    "Columns": [
+    "columns": [
         {
             "field": "PARTYNAME",
             "title": "Farmer Name",

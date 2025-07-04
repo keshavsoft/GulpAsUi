@@ -26,18 +26,18 @@
 </head>
 
 <body>
-    @@include('./CommonConfigColumns/_nav.html', {
+    @@include('./SubTable/_nav.html', {
     "path": "../.."
     })
 
-    @@include('./CommonConfigColumns/_sidenav.html', {
+    @@include('./SubTable/_sidenav.html', {
     "path": "../..",
-    "page": "show",
-    "page_group":"show"
+    "page": "subTableShow",
+    "page_group":"subTableShow"
     })
 
     <main class="content">
-        @@include('./CommonConfigColumns/_topbarEmpty.html', {
+        @@include('./SubTable/_topbarEmpty.html', {
         "path": "../.."
         })
         <div id="toolbar">
@@ -56,7 +56,7 @@
         <div class="py-4">
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Show AsIs</h1>
+                    <h1 class="h4">SUbTableShow</h1>
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                             <li class="breadcrumb-item">
@@ -69,11 +69,10 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#"></a>Student_CommonConfigColumns</li>
-                            <li class="breadcrumb-item"><a href="#"></a>Pages</li>
-                            <li class="breadcrumb-item">Student</li>
+                           <li class="breadcrumb-item"><a href="#"></a>Pages</li>
+                            <li class="breadcrumb-item">SubTable</li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="#"
-                                    class="RefreshBSTableClass">AsIs</a></li>
+                                    class="RefreshBSTableClass">SubTableShow</a></li>
                         </ol>
                     </nav>
                     <!-- <p class="mb-0">Show all the students.</p> -->
@@ -81,20 +80,15 @@
             </div>
         </div>
 
-        <div class="table-responsive">
-            <table id="table" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        @@for (var i = 0; i < Columns.length; i++) { <div class="col-12"><!-- Form -->
-                            <th data-field="`+Columns[i]+`" rowspan="2" data-valign="middle">
-                                `+Columns[i]+`
-                            </th>
-
-                            }
-                    </tr>
-                </thead>
-            </table>
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="table" class="table table-bordered table-striped">
+                    </table>
+                </div>
+            </div>
         </div>
+
 
         @@include('./Students/_footer.html', {
         "path": "../..",
@@ -102,11 +96,11 @@
         })
     </main>
 
-    @@include('./CommonConfigColumns/_scriptsWithBSTable.html', {
+    @@include('./SubTable/_scriptsWithBSTable.html', {
     "path": "../.."
     })
 
-    <script type="module" src="../../Js/StaticColumns/Show/entryFile.js"></script>
+    <script type="module" src="../../Js/SubTable/Crud/entryFile.js"></script>
 </body>
 
 </html>
