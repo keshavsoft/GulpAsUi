@@ -1,9 +1,21 @@
 {
     "Columns": [
         {
-            "field": "Secret",
-            "title": "Secret",
+            "field": "title",
+            "title": "title",
             "unique": true,
+            "type": "STRING"
+        },
+        {
+            "field": "start",
+            "title": "start",
+            "unique": false,
+            "type": "STRING"
+        },
+        {
+            "field": "className",
+            "title": "className",
+            "unique": false,
             "type": "STRING"
         }
     ],
