@@ -1,11 +1,24 @@
 let StartFunc = ({ inDataToShow }) => {
-   debugger
+   // debugger
    let jVarLocalData = inDataToShow;
 
    for (const key in jVarLocalData) {
-      const emailInput = document.querySelector(`#HtmlFormVerticalId input[name="${key}"]`);
-      emailInput.value = jVarLocalData[key];
-   };
+      if (jVarLocalData.hasOwnProperty(key) && key !== null && key !== undefined) {
+         const value = jVarLocalData[key];
+
+         const input = document.querySelector(`#HtmlFormVerticalId input[name="${key}"]`);
+         if (input) input.value = value;
+
+         if (Array.isArray(value)) {
+            $('#table').bootstrapTable('load', value);
+         }
+      };
+   }
+
+
+
+
+
 
 
    // jFLocalToInputPartyNameId({ inPartyNameId: jVarLocalData.PARTYNAME });
