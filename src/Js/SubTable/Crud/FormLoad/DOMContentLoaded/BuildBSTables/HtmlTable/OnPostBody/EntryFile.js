@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncTableFooterSaveButtonId } from "./TableFooterSaveButtonId/EntryFile.js";
 
 let StartFunc = () => {
-    // StartFuncTableFooterSaveButtonId();
+    StartFuncTableFooterSaveButtonId();
     // jFLocalPullFarmers();
     
     // const jVarLocalTodayDate = jFLocalTodayDate();
