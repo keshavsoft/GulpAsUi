@@ -4,8 +4,8 @@ let StartFunc = ({ inColumns }) => {
     LocalColumns.splice(0, 0, jFLocalFuncForSerialColumn());
     LocalColumns.push(jFLocalFuncForOptionsColumn());
     // debugger;
-   LocalColumns.forEach(element => {
-        if (element.field !== "Opts") {
+    LocalColumns.forEach(element => {
+        if (element.field !== "Opts" && element.field !== "KS-Serial") {
             element.footerFormatter = (data) => {
                 return jFLocalFooterFormatterFunc({
                     inData: data,
@@ -35,7 +35,7 @@ let jVarLocalFormatterFunc = (value, row, index) => {
     return index + 1;
 };
 const jFLocalFuncForSerialColumn = () => {
-    
+
     return {
         "field": "KS-Serial",
         "title": "#",

@@ -1,8 +1,8 @@
 import KeysJson from './Keys.json' with {type: 'json'};
 import { StartFunc as StartFuncPrepareBody } from "./PrepareBody.js";
 
-let StartFunc = () => {
-    KeysJson.body = JSON.stringify(StartFuncPrepareBody());
+let StartFunc = ({ inCurrentTarget }) => {
+    KeysJson.body = JSON.stringify(StartFuncPrepareBody({ inCurrentTarget }));
 
     return KeysJson;
 };

@@ -1,99 +1,31 @@
 {
-    "header": [
-        [
-            "FarmerName",
-            "FarmerMobile",
-            "FarmerCity",
-            "FarmerField"
-        ]
-    ],
-    "data": [
-        {
-            "ITEMNAME": "10 11 Ring Spanners",
-            "ITEMCATEGORY": "GOOD LUCK",
-            "ITEMGROUP": "Spanners",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002cb2"
-        },
-        {
-            "ITEMNAME": "10-11 Spanners",
-            "ITEMCATEGORY": "GOOD LUCK",
-            "ITEMGROUP": "Spanners",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002cb1"
-        },
-        {
-            "ITEMNAME": "10G C.P SPOKES",
-            "ITEMCATEGORY": "DAIMOND SPOKES",
-            "ITEMGROUP": "Primary",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002d8e"
-        },
-        {
-            "ITEMNAME": "10g Nipples",
-            "ITEMCATEGORY": "JAYMEX",
-            "ITEMGROUP": "Spokes",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002a5e"
-        },
-        {
-            "ITEMNAME": "10g Washer",
-            "ITEMCATEGORY": "MAHAJAN",
-            "ITEMGROUP": "Rims",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-000029c0"
-        },
-        {
-            "ITEMNAME": "10 MM BOLTS",
-            "ITEMCATEGORY": "Not Applicable",
-            "ITEMGROUP": "Bolts",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002796"
-        },
-        {
-            "ITEMNAME": "12-13 Ring Spanners",
-            "ITEMCATEGORY": "GOOD LUCK",
-            "ITEMGROUP": "Spanners",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002cb4"
-        },
-        {
-            "ITEMNAME": "12-13 Spanners",
-            "ITEMCATEGORY": "GOOD LUCK",
-            "ITEMGROUP": "Spanners",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002cb3"
-        },
-        {
-            "ITEMNAME": "12*1.75 BACK MAG WHEEL",
-            "ITEMCATEGORY": "Not Applicable",
-            "ITEMGROUP": "Tyres",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002dac"
-        },
-        {
-            "ITEMNAME": "12*1.75 FRONT MAG WHEEL",
-            "ITEMCATEGORY": "Not Applicable",
-            "ITEMGROUP": "Tyres",
-            "GUID": "4509d400-0436-11dd-849a-efd9bcbd9570-00002dab"
-        },
-        {
-            "ITEMNAME": 0,
-            "ITEMCATEGORY": 0,
-            "ITEMGROUP": 0,
-            "GUID": 0
-        }
-    ],
     "columns": [
         {
-            "field": "title",
-            "title": "Title",
+            "field": "PARTYNAME",
+            "title": "Farmer Name",
             "unique": true,
-            "type": "STRING",
-            "HtmlComment": "Enter the title for the task"
-        },
-        {
-            "field": "start",
-            "unique": false,
             "type": "STRING"
         },
         {
-            "field": "className",
-            "title": "Class Name",
+            "field": "DATE",
+            "title": "Date",
             "unique": false,
             "type": "STRING"
         }
     ],
-    "Vertical": []
+    "data": [],
+    "Vertical": [
+        {
+            "field": "PARTYNAME",
+            "title": "Farmer Name",
+            "unique": true,
+            "type": "STRING"
+        },
+        {
+            "field": "DATE",
+            "title": "Date",
+            "unique": false,
+            "type": "STRING"
+        }
+    ]
 }
