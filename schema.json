@@ -1,14 +1,14 @@
 {
     "columns": [
         {
-            "field": "PARTYNAME",
-            "title": "Farmer Name",
+            "field": "ITEMNAME",
+            "title": "ITEMNAME",
             "unique": true,
             "type": "STRING"
         },
         {
-            "field": "DATE",
-            "title": "Date",
+            "field": "RATE",
+            "title": "RATE",
             "unique": false,
             "type": "STRING"
         }
