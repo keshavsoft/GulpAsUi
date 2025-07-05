@@ -10,6 +10,7 @@ let StartFunc = async () => {
         let jVarLocalResponse = await StartFuncFetchFuncs();
 
         StartFuncAfterFetch({ inResponse: jVarLocalResponse });
+
     };
 };
 

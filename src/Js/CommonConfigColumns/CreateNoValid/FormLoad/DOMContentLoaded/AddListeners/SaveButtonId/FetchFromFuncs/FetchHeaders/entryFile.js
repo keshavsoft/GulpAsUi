@@ -4,8 +4,13 @@ let StartFunc = () => {
     let jVarLocalForm = document.getElementById("FormId");
 
     const serializedData = jFLocalSerializeFormData(jVarLocalForm);
+    const upperCasedData = {};
 
-    KeysJson.body = JSON.stringify(serializedData);
+    for (const key in serializedData) {
+        upperCasedData[key.toUpperCase()] = serializedData[key];
+    }
+
+    KeysJson.body = JSON.stringify(upperCasedData);
 
     return KeysJson;
 };

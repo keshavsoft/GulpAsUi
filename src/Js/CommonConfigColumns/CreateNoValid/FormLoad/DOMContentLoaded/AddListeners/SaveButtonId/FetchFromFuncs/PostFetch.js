@@ -1,16 +1,13 @@
 import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/entryFile.js";
+import ConfigJson from "../../../../../../Config.json" with { type: "json" };
 import UrlJson from "./url.json" with { type: "json" };
-import commonConfig from '../../../../../Config.json' with {type: 'json'};
 
 let StartFunc = async () => {
-    let jVarTableName = commonConfig.TableName;
-
-    let LocalroutePath = UrlJson.PostendPoint;
+    const LocalStartRoute = ConfigJson.TableName;
+    let LocalroutePath = UrlJson.PostUrl;
 
     let jVarLocalFetchHeaders = StartFuncFetchHeaders();
-
-    let jVarLocalFetchUrl = `${jVarTableName}/${LocalroutePath}`;
-
+    let jVarLocalFetchUrl = `${LocalStartRoute}/${LocalroutePath}`;
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
 
     return await response;
