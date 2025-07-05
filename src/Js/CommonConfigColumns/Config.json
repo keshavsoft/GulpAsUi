@@ -1,22 +1,10 @@
 {
     "TableName": "/V1/Farmers",
-    "Columns": [
+    "columns": [
         {
             "field": "KS-Serial",
             "title": "#",
             "formatter": "jFLocalSerialColumn"
-        },
-        {
-            "field": "className",
-            "title": "className"
-        },
-        {
-            "field": "start",
-            "title": "start"
-        },
-        {
-            "field": "title",
-            "title": "title"
         }
     ]
 }
