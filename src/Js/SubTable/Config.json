@@ -1,23 +1,18 @@
 {
-    "TableName": "/V1/Farmers",
+    "TableName": "/V2/Saleshead",
     "showFooter": true,
     "columns": [
         {
-            "field": "KS-Serial",
-            "title": "#",
-            "formatter": "jFLocalSerialColumn"
+            "field": "PARTYNAME",
+            "title": "PARTYNAME",
+            "unique": true,
+            "type": "STRING"
         },
         {
-            "field": "className",
-            "title": "className"
-        },
-        {
-            "field": "start",
-            "title": "start"
-        },
-        {
-            "field": "title",
-            "title": "title"
+            "field": "DATE",
+            "title": "DATE",
+            "unique": false,
+            "type": "STRING"
         }
     ]
 }

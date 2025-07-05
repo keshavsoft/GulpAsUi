@@ -77,26 +77,14 @@
     ],
     "columns": [
         {
-            "field": "FarmerName",
-            "title": "Name",
+            "field": "PARTYNAME",
+            "title": "Farmer Name",
             "unique": true,
             "type": "STRING"
         },
         {
-            "field": "FarmerMobile",
-            "title": "Mobile",
-            "unique": false,
-            "type": "STRING"
-        },
-        {
-            "field": "FarmerCity",
-            "title": "City",
-            "unique": false,
-            "type": "STRING"
-        },
-        {
-            "field": "FarmerField",
-            "title": "Field",
+            "field": "DATE",
+            "title": "Date",
             "unique": false,
             "type": "STRING"
         }
