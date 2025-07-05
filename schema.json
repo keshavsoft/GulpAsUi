@@ -77,14 +77,20 @@
     ],
     "columns": [
         {
-            "field": "PARTYNAME",
-            "title": "Farmer Name",
+            "field": "title",
+            "title": "Title",
             "unique": true,
+            "type": "STRING",
+            "HtmlComment": "Enter the title for the task"
+        },
+        {
+            "field": "start",
+            "unique": false,
             "type": "STRING"
         },
         {
-            "field": "DATE",
-            "title": "Date",
+            "field": "className",
+            "title": "Class Name",
             "unique": false,
             "type": "STRING"
         }
