@@ -1,5 +1,5 @@
 {
-    "Columns": [
+    "columns": [
         {
             "field": "PARTYNAME",
             "title": "Farmer Name",
@@ -13,7 +13,7 @@
             "type": "STRING"
         }
     ],
-    "Data": [],
+    "data": [],
     "Vertical": [
         {
             "field": "PARTYNAME",

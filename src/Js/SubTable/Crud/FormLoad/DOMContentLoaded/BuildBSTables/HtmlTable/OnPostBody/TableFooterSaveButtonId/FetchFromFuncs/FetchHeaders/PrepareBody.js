@@ -1,113 +1,21 @@
-const StartFunc = () => {
-    let jVarLocalPartyName = jFLocalTableFooterPartyNameInputId();
-    let jVarLocalVoucherType = jFLocalTableFooterVoucherTypeInputId();
-    let jVarLocalDate = jFLocalTableFooterDateInputId();
-    let jVarLocalReference = jFLocalTableFooterReferenceInputId();
-    let jVarLocalVoucherCancelled = jFLocalTableFooterVoucherCancelledInputId();
+const StartFunc = ({inCurrentTarget}) => {
+    const jVarLocalCurrentTarget = inCurrentTarget;
+    const jVarLocalClosestTr = jVarLocalCurrentTarget.closest("tr");
+    const jVarLocalInputs = jVarLocalClosestTr.querySelectorAll("input");
 
-    if (
-        jVarLocalPartyName === false ||
-        jVarLocalVoucherType === false ||
-        jVarLocalDate === false ||
-        jVarLocalReference === false ||
-        jVarLocalVoucherCancelled === false
-    ) {
-        return false;
-    }
+    let jVarLocalPostObject = jFLocalPreparePostBody({ inQuerySelectorAll: jVarLocalInputs });
 
-    let LocalObj = {};
-    LocalObj.PARTYNAME = jVarLocalPartyName;
-    LocalObj.VOUCHERTYPE = jVarLocalVoucherType;
-    LocalObj.DATE = jVarLocalDate;
-    LocalObj.REFERENCE = jVarLocalReference;
-    LocalObj.VOUCHERCANCELLED = jVarLocalVoucherCancelled;
-
-    return LocalObj;
+    return jVarLocalPostObject
 };
 
-let jFLocalTableFooterPartyNameInputId = () => {
-    let jVarLocalTableFooterPartyNameInputId = 'TableFooterPartyNameInputId';
-    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterPartyNameInputId);
+const jFLocalPreparePostBody = ({ inQuerySelectorAll }) => {
+    let jVarLocalReturnObject = {};
 
-    if (jVarLocalHtmlId === null === false) {
-        let jVarValue = jVarLocalHtmlId.value.trim();
+    inQuerySelectorAll.forEach(LoopItem => {
+        jVarLocalReturnObject[LoopItem.name] = LoopItem.value;
+    });
 
-        if (jVarValue === "") {
-            jVarLocalHtmlId.classList.add("is-invalid");
-            return false;
-        } else {
-            jVarLocalHtmlId.classList.remove("is-invalid");
-            return jVarValue;
-        }
-    }
+    return jVarLocalReturnObject;
 };
 
-let jFLocalTableFooterVoucherTypeInputId = () => {
-    let jVarLocalTableFooterVoucherTypeInputId = 'TableFooterVoucherTypeInputId';
-    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterVoucherTypeInputId);
-
-    if (jVarLocalHtmlId === null === false) {
-        let jVarValue = jVarLocalHtmlId.value.trim();
-
-        if (jVarValue === "") {
-            jVarLocalHtmlId.classList.add("is-invalid");
-            return false;
-        } else {
-            jVarLocalHtmlId.classList.remove("is-invalid");
-            return jVarValue;
-        }
-    }
-};
-
-let jFLocalTableFooterDateInputId = () => {
-    let jVarLocalTableFooterDateInputId = 'TableFooterDateInputId';
-    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterDateInputId);
-
-    if (jVarLocalHtmlId === null === false) {
-        let jVarValue = jVarLocalHtmlId.value.trim();
-
-        if (jVarValue === "") {
-            jVarLocalHtmlId.classList.add("is-invalid");
-            return false;
-        } else {
-            jVarLocalHtmlId.classList.remove("is-invalid");
-            return jVarValue;
-        }
-    }
-};
-
-let jFLocalTableFooterReferenceInputId = () => {
-    let jVarLocalTableFooterReferenceInputId = 'TableFooterReferenceInputId';
-    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterReferenceInputId);
-
-    if (jVarLocalHtmlId === null === false) {
-        let jVarValue = jVarLocalHtmlId.value.trim();
-
-        if (jVarValue === "") {
-            jVarLocalHtmlId.classList.add("is-invalid");
-            return false;
-        } else {
-            jVarLocalHtmlId.classList.remove("is-invalid");
-            return jVarValue;
-        }
-    }
-};
-
-let jFLocalTableFooterVoucherCancelledInputId = () => {
-    let jVarLocalTableFooterVoucherCancelledInputId = 'TableFooterVoucherCancelledInputId';
-    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterVoucherCancelledInputId);
-
-    if (jVarLocalHtmlId === null === false) {
-        let jVarValue = jVarLocalHtmlId.value.trim();
-
-        if (jVarValue === "") {
-            jVarLocalHtmlId.classList.add("is-invalid");
-            return false;
-        } else {
-            jVarLocalHtmlId.classList.remove("is-invalid");
-            return jVarValue;
-        }
-    }
-};
-
-export { StartFunc };
+export { StartFunc }

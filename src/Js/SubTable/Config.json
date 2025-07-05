@@ -1,6 +1,9 @@
 {
     "TableName": "/V2/Saleshead",
     "showFooter": true,
+    "toolbar": "#toolbar",
+    "searchable": true,
+    "search": true,
     "columns": [
         {
             "field": "PARTYNAME",
