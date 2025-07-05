@@ -2,24 +2,17 @@
   <div class="mb-4">
     <label for="HtmlId-@@field" class="form-label">
       @@if (context.title) {
-        @@title
+      @@title
       }
       @@if (!context.title) {
-        @@field
+      @@field
       }
     </label>
 
-    <input 
-      type="text" 
-      class="form-control" 
-      id="HtmlId-@@field" 
-      name="@@field" 
-      autocomplete="off" 
-      required 
-    />
+    <input type="text" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" required />
 
     <div class="invalid-feedback">
-      @@errorMessage 
+      @@errorMessage
     </div>
 
   </div>
