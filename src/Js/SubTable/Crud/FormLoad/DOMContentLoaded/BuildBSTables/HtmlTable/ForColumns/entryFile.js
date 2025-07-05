@@ -1,5 +1,10 @@
 let StartFunc = ({ inColumns }) => {
-    inColumns.forEach(element => {
+    let LocalColumns = JSON.parse(JSON.stringify(inColumns));
+
+    LocalColumns.splice(0, 0, jFLocalFuncForSerialColumn());
+    LocalColumns.push(jFLocalFuncForOptionsColumn());
+    // debugger;
+    LocalColumns.forEach(element => {
         element.footerFormatter = (data) => {
             return jFLocalFooterFormatterFunc({
                 inData: data,
@@ -7,6 +12,24 @@ let StartFunc = ({ inColumns }) => {
             });
         };
     });
+
+    return LocalColumns;
+};
+
+const jFLocalFuncForOptionsColumn = () => {
+    return {
+        field: "Opts",
+        title: "Opts ",
+        formatter: "jFLocalOptsFormater"
+    };
+};
+
+const jFLocalFuncForSerialColumn = () => {
+    return {
+        "field": "KS-Serial",
+        "title": "#",
+        "formatter": "jFLocalSerialColumn"
+    };
 };
 
 const jFLocalFooterFormatterFunc = ({ inData, inColumnInfo }) => {

@@ -5,9 +5,10 @@ import { StartFunc as StartFuncFromForColumns } from "./ForColumns/entryFile.js"
 
 const StartFunc = () => {
     var $table = $('#table');
-// debugger;
+    // debugger;
     commonConfigJson.onPostBody = StartFuncFromOnPostBody;
-    StartFuncFromForColumns({ inColumns: commonConfigJson.columns });
+
+    commonConfigJson.columns = StartFuncFromForColumns({ inColumns: commonConfigJson.columns });
 
     $table.bootstrapTable(commonConfigJson);
 };
