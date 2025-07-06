@@ -1,14 +1,20 @@
 {
     "columns": [
         {
-            "field": "PARTYNAME",
-            "title": "Farmer Name",
+            "field": "title",
+            "title": "Title",
             "unique": true,
             "type": "STRING"
         },
         {
-            "field": "DATE",
-            "title": "Date",
+            "field": "start",
+            "title": "Start Date",
+            "unique": false,
+            "type": "STRING"
+        },
+        {
+            "field": "className",
+            "title": "Class Name",
             "unique": false,
             "type": "STRING"
         }
