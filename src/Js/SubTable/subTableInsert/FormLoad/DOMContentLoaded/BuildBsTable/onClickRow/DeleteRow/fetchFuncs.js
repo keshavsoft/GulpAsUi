@@ -1,10 +1,19 @@
 import ConfigJson from '../../../../../config.json' with {type: 'json'};
+import CommonConfigJson from '../../../../../../Config.json' with {type: 'json'};
 import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/entryFile.js";
+
 let StartFunc = async ({ inItemSerial }) => {
+
     let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "pk" });
+
     let jVarFetchHeaders = StartFuncFetchHeaders();
+
     let jVarLocalFetchUrl = ConfigJson.DeleteEndPoint;
-    let jVarFetchUrl = `${jVarLocalFetchUrl}/${jVarLocalFilterString}/ITEMS/${inItemSerial}`
+    
+    let jVarLocalTableName = CommonConfigJson.TableName;
+
+    let jVarFetchUrl = `${jVarLocalTableName}/${jVarLocalFetchUrl}/${jVarLocalFilterString}/ITEMS/${inItemSerial}`
+
     let response = await fetch(jVarFetchUrl, jVarFetchHeaders);
 
     return await response;

@@ -76,20 +76,9 @@
                         <div class="row">
                             @@for (var i = 0; i < Vertical.length; i++) { @@include('./_loopForVertical.html',
                                 `+(JSON.stringify(Vertical[i]))+`) } <div class="row mb-3 align-items-center">
-                                    
-                                <label for="PartyNameId" class="col-3 col-form-label fw-semibold">Party Name</label>
-                                <div class="col-9">
-                                    <input type="text" name="PARTYNAME" class="form-control" id="PartyNameId"
-                                        value="Not found" readonly disabled>
-                                </div>
+                               
                         </div>
-                        <div class="row mb-3 align-items-center">
-                            <label for="dateId" class="col-3 col-form-label fw-semibold">Date</label>
-                            <div class="col-9">
-                                <input type="text" name="DATE" class="form-control" id="dateId" value="Not found"
-                                    readonly disabled>
-                            </div>
-                        </div>
+                       
                     </form>
                 </div>
 

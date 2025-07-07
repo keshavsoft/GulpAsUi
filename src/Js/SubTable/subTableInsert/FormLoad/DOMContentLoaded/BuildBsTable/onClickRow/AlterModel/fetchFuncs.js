@@ -1,11 +1,13 @@
 import ConfigJson from '../../../../../config.json' with {type: 'json'};
+import CommonConfigJson from '../../../../../../Config.json' with {type: 'json'};
 
 let StartFunc = async ({ inItemSerial }) => {
     let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "pk" });
     
     let jVarLocalFetchUrl = ConfigJson.SubTableRowData;
+    let jVarLocalTableName = CommonConfigJson.TableName;
     
-    let jVarFetchUrl = `${jVarLocalFetchUrl}/${jVarLocalFilterString}/ITEMS/${inItemSerial}`
+    let jVarFetchUrl = `${jVarLocalTableName}/${jVarLocalFetchUrl}/${jVarLocalFilterString}/ITEMS/${inItemSerial}`
     
     let response = await fetch(jVarFetchUrl);
 
