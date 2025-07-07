@@ -9,7 +9,8 @@
       }
     </label>
 
-    <input type="@@type" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" required />
+    <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" name="@@field"
+      autocomplete="off" required />
 
     <div class="invalid-feedback">
       @@errorMessage

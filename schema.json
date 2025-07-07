@@ -4,24 +4,24 @@
             "field": "title",
             "title": "Title",
             "unique": true,
-            "type": "STRING"
+            "type": "text"
         },
         {
             "field": "start",
             "title": "Start Date",
             "unique": false,
-            "type": "STRING"
+            "type": "date"
         },
         {
             "field": "className",
             "title": "Class Name",
             "unique": false,
-            "type": "STRING"
+            "type": "text"
         }
     ],
     "data": [],
     "Vertical": [
-       {
+        {
             "field": "title",
             "title": "Title",
             "unique": true,
