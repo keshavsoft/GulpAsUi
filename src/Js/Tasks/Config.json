@@ -1,0 +1,21 @@
+{
+    "TableName": "/V2/Saleshead",
+    "showFooter": true,
+    "toolbar": "#toolbar",
+    "searchable": true,
+    "search": true,
+    "columns": [
+        {
+            "field": "PARTYNAME",
+            "title": "PARTYNAME",
+            "unique": true,
+            "type": "STRING"
+        },
+        {
+            "field": "DATE",
+            "title": "DATE",
+            "unique": false,
+            "type": "STRING"
+        }
+    ]
+}
