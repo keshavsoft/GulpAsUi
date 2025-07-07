@@ -10,7 +10,7 @@
         {
             "field": "start",
             "unique": false,
-            "type": "STRING"
+            "type": "DATE"
         },
         {
             "field": "className",
