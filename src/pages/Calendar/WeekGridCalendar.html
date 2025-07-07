@@ -19,25 +19,25 @@
 <html lang="en">
 
 <head>
-    @@include('./Tasks/_head.html', {
+    @@include('./Calendar/_head.html', {
     "path": "../..",
     "title": "Volt Free Bootstrap Dashboard - Bootstrap Tables"
     })
 </head>
 
 <body>
-    @@include('./Tasks/_nav.html', {
+    @@include('./Calendar/_nav.html', {
     "path": "../.."
     })
 
-    @@include('./Tasks/_sidenav.html', {
+    @@include('./Calendar/_sidenav.html', {
     "path": "../..",
-    "page": "simple",
+    "page": "WeekDayGrid",
     "page_group":"calendar"
     })
 
     <main class="content">
-        @@include('./Tasks/_topbarWithEntry.html', {
+        @@include('./Calendar/_topbarWithEntry.html', {
         "path": "../.."
         })
 
@@ -106,8 +106,8 @@
 
     </script>
 
-    <script type="module" src="../../Js/Tasks/CommonFuncs/TopbarWithEntry/entryFile.js"></script>
-    <script type="module" src="../../Js/Tasks/simple/entryFile.js"></script>
+    <script type="module" src="../../Js/Calendar/CommonFuncs/TopbarWithEntry/entryFile.js"></script>
+    <script type="module" src="../../Js/Calendar/WeekGridCalendar/entryFile.js"></script>
 
 </body>
 
