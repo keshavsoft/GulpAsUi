@@ -62,38 +62,60 @@
                     <span class="sidebar-text">Dashboard</span>
                 </a>
             </li>
-            <!-- Create -->
+            <!-- subTableShow -->
+            
+            <!-- crud -->
+
             <li class="nav-item">
-                <span
-                    class="nav-link @@if (context.page_group !== 'subTableShow') { collapsed } d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-Orders">
+                <span class="nav-link collapsed d-flex justify-content-between align-items-center"
+                    data-bs-toggle="collapse" data-bs-target="#submenu-subTableShow">
                     <span>
-                        <span class="sidebar-icon text-success">
-                            <i class="bi bi-plus-circle-fill"></i> <!-- new icon -->
-                        </span>
+                        <span class="sidebar-icon text-info"><i class="bi bi-funnel-fill"></i></span>
                         <span class="sidebar-text">subTableShow</span>
                     </span>
                     <span class="link-arrow text-muted">
-                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <i class="bi bi-chevron-right"></i>
                     </span>
                 </span>
-
-                <div class="multi-level collapse @@if (context.page_group === 'subTableShow') { show }" id="submenu-Orders"
-                    role="list" aria-expanded="false">
+                <div class="multi-level collapse @@if (context.page_group === 'subTableShow') { show }" id="submenu-subTableShow"
+                    role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
                     <ul class="flex-column nav">
                         <li class="nav-item @@if (context.page === 'subTableShow') { active }">
                             <a class="nav-link d-flex align-items-center" href="subTableShow.html">
-                                <span class="sidebar-text-contracted text-success">C</span>
+                                <span class="sidebar-text-contracted text-info">S</span>
                                 <span class="sidebar-text">subTableShow</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
+
+            <li class="nav-item">
+                <span class="nav-link collapsed d-flex justify-content-between align-items-center"
+                    data-bs-toggle="collapse" data-bs-target="#submenu-CRUD">
+                    <span>
+                        <span class="sidebar-icon text-info"><i class="bi bi-funnel-fill"></i></span>
+                        <span class="sidebar-text">Crud</span>
+                    </span>
+                    <span class="link-arrow text-muted">
+                        <i class="bi bi-chevron-right"></i>
+                    </span>
+                </span>
+                <div class="multi-level collapse @@if (context.page_group === 'CRUD') { show }" id="submenu-CRUD"
+                    role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
+                    <ul class="flex-column nav">
+                        <li class="nav-item @@if (context.page === 'CRUD') { active }">
+                            <a class="nav-link d-flex align-items-center" href="crud.html">
+                                <span class="sidebar-text-contracted text-info">S</span>
+                                <span class="sidebar-text">Crud</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
 
            
 
