@@ -1,5 +1,6 @@
 let StartFunc = async ({ inResponse }) => {
-    window.location.href = ""
+    let jVarLocalRefreshBSTableId = document.querySelector(`.RefreshBSTableClass`);
+    jVarLocalRefreshBSTableId.click();
 };
 
 export { StartFunc };
