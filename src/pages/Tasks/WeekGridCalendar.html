@@ -1,0 +1,114 @@
+<!--
+
+=========================================================
+* Volt Free - Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./Tasks/_head.html', {
+    "path": "../..",
+    "title": "Volt Free Bootstrap Dashboard - Bootstrap Tables"
+    })
+</head>
+
+<body>
+    @@include('./Tasks/_nav.html', {
+    "path": "../.."
+    })
+
+    @@include('./Tasks/_sidenav.html', {
+    "path": "../..",
+    "page": "WeekDayGrid",
+    "page_group":"calendar"
+    })
+
+    <main class="content">
+        @@include('./Tasks/_topbarWithEntry.html', {
+        "path": "../.."
+        })
+
+        <div class="row mt-2">
+            <div class="col-7">
+                <div id='calendar'></div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </main>
+
+    @@include('./_scriptsWithBSTable.html', {
+    "path": "../.."
+    })
+
+    <script>
+        let jVarCommonCalendar = null;
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // jFAddYesterday();
+            // jFAddToday();
+            // jFAddTomorrow();
+        });
+
+        const jF1 = () => {
+            calendar.addEvent({
+                title: "3rd",
+                start: '2025-03-19',
+                className: 'bg-success'
+            });
+        };
+        let yourDate = new Date();
+        yourDate.toISOString().split('T')[0];
+
+        const jFAddYesterday = () => {
+            var jVarLocalYesterday = new Date(Date.now() - 86400000);
+
+            jVarCommonCalendar.addEvent({
+                title: "1st",
+                start: jVarLocalYesterday.toISOString().split('T')[0],
+                className: 'bg-success'
+            });
+        };
+
+        const jFAddToday = () => {
+            var jVarLocalYesterday = new Date();
+
+            jVarCommonCalendar.addEvent({
+                title: "2nd",
+                start: jVarLocalYesterday.toISOString().split('T')[0],
+                className: 'bg-primary'
+            });
+        };
+
+        const jFAddTomorrow = () => {
+            var jVarLocalYesterday = new Date(Date.now() + 86400000);
+
+            jVarCommonCalendar.addEvent({
+                title: "3rd",
+                start: jVarLocalYesterday.toISOString().split('T')[0],
+                className: 'bg-danger'
+            });
+        };
+
+    </script>
+
+    <script type="module" src="../../Js/Tasks/CommonFuncs/TopbarWithEntry/entryFile.js"></script>
+    <script type="module" src="../../Js/Tasks/WeekGridCalendar/entryFile.js"></script>
+
+</body>
+
+</html>
