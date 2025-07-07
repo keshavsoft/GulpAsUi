@@ -9,8 +9,19 @@
       }
     </label>
 
+    @@if (context.isInput) {
     <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" name="@@field"
       autocomplete="off" required />
+    }
+
+    @@if (context.isSelect) {
+    <select name="cars" id="cars" class="form-select">
+      @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+         `+selectOptions[i].text+`
+      </option>
+        }
+    </select>
+    }
 
     <div class="invalid-feedback">
       @@errorMessage
