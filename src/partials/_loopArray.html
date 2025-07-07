@@ -23,9 +23,18 @@
     </select>
     }
 
+    @@if (context.isDataList) {
+    <input class="form-control" id="HtmlId-@@field" name="@@field" list="HtmlDLId-@@field" />
+    <datalist id="HtmlDLId-@@field">
+      @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+        `+selectOptions[i].text+`
+        </option>
+        }
+    </datalist>
+    }
+
     <div class="invalid-feedback">
       @@errorMessage
     </div>
-
   </div>
 </div>

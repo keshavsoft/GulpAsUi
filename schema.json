@@ -20,7 +20,8 @@
             "unique": false,
             "type": "text",
             "isInput": false,
-            "isSelect": true,
+            "isSelect": false,
+            "isDataList": true,
             "selectOptions": [
                 {
                     "value": "bg-primary",
