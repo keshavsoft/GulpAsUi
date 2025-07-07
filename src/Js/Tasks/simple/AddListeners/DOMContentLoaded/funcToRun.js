@@ -1,7 +1,9 @@
+import { StartFunc as StartFuncFromFetchAsGet } from "./FetchAsGet/entryFile.js";
+
 let StartFunc = async () => {
     var calendarEl = document.getElementById('calendar');
-
-    const events = await LocalFuncFetchData();
+    // debugger;
+    const events = await StartFuncFromFetchAsGet();
 
     jVarCommonCalendar = new FullCalendar.Calendar(calendarEl, {
         editable: true,
@@ -30,6 +32,5 @@ let LocalFuncFetchData = async () => {
     }
 
 };
-
 
 export { StartFunc };
