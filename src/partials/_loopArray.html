@@ -15,10 +15,10 @@
     }
 
     @@if (context.isSelect) {
-    <select name="cars" id="cars" class="form-select">
+    <select name="@@field" id="HtmlId-@@field" class="form-select">
       @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
-         `+selectOptions[i].text+`
-      </option>
+        `+selectOptions[i].text+`
+        </option>
         }
     </select>
     }
