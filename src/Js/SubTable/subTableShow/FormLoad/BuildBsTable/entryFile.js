@@ -1,12 +1,26 @@
-import optionsJson from './options.json' with {type: 'json'};
 import commonConfigJson from '../../../Config.json' with {type: 'json'};
-// import { StartFunc as ForColumns } from "./ForColumns/entryFile.js";
+import { StartFunc as ForColumns } from "./ForColumns/entryFile.js";
 import { StartFunc as StartFuncOnClickRowFunc } from "./onClickRow/entryFile.js";
 
 const StartFunc = () => {
     var $table = $('#table');
+
     commonConfigJson.onClickRow = StartFuncOnClickRowFunc;
-    // ForColumns({ inColumns: optionsJson.columns });
+
+    commonConfigJson.columns.push({
+        field: "Opts",
+        title: "Options",
+        formatter: "jFLocalOptsFormater"
+    });
+
+    commonConfigJson.columns.unshift({
+        field: "KS-Serial",
+        title: "#",
+        formatter: "jVarLocalFormatterFunc",
+        width: "10px",
+    });
+
+    ForColumns({ inColumns: commonConfigJson.columns });
 
     $table.bootstrapTable(commonConfigJson);
 };
