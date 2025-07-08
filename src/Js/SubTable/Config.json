@@ -6,16 +6,31 @@
     "search": true,
     "columns": [
         {
-            "field": "PARTYNAME",
-            "title": "PARTYNAME",
-            "unique": true,
-            "type": "STRING"
+            "field": "AccountName",
+            "title": "Account Name",
+            "isInput": true
         },
         {
-            "field": "DATE",
-            "title": "DATE",
-            "unique": false,
-            "type": "STRING"
+            "field": "Date",
+            "title": "Date",
+            "type": "date",
+            "isInput": true
+        },
+        {
+            "field": "Description",
+            "title": "Description",
+            "isInput": true
+        },
+        {
+            "field": "Amount",
+            "title": "Amount",
+            "type": "number",
+            "isInput": true,
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            }
         }
     ]
 }
