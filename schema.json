@@ -13,7 +13,8 @@
     "columns": [
         {
             "field": "AccountName",
-            "title": "Account Name"
+            "title": "Account Name",
+            "isInput": true
         },
         {
             "field": "Date",
@@ -23,7 +24,8 @@
         },
         {
             "field": "Description",
-            "title": "Description"
+            "title": "Description",
+            "isInput": true
         },
         {
             "field": "Amount",
