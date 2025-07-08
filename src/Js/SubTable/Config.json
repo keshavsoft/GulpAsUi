@@ -1,5 +1,5 @@
 {
-    "TableName": "/V3/TasksTable",
+    "TableName": "/V3/Saleshead",
     "showFooter": true,
     "toolbar": "#toolbar",
     "searchable": true,

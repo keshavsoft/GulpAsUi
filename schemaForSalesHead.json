@@ -1,29 +1,32 @@
 {
-    "columns": [
-        {
-            "field": "PARTYNAME",
-            "title": "Farmer Name",
-            "unique": true,
-            "type": "STRING"
-        },
-        {
-            "field": "DATE",
-            "title": "Date",
-            "unique": false,
-            "type": "STRING"
-        }
+    "Vertical": [],
+    "header": [
+        [
+            "PARTYNAME",
+            "VOUCHERTYPE",
+            "DATE",
+            "REFERENCE",
+            "VOUCHER_CANCELLED"
+        ]
     ],
     "data": [],
-    "Vertical": [
+    "columns": [
         {
-            "field": "PARTYNAME",
+            "field": "FarmerName",
             "title": "Farmer Name",
             "unique": true,
-            "type": "STRING"
+            "isInput": true
         },
         {
-            "field": "DATE",
+            "field": "Date",
             "title": "Date",
+            "unique": false,
+            "type": "date",
+            "isInput": true
+        },
+        {
+            "field": "REFERENCE",
+            "title": "Class Name",
             "unique": false,
             "type": "STRING"
         }

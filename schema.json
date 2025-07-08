@@ -14,8 +14,7 @@
         {
             "field": "FarmerName",
             "title": "Farmer Name",
-            "unique": true,
-            "isInput": true
+            "isDataListEmpty": true
         },
         {
             "field": "Date",
