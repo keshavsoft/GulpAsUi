@@ -10,25 +10,28 @@
         ]
     ],
     "data": [],
-    "columns": [
+    "olumns":[
         {
             "field": "FarmerName",
-            "title": "Farmer Name",
+            "title": "Name",
             "unique": true,
+            "isInput": true,
+            "required": "required"
+        },
+        {
+            "field": "FarmerMobile",
+            "title": "Mobile",
             "isInput": true
         },
         {
-            "field": "Date",
-            "title": "Date",
-            "unique": false,
-            "type": "date",
+            "field": "FarmerCity",
+            "title": "City",
             "isInput": true
         },
         {
-            "field": "REFERENCE",
-            "title": "Class Name",
-            "unique": false,
-            "type": "STRING"
+            "field": "FarmerField",
+            "title": "Field",
+            "isInput": true
         }
     ]
 }
