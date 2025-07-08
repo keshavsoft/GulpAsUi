@@ -14,7 +14,8 @@
             "field": "FarmerName",
             "title": "Name",
             "unique": true,
-            "isInput": true
+            "isInput": true,
+            "required": "required"
         },
         {
             "field": "FarmerMobile",

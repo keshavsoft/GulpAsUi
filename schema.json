@@ -2,35 +2,33 @@
     "Vertical": [],
     "header": [
         [
-            "FarmerName",
-            "FarmerMobile",
-            "FarmerCity",
-            "FarmerField"
+            "PARTYNAME",
+            "VOUCHERTYPE",
+            "DATE",
+            "REFERENCE",
+            "VOUCHER_CANCELLED"
         ]
     ],
     "data": [],
     "columns": [
         {
             "field": "FarmerName",
-            "title": "Name",
+            "title": "Farmer Name",
             "unique": true,
-            "isInput": true,
-            "required": "required"
-        },
-        {
-            "field": "FarmerMobile",
-            "title": "Mobile",
             "isInput": true
         },
         {
-            "field": "FarmerCity",
-            "title": "City",
+            "field": "Date",
+            "title": "Date",
+            "unique": false,
+            "type": "date",
             "isInput": true
         },
         {
-            "field": "FarmerField",
-            "title": "Field",
-            "isInput": true
+            "field": "REFERENCE",
+            "title": "Class Name",
+            "unique": false,
+            "type": "STRING"
         }
     ]
 }
