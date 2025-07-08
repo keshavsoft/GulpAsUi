@@ -12,22 +12,29 @@
     "data": [],
     "columns": [
         {
-            "field": "FarmerName",
-            "title": "Farmer Name",
-            "isDataListEmpty": true
+            "field": "AccountName",
+            "title": "Account Name"
         },
         {
             "field": "Date",
             "title": "Date",
-            "unique": false,
             "type": "date",
             "isInput": true
         },
         {
-            "field": "REFERENCE",
-            "title": "Class Name",
-            "unique": false,
-            "type": "STRING"
+            "field": "Description",
+            "title": "Description"
+        },
+        {
+            "field": "Amount",
+            "title": "Amount",
+            "type": "number",
+            "isInput": true,
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            }
         }
     ]
 }
