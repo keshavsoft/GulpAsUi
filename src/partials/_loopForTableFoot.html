@@ -1,7 +1,7 @@
 <th>
   @@if (context.isInput) {
-  <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" name="@@field"
-    autocomplete="off" @@if (context.required) { @@required } />
+  <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" list="ForDatalistId"
+    name="@@field" autocomplete="off" @@if (context.required) { @@required } />
   }
 
   @@if (context.isSelect) {

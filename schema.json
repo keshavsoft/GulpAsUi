@@ -10,24 +10,19 @@
         ]
     ],
     "data": [],
-    "columns": [
+    "columns":[
         {
             "field": "FarmerName",
-            "title": "Farmer Name",
-            "isDataListEmpty": true
         },
         {
-            "field": "Date",
-            "title": "Date",
-            "unique": false,
-            "type": "date",
+            "field": "FarmerCity",
+            "title": "City",
             "isInput": true
         },
         {
-            "field": "REFERENCE",
-            "title": "Class Name",
-            "unique": false,
-            "type": "STRING"
+            "field": "FarmerField",
+            "title": "Field",
+            "isInput": true
         }
     ]
 }
