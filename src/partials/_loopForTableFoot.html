@@ -3,4 +3,30 @@
   <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" list="ForDatalistId"
     name="@@field" autocomplete="off" @@if (context.required) { @@required } />
   }
+
+  @@if (context.isSelect) {
+  <select name="@@field" id="HtmlId-@@field" class="form-select">
+    @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+      `+selectOptions[i].text+`
+      </option>
+      }
+  </select>
+  }
+
+  @@if (context.isDataList) {
+  <input class="form-control" id="HtmlId-@@field" name="@@field" list="HtmlDLId-@@field" />
+  <datalist id="HtmlDLId-@@field">
+    @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+      `+selectOptions[i].text+`
+      </option>
+      }
+  </datalist>
+  }
+
+  @@if (context.isDataListEmpty) {
+  <input class="form-control" id="HtmlId-@@field" name="@@field" list="HtmlDLEId-@@field" />
+  <datalist id="HtmlDLEId-@@field">
+  
+  </datalist>
+  }
 </th>

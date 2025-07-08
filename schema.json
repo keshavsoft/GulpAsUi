@@ -10,18 +10,9 @@
         ]
     ],
     "data": [],
-    "olumns":[
+    "columns":[
         {
             "field": "FarmerName",
-            "title": "Name",
-            "unique": true,
-            "isInput": true,
-            "required": "required"
-        },
-        {
-            "field": "FarmerMobile",
-            "title": "Mobile",
-            "isInput": true
         },
         {
             "field": "FarmerCity",
