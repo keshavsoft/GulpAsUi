@@ -319,14 +319,17 @@ gulp.task("copy:dev:vendor", function () {
 
 gulp.task("end:dist", async () => {
   fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
+
   LocalFuncReplaceSchema();
   LocalFuncReplaceInSubTable();
+  LocalFuncFromConfig();
 
   return await true;
 });
 
 const LocalFuncReplaceSchema = () => {
   const filePath = `${paths.dist.base}/Js/CommonConfigColumns/Config.json`;
+
   const content = fse.readFileSync(filePath, 'utf-8');
   const contentAsJson = JSON.parse(content);
   contentAsJson.columns = CommonColumns.columns;
@@ -339,6 +342,16 @@ const LocalFuncReplaceInSubTable = () => {
   const content = fse.readFileSync(filePath, 'utf-8');
   const contentAsJson = JSON.parse(content);
 
+  contentAsJson.columns = CommonColumns.columns;
+
+  fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
+};
+
+const LocalFuncFromConfig = () => {
+  const filePath = `${paths.dist.base}/Js/FromConfig/Config.json`;
+
+  const content = fse.readFileSync(filePath, 'utf-8');
+  const contentAsJson = JSON.parse(content);
   contentAsJson.columns = CommonColumns.columns;
 
   fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
