@@ -86,8 +86,12 @@
           <table id="table" class="table table-bordered table-striped" data-show-footer="true">
             <thead>
               <tr>
+                <!-- <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th> -->
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
-                  `+(JSON.stringify(columns[i]))+`) } </tr>
+                  `+(JSON.stringify(columns[i]))+`) } <!-- <th data-field="KS-Save">
+                  Options
+                  </th> -->
+              </tr>
             </thead>
           </table>
         </div>
@@ -103,6 +107,13 @@
   @@include('./CrudStaticColumn/_scriptsWithBSTable.html', {
   "path": "../.."
   })
+  <!-- 
+  <script>
+    window.GlobalSerialFormatter = (value, row, index) => {
+      console.log("aaaaaaaaaa : ", value, row);
+      return index + 1;
+    };
+  </script> -->
 
   <script type="module" src="../../Js/CrudStaticColumn/ShowOnly/entryFile.js"></script>
 </body>
