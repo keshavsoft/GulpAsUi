@@ -44,7 +44,6 @@ const jFLocalFuncForSerialColumn = () => {
 };
 
 const jFLocalFooterFormatterFunc = ({ inData, inColumnInfo }) => {
-    console.log("data : ", inData, inColumnInfo);
 
     return `<input class="form-control" name="${inColumnInfo.field}" type="text">`;
 };
