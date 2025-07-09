@@ -1,5 +1,5 @@
 {
-    "TableName": "/V3/Saleshead",
+    "TableName": "/V1/AccountsTable",
     "showFooter": true,
     "toolbar": "#toolbar",
     "searchable": true,

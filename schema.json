@@ -1,42 +1,18 @@
 {
     "Vertical": [],
-    "header": [
-        [
-            "PARTYNAME",
-            "VOUCHERTYPE",
-            "DATE",
-            "REFERENCE",
-            "VOUCHER_CANCELLED"
-        ]
-    ],
-    "data": [],
     "columns": [
         {
             "field": "AccountName",
             "title": "Account Name",
+            "unique": true,
+            "type": "STRING",
             "isInput": true
         },
         {
-            "field": "Date",
-            "title": "Date",
-            "type": "date",
+            "field": "BSGroup",
+            "title": "Balance Sheet Group",
             "isInput": true
-        },
-        {
-            "field": "Description",
-            "title": "Description",
-            "isInput": true
-        },
-        {
-            "field": "Amount",
-            "title": "Amount",
-            "type": "number",
-            "isInput": true,
-            "numberConfig": {
-                "step": "0.01",
-                "min": "0",
-                "max": "999999999"
-            }
         }
-    ]
+    ],
+    "data": []
 }
