@@ -32,8 +32,8 @@
 
   @@include('./CrudStaticColumn/_sidenav.html', {
   "path": "../..",
-  "page": "ShowOnlyWithOptsAndSrNo",
-  "page_group":"ShowOnlyWithOptsAndSrNo"
+  "page": "ShowOnlyWithOpts",
+  "page_group":"ShowOnlyWithOpts"
   })
 
   <main class="content">
@@ -85,10 +85,11 @@
         <div class="table-responsive">
           <table id="table" class="table table-bordered table-striped" data-show-footer="true">
             <thead>
+
               <tr>
                 <!-- <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th> -->
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
+                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save" data-formatter="OptionsHeaderFormatter">
                   Options
                   </th>
               </tr>
@@ -114,7 +115,11 @@
       return index + 1;
     };
   </script> -->
-
+  <script>
+    window.OptionsHeaderFormatter = function () {
+      return `<i class="bi bi-arrow-right-circle fs-5"  title="Options"></i>`;
+    };
+  </script>
   <script type="module" src="../../Js/CrudStaticColumn/showOnlyWithOpts/entryFile.js"></script>
 </body>
 
