@@ -60,42 +60,69 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
-      
-      <li class="nav-item @@if (context.page === 'showOnly') { active }">
-        <a href="@@path/pages/CrudStaticColumn/showOnly.html" class="nav-link">
-          <span class="sidebar-icon text-secondary">
-            <i class="bi bi-search" style="color:chocolate;"></i>
-          </span>
-          <span class="sidebar-text">showOnly</span>
-        </a>
-      </li>
-       
-      <li class="nav-item @@if (context.page === 'showOnlyWithOpts') { active }">
-        <a href="@@path/pages/CrudStaticColumn/showOnlyWithOpts.html" class="nav-link">
-          <span class="sidebar-icon text-success">
-            <i class="bi bi-option" style="color:gold;"></i>
-          </span>
-          <span class="sidebar-text">showOnlyWithOpts</span>
-        </a>
 
-      </li>
 
-      <li class="nav-item @@if (context.page === 'showOnlyWithSerial') { active }">
-        <a href="@@path/pages/CrudStaticColumn/showOnlyWithSerial.html" class="nav-link">
-          <span class="sidebar-icon text-gray-400">
-            <i class="bi bi-bucket" style="color:rgb(239, 80, 133);"></i>
-          </span>
-          <span class="sidebar-text">showOnlyWithSerial</span>
-        </a>
-      </li>
 
-       <li class="nav-item @@if (context.page === 'showOnlyWithOptsAndSrNo') { active }">
-        <a href="@@path/pages/CrudStaticColumn/showOnlyWithOptsAndSrNo.html" class="nav-link">
-          <span class="sidebar-icon text-warning">
-           <i class="bi bi-asterisk"></i>
+
+
+
+      <li class="nav-item">
+        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          data-bs-target="#submenu-showOnly">
+          <span>
+            <span class="sidebar-icon text-success"><i class="bi bi-plus-circle-fill"></i></span>
+            <span class="sidebar-text">ShowOnly</span>
           </span>
-          <span class="sidebar-text">showOnlyWithOptsAndSrNo</span>
-        </a>
+          <span class="link-arrow text-muted">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+        </span>
+        <div class="multi-level collapse @@if (context.page_group === 'showOnly') { show }" id="submenu-showOnly"
+          role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
+          <ul class="flex-column nav">
+            <li class="nav-item @@if (context.page === 'showOnly') { active }">
+              <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudStaticColumn/showOnly.html">
+                <span class="sidebar-icon text-secondary">
+                  <i class="bi bi-search" style="color:chocolate;"></i>
+                </span>
+                
+                <span class="sidebar-text">showOnly</span>
+              </a>
+            </li>
+
+            <li class="nav-item @@if (context.page === 'ShowOnlyWithOpts') { active }">
+              <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudStaticColumn/showOnlyWithOpts.html">
+                <span class="sidebar-icon text-secondary">
+                  <i class="bi bi-option" style="color:gold;"></i>
+                </span>
+                
+                <span class="sidebar-text">showOnlyWithOpts</span>
+              </a>
+            </li>
+
+            <li class="nav-item @@if (context.page === 'ShowOnlyWithSerial') { active }">
+              <a class="nav-link d-flex align-items-center"
+                href="@@path/pages/CrudStaticColumn/showOnlyWithSerial.html">
+                <span class="sidebar-icon text-secondary">
+                  <i class="bi bi-bucket" style="color:rgb(239, 80, 133);"></i>
+                </span>
+                
+                <span class="sidebar-text">showOnlyWithSerial</span>
+              </a>
+            </li>
+
+            <li class="nav-item @@if (context.page === 'ShowOnlyWithOptsAndSrNo') { active }">
+              <a class="nav-link d-flex align-items-center"
+                href="@@path/pages/CrudStaticColumn/showOnlyWithOptsAndSrNo.html">
+                <span class="sidebar-icon text-warning">
+                  <i class="bi bi-asterisk"></i>
+                </span>
+               
+                <span class="sidebar-text">showOnlyWithOptsAndSrNo</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </li>
 
       <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
