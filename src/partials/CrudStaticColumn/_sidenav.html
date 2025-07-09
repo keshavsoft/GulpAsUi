@@ -44,7 +44,7 @@
         <a href="../" class="nav-link">
           <span class="sidebar-icon text-warning">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-              class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+              class="bi bi-arrow-90deg-left" style=" color:khaki;" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
                 d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
             </svg>
@@ -63,17 +63,45 @@
       
       <li class="nav-item @@if (context.page === 'showOnly') { active }">
         <a href="@@path/pages/CrudStaticColumn/showOnly.html" class="nav-link">
-          <span class="sidebar-icon text-danger">
-            <i class="bi bi-speedometer2"></i>
+          <span class="sidebar-icon text-secondary">
+            <i class="bi bi-search" style="color:chocolate;"></i>
           </span>
           <span class="sidebar-text">showOnly</span>
+        </a>
+      </li>
+       
+      <li class="nav-item @@if (context.page === 'showOnlyWithOpts') { active }">
+        <a href="@@path/pages/CrudStaticColumn/showOnlyWithOpts.html" class="nav-link">
+          <span class="sidebar-icon text-success">
+            <i class="bi bi-option" style="color:gold;"></i>
+          </span>
+          <span class="sidebar-text">showOnlyWithOpts</span>
+        </a>
+
+      </li>
+
+      <li class="nav-item @@if (context.page === 'showOnlyWithSerial') { active }">
+        <a href="@@path/pages/CrudStaticColumn/showOnlyWithSerial.html" class="nav-link">
+          <span class="sidebar-icon text-gray-400">
+            <i class="bi bi-bucket" style="color:rgb(239, 80, 133);"></i>
+          </span>
+          <span class="sidebar-text">showOnlyWithSerial</span>
+        </a>
+      </li>
+
+       <li class="nav-item @@if (context.page === 'showOnlyWithOptsAndSrNo') { active }">
+        <a href="@@path/pages/CrudStaticColumn/showOnlyWithOptsAndSrNo.html" class="nav-link">
+          <span class="sidebar-icon text-warning">
+           <i class="bi bi-asterisk"></i>
+          </span>
+          <span class="sidebar-text">showOnlyWithOptsAndSrNo</span>
         </a>
       </li>
 
       <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
         <a href="@@path/pages/CrudStaticColumn/footerCreateNew.html" class="nav-link">
-          <span class="sidebar-icon text-danger">
-            <i class="bi bi-speedometer2"></i>
+          <span class="sidebar-icon text-success">
+            <i class="bi bi-c-circle"></i>
           </span>
           <span class="sidebar-text">footerCreateNew</span>
         </a>
@@ -83,7 +111,7 @@
       <li class="nav-item @@if (context.page === 'crudStaticColDL') { active }">
         <a href="@@path/pages/CrudStaticColumn/crudStaticColDL.html" class="nav-link">
           <span class="sidebar-icon text-danger">
-            <i class="bi bi-speedometer2"></i>
+            <i class="bi bi-card-list" style="color:aqua;"></i>
           </span>
           <span class="sidebar-text">CrudStaticColumn</span>
         </a>
