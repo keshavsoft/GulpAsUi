@@ -2,6 +2,8 @@ import { StartFunc as StartFuncTableFooterSaveButtonId } from "./TableFooterSave
 
 let StartFunc = () => {
     StartFuncTableFooterSaveButtonId();
+ 
+    table.querySelector("tfoot input").focus();
 };
 
 export { StartFunc };

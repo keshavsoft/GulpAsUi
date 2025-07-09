@@ -2,7 +2,6 @@ import { StartFunc as StartFuncRefreshBSTableClass } from "./RefreshBSTableClass
 
 let StartFunc = () => {
     StartFuncRefreshBSTableClass();
-
 };
 
 export { StartFunc };
