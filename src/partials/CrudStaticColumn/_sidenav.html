@@ -60,6 +60,24 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+      
+      <li class="nav-item @@if (context.page === 'showOnly') { active }">
+        <a href="@@path/pages/CrudStaticColumn/showOnly.html" class="nav-link">
+          <span class="sidebar-icon text-danger">
+            <i class="bi bi-speedometer2"></i>
+          </span>
+          <span class="sidebar-text">showOnly</span>
+        </a>
+      </li>
+
+      <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
+        <a href="@@path/pages/CrudStaticColumn/footerCreateNew.html" class="nav-link">
+          <span class="sidebar-icon text-danger">
+            <i class="bi bi-speedometer2"></i>
+          </span>
+          <span class="sidebar-text">footerCreateNew</span>
+        </a>
+      </li>
 
 
       <li class="nav-item @@if (context.page === 'crudStaticColDL') { active }">
@@ -70,8 +88,6 @@
           <span class="sidebar-text">CrudStaticColumn</span>
         </a>
       </li>
-      
-      
 
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
