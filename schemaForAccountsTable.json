@@ -1,34 +1,30 @@
 {
     "columns": [
-        {
+       {
             "field": "AccountName",
-            "title": "AccountName",
+            "title": "Account Name",
             "unique": true,
             "type": "STRING",
             "isInput": true
         },
         {
             "field": "BSGroup",
-            "title": "BSGroup",
-            "unique": false,
-            "type": "NUMBER",
+            "title": "Balance Sheet Group",
             "isInput": true
         }
     ],
     "data": [],
     "Vertical": [
-        {
+       {
             "field": "AccountName",
-            "title": "AccountName",
+            "title": "Account Name",
             "unique": true,
             "type": "STRING",
             "isInput": true
         },
         {
             "field": "BSGroup",
-            "title": "BSGroup",
-            "unique": false,
-            "type": "NUMBER",
+            "title": "Balance Sheet Group",
             "isInput": true
         }
     ]

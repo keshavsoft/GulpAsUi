@@ -30,7 +30,7 @@
     ],
     "data": [],
     "Vertical": [
-        {
+       {
             "field": "AccountName",
             "title": "Account Name",
             "isInput": true
