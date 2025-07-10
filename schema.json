@@ -1,4 +1,5 @@
 {
+    "tableName": "AccountsTable",
     "columns": [
         {
             "field": "AccountName",

@@ -25,6 +25,7 @@ var wait = require("gulp-wait");
 var sourcemaps = require("gulp-sourcemaps");
 var fileinclude = require("gulp-file-include");
 const fse = require("fs-extra");
+const { StartFunc: CommonGulpCode } = require("./GulpCode/entryFile");
 
 // Load and enhance schema.json
 const CommonColumns = require("./schema.json");
@@ -320,42 +321,10 @@ gulp.task("copy:dev:vendor", function () {
 gulp.task("end:dist", async () => {
   fse.copySync(`${paths.src.base}/Js`, `${paths.dist.base}/Js`);
 
-  LocalFuncReplaceSchema();
-  LocalFuncReplaceInSubTable();
-  LocalFuncFromConfig();
+  CommonGulpCode({ inDistPath: paths.dist.base });
 
   return await true;
 });
-
-const LocalFuncReplaceSchema = () => {
-  const filePath = `${paths.dist.base}/Js/CommonConfigColumns/Config.json`;
-
-  const content = fse.readFileSync(filePath, 'utf-8');
-  const contentAsJson = JSON.parse(content);
-  contentAsJson.columns = CommonColumns.columns;
-
-  fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
-};
-
-const LocalFuncReplaceInSubTable = () => {
-  const filePath = `${paths.dist.base}/Js/SubTable/Config.json`;
-  const content = fse.readFileSync(filePath, 'utf-8');
-  const contentAsJson = JSON.parse(content);
-
-  contentAsJson.columns = CommonColumns.columns;
-
-  fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
-};
-
-const LocalFuncFromConfig = () => {
-  const filePath = `${paths.dist.base}/Js/FromConfig/Config.json`;
-
-  const content = fse.readFileSync(filePath, 'utf-8');
-  const contentAsJson = JSON.parse(content);
-  contentAsJson.columns = CommonColumns.columns;
-
-  fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
-};
 
 gulp.task("build:dev", gulp.series("clean:dev", "copy:dev:css", "copy:dev:html", "copy:dev:html:index", "copy:dev:assets", "copy:dev:js", "beautify:css", "copy:dev:vendor"));
 
