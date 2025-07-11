@@ -80,6 +80,17 @@
         <div class="multi-level collapse @@if (context.page_group === 'showOnly') { show }" id="submenu-showOnly"
           role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
           <ul class="flex-column nav">
+
+            <li class="nav-item @@if (context.page === 'DynamicShow') { active }">
+              <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudDynamicCol/DynamicShow.html">
+                <span class="sidebar-icon text-secondary">
+                  <i class="bi bi-search" style="color:rgb(85, 161, 169);"></i>
+                </span>
+                
+                <span class="sidebar-text">DynamicShow</span>
+              </a>
+            </li>
+
             <li class="nav-item @@if (context.page === 'showOnly') { active }">
               <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudDynamicCol/showOnly.html">
                 <span class="sidebar-icon text-secondary">
