@@ -6,6 +6,7 @@ const StartFunc = ({ inDistPath }) => {
     LocalFuncReplaceInSubTable({ inDistPath });
     LocalFuncFromConfig({ inDistPath });
     LocalFuncForCrudStaticColumn({ inDistPath });
+    LocalFuncForCrudDynamicCol({ inDistPath });
 };
 
 const LocalFuncReplaceSchema = ({ inDistPath }) => {
@@ -51,6 +52,19 @@ const LocalFuncForCrudStaticColumn = ({ inDistPath }) => {
     const LocalDistPath = inDistPath;
 
     const filePath = `${LocalDistPath}/Js/CrudStaticColumn/Config.json`;
+
+    const content = fse.readFileSync(filePath, 'utf-8');
+    const contentAsJson = JSON.parse(content);
+    contentAsJson.columns = CommonColumns.columns;
+    contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+
+    fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
+};
+
+const LocalFuncForCrudDynamicCol = ({ inDistPath }) => {
+    const LocalDistPath = inDistPath;
+
+    const filePath = `${LocalDistPath}/Js/CrudDynamicCol/Config.json`;
 
     const content = fse.readFileSync(filePath, 'utf-8');
     const contentAsJson = JSON.parse(content);
