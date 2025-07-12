@@ -4,13 +4,11 @@ import { StartFunc as StartFuncFromForColumns } from "./ForColumns/entryFile.js"
 
 const StartFunc = () => {
     var $table = $('#table');
+    commonConfigJson.onPostBody = StartFuncFromOnPostBody;
 
-    let LocalConfig = {};
-    LocalConfig.onPostBody = StartFuncFromOnPostBody;
+    commonConfigJson.columns = StartFuncFromForColumns({ inColumns: commonConfigJson.columns });
 
-    // commonConfigJson.columns = StartFuncFromForColumns({ inColumns: commonConfigJson.columns });
-
-    $table.bootstrapTable(LocalConfig);
+    $table.bootstrapTable(commonConfigJson);
 };
 
 export { StartFunc };

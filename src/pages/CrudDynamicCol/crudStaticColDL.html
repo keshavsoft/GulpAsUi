@@ -90,24 +90,8 @@ Footer contains input fields for each column and a save button.
     <div class="card mt-5">
       <div class="card-body">
         <div class="table-responsive">
-          <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar">
-            <thead>
-              <tr>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
-                  Options
-                  </th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFoot.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th>
-                  <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
-                    data-index="${index}">Save</button>
-                  </th>
-              </tr>
-            </tfoot>
+          <table id="table">
+
           </table>
         </div>
       </div>
