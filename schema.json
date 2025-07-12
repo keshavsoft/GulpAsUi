@@ -25,6 +25,7 @@
             "title": "Amount",
             "type": "number",
             "isInput": true,
+            "footerFormatter": "priceFormatter",
             "width": 190,
             "numberConfig": {
                 "step": "0.01",
