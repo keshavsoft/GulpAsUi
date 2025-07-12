@@ -4,64 +4,33 @@
         {
             "field": "AccountName",
             "title": "Account Name",
-            "isInput": true,
-            "width": 180
+            "isInput": true
         },
         {
             "field": "Date",
             "title": "Date",
             "type": "date",
-            "isInput": true,
-            "width": 130
+            "isInput": true
         },
         {
             "field": "Description",
             "title": "Description",
-            "isInput": true,
-            "width": 150
+            "isInput": true
         },
         {
             "field": "Amount",
             "title": "Amount",
             "type": "number",
             "isInput": true,
-            "footerFormatter": "priceFormatter",
-            "width": 190,
             "numberConfig": {
                 "step": "0.01",
                 "min": "0",
                 "max": "999999999"
-            }
+            },
+            "align": "right",
+            "footerFormatter": "TotalFormatter"
         }
     ],
     "data": [],
-    "Vertical": [
-        {
-            "field": "AccountName",
-            "title": "Account Name",
-            "isInput": true
-        },
-        {
-            "field": "Date",
-            "title": "Date",
-            "type": "date",
-            "isInput": true
-        },
-        {
-            "field": "Description",
-            "title": "Description",
-            "isInput": true
-        },
-        {
-            "field": "Amount",
-            "title": "Amount",
-            "type": "number",
-            "isInput": true,
-            "numberConfig": {
-                "step": "0.01",
-                "min": "0",
-                "max": "999999999"
-            }
-        }
-    ]
+    "Vertical": []
 }

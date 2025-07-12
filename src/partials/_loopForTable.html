@@ -1,4 +1,5 @@
-<th data-field="@@field"  @@if (context.align) { data-align="@@align" }>
+<th data-field="@@field" @@if (context.align) { data-align="@@align" }
+ @@if (context.footerFormatter) { data-footer-formatter="@@footerFormatter" }>
   @@if (context.title) {
   @@title
   }
