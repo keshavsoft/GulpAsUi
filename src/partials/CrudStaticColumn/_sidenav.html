@@ -82,66 +82,68 @@
           <ul class="flex-column nav">
             <li class="nav-item @@if (context.page === 'showOnly') { active }">
               <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudStaticColumn/showOnly.html">
-                <span class="sidebar-icon text-secondary">
-                  <i class="bi bi-search" style="color:chocolate;"></i>
-                </span>
-                
+                <span class="sidebar-text-contracted text-secondary">S</span>
+
                 <span class="sidebar-text">showOnly</span>
               </a>
             </li>
 
             <li class="nav-item @@if (context.page === 'ShowOnlyWithOpts') { active }">
               <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudStaticColumn/showOnlyWithOpts.html">
-                <span class="sidebar-icon text-secondary">
-                  <i class="bi bi-option" style="color:gold;"></i>
-                </span>
-                
-                <span class="sidebar-text">showOnlyWithOpts</span>
+                <span class="sidebar-text-contracted text-success">WO</span>
+                <span class="sidebar-text">WithOpts</span>
               </a>
             </li>
 
             <li class="nav-item @@if (context.page === 'ShowOnlyWithSerial') { active }">
               <a class="nav-link d-flex align-items-center"
                 href="@@path/pages/CrudStaticColumn/showOnlyWithSerial.html">
-                <span class="sidebar-icon text-secondary">
-                  <i class="bi bi-bucket" style="color:rgb(239, 80, 133);"></i>
-                </span>
-                
-                <span class="sidebar-text">showOnlyWithSerial</span>
+                <span class="sidebar-text-contracted text-info">WS</span>
+                <span class="sidebar-text">WithSerial</span>
               </a>
             </li>
 
             <li class="nav-item @@if (context.page === 'ShowOnlyWithOptsAndSrNo') { active }">
               <a class="nav-link d-flex align-items-center"
                 href="@@path/pages/CrudStaticColumn/showOnlyWithOptsAndSrNo.html">
-                <span class="sidebar-icon text-warning">
-                  <i class="bi bi-asterisk"></i>
-                </span>
-               
-                <span class="sidebar-text">showOnlyWithOptsAndSrNo</span>
+
+                <span class="sidebar-text-contracted text-gray-400">OS</span>
+                <span class="sidebar-text">WithOptsAndSrNo</span>
               </a>
             </li>
           </ul>
         </div>
       </li>
 
-      <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
-        <a href="@@path/pages/CrudStaticColumn/footerCreateNew.html" class="nav-link">
-          <span class="sidebar-icon text-success">
-            <i class="bi bi-c-circle"></i>
+      <li class="nav-item">
+        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+          data-bs-target="#submenu-FooterCreate" aria-expanded="false">
+          <span>
+            <span class="sidebar-icon text-info"><i class="bi bi-eye-fill"></i></span>
+            <span class="sidebar-text">FooterCreate</span>
           </span>
-          <span class="sidebar-text">footerCreateNew</span>
-        </a>
-      </li>
-
-
-       <li class="nav-item @@if (context.page === 'FootCreateInput') { active }">
-        <a href="@@path/pages/CrudStaticColumn/FootCreateInput.html" class="nav-link">
-          <span class="sidebar-icon text-warning">
-            <i class="bi bi-c-circle"></i>
+          <span class="link-arrow text-muted">
+            <i class="bi bi-chevron-right"></i>
           </span>
-          <span class="sidebar-text">FootCreateInput</span>
-        </a>
+        </span>
+        <div class="multi-level collapse @@if (context.page_group === 'FooterCreate') { show }"
+          id="submenu-FooterCreate" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
+          <ul class="flex-column nav">
+            <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
+              <a href="@@path/pages/CrudStaticColumn/footerCreateNew.html" class="nav-link">
+                <span class="sidebar-text-contracted text-warning">f</span>
+                <span class="sidebar-text">footerCreateNew</span>
+              </a>
+            </li>
+
+            <li class="nav-item @@if (context.page === 'FootCreateInput') { active }">
+              <a href="@@path/pages/CrudStaticColumn/FootCreateInput.html" class="nav-link">
+                <span class="sidebar-text-contracted text-danger">F</span>
+                <span class="sidebar-text">FootCreateInput</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </li>
 
 
