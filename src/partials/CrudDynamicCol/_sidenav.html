@@ -81,22 +81,12 @@
           role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
           <ul class="flex-column nav">
 
-            <li class="nav-item @@if (context.page === 'DynamicShow') { active }">
-              <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudDynamicCol/DynamicShow.html">
-                <span class="sidebar-icon text-secondary">
-                  <i class="bi bi-search" style="color:rgb(85, 161, 169);"></i>
-                </span>
-                
-                <span class="sidebar-text">DynamicShow</span>
-              </a>
-            </li>
-
             <li class="nav-item @@if (context.page === 'showOnly') { active }">
               <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudDynamicCol/showOnly.html">
                 <span class="sidebar-icon text-secondary">
                   <i class="bi bi-search" style="color:chocolate;"></i>
                 </span>
-                
+
                 <span class="sidebar-text">showOnly</span>
               </a>
             </li>
@@ -106,18 +96,17 @@
                 <span class="sidebar-icon text-secondary">
                   <i class="bi bi-option" style="color:gold;"></i>
                 </span>
-                
+
                 <span class="sidebar-text">showOnlyWithOpts</span>
               </a>
             </li>
 
             <li class="nav-item @@if (context.page === 'ShowOnlyWithSerial') { active }">
-              <a class="nav-link d-flex align-items-center"
-                href="@@path/pages/CrudDynamicCol/showOnlyWithSerial.html">
+              <a class="nav-link d-flex align-items-center" href="@@path/pages/CrudDynamicCol/showOnlyWithSerial.html">
                 <span class="sidebar-icon text-secondary">
                   <i class="bi bi-bucket" style="color:rgb(239, 80, 133);"></i>
                 </span>
-                
+
                 <span class="sidebar-text">showOnlyWithSerial</span>
               </a>
             </li>
@@ -128,7 +117,7 @@
                 <span class="sidebar-icon text-warning">
                   <i class="bi bi-asterisk"></i>
                 </span>
-               
+
                 <span class="sidebar-text">showOnlyWithOptsAndSrNo</span>
               </a>
             </li>
@@ -145,17 +134,7 @@
         </a>
       </li>
 
-      <li class="nav-item @@if (context.page === 'footerCreateNewShow') { active }">
-        <a href="@@path/pages/CrudDynamicCol/footerCreateNewShow.html" class="nav-link">
-          <span class="sidebar-icon text-success">
-            <i class="bi bi-c-circle"></i>
-          </span>
-          <span class="sidebar-text">footerCreateNewShow</span>
-        </a>
-      </li>
-
-
-       <li class="nav-item @@if (context.page === 'FootCreateInput') { active }">
+      <li class="nav-item @@if (context.page === 'FootCreateInput') { active }">
         <a href="@@path/pages/CrudDynamicCol/FootCreateInput.html" class="nav-link">
           <span class="sidebar-icon text-warning">
             <i class="bi bi-c-circle"></i>

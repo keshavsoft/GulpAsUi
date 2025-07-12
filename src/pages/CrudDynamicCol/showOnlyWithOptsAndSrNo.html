@@ -91,16 +91,7 @@ Unique Aspect: This is the most feature-rich view, showing both row numbers and 
     <div class="card mt-5">
       <div class="card-body">
         <div class="table-responsive">
-          <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar">
-            <thead>
-              <tr>
-                <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
-                  Options
-                  </th>
-              </tr>
-            </thead>
+          <table id="table">
           </table>
         </div>
       </div>
@@ -115,12 +106,6 @@ Unique Aspect: This is the most feature-rich view, showing both row numbers and 
   @@include('./CrudDynamicCol/_scriptsWithBSTable.html', {
   "path": "../.."
   })
-
-  <script>
-    window.GlobalSerialFormatter = (value, row, index) => {
-      return index + 1;
-    };
-  </script>
 
   <script type="module" src="../../Js/CrudDynamicCol/ShowOnlyWithOptsAndSrNo/entryFile.js"></script>
 </body>

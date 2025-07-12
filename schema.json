@@ -1,32 +1,66 @@
 {
-    "tableName": "AccountsTable",
+    "tableName": "ReceiptsTable",
     "columns": [
-       {
+        {
             "field": "AccountName",
             "title": "Account Name",
-            "unique": true,
-            "type": "STRING",
-            "isInput": true
+            "isInput": true,
+            "width": 180
         },
         {
-            "field": "BSGroup",
-            "title": "Balance Sheet Group",
-            "isInput": true
+            "field": "Date",
+            "title": "Date",
+            "type": "date",
+            "isInput": true,
+            "width": 130
+        },
+        {
+            "field": "Description",
+            "title": "Description",
+            "isInput": true,
+            "width": 150
+        },
+        {
+            "field": "Amount",
+            "title": "Amount",
+            "type": "number",
+            "isInput": true,
+            "width": 190,
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            }
         }
     ],
     "data": [],
     "Vertical": [
-       {
+        {
             "field": "AccountName",
             "title": "Account Name",
-            "unique": true,
-            "type": "STRING",
             "isInput": true
         },
         {
-            "field": "BSGroup",
-            "title": "Balance Sheet Group",
+            "field": "Date",
+            "title": "Date",
+            "type": "date",
             "isInput": true
+        },
+        {
+            "field": "Description",
+            "title": "Description",
+            "isInput": true
+        },
+        {
+            "field": "Amount",
+            "title": "Amount",
+            "type": "number",
+            "isInput": true,
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            }
         }
     ]
 }

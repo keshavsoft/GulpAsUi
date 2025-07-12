@@ -1,0 +1,32 @@
+{
+    "tableName": "AccountsTable",
+    "columns": [
+       {
+            "field": "AccountName",
+            "title": "Account Name",
+            "unique": true,
+            "type": "STRING",
+            "isInput": true
+        },
+        {
+            "field": "BSGroup",
+            "title": "Balance Sheet Group",
+            "isInput": true
+        }
+    ],
+    "data": [],
+    "Vertical": [
+       {
+            "field": "AccountName",
+            "title": "Account Name",
+            "unique": true,
+            "type": "STRING",
+            "isInput": true
+        },
+        {
+            "field": "BSGroup",
+            "title": "Balance Sheet Group",
+            "isInput": true
+        }
+    ]
+}
