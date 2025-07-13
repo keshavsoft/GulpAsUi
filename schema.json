@@ -1,74 +1,43 @@
 {
-    "tableName": "TasksTable",
+    "tableName": "GpsTable",
     "columns": [
         {
-            "field": "title",
-            "title": "Title",
-            "unique": true,
-            "type": "text",
-            "isInput": true
+            "field": "DateTime",
+            "title": "Date Time",
+            "isInput": true,
+            "type": "STRING"
         },
         {
-            "field": "start",
-            "title": "Start Date",
-            "unique": false,
-            "type": "date",
-            "isInput": true
+            "field": "TreeName",
+            "title": "Tree Name",
+            "isInput": true,
+            "filterControl": "input"
         },
         {
-            "field": "className",
-            "title": "Class Name",
-            "unique": false,
-            "type": "text",
-            "isInput": false,
-            "isSelect": false,
-            "isDataList": true,
-            "selectOptions": [
-                {
-                    "value": "bg-primary",
-                    "text": "bg-primary"
-                },
-                {
-                    "value": "bg-success",
-                    "text": "bg-success"
-                }
-            ]
+            "field": "Latitude",
+            "isInput": true,
+            "title": "Latitude",
+            "type": "STRING"
+        },
+        {
+            "field": "Longitude",
+            "title": "Longitude",
+            "isInput": true,
+            "type": "STRING"
+        },
+        {
+            "field": "UserName",
+            "title": "UserName",
+            "isInput": true,
+            "filterControl": "select"
+        },
+        {
+            "field": "pk",
+            "title": "pk",
+            "isInput": true,
+            "type": "STRING"
         }
     ],
     "data": [],
-    "Vertical": [
-        {
-            "field": "title",
-            "title": "Title",
-            "unique": true,
-            "type": "text",
-            "isInput": true
-        },
-        {
-            "field": "start",
-            "title": "Start Date",
-            "unique": false,
-            "type": "date",
-            "isInput": true
-        },
-        {
-            "field": "className",
-            "title": "Class Name",
-            "unique": false,
-            "type": "text",
-            "isInput": false,
-            "isSelect": false,
-            "isDataList": true,
-            "selectOptions": [
-                {
-                    "value": "bg-primary",
-                    "text": "bg-primary"
-                },
-                {
-                    "value": "bg-success",
-                    "text": "bg-success"
-                }
-            ]
-        }
-    ]
+    "Vertical": []
 }

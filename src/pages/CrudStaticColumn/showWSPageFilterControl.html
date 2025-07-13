@@ -91,7 +91,8 @@ Unique Aspect: Adds a serial number (#) for each row, but does not include the "
         <div class="card mt-5">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="table" class="table table-bordered table-striped" data-toolbar="#toolbar">
+                    <table id="table" class="table table-bordered table-striped" data-pagination="true"
+                        data-filter-control="true" data-toolbar="#toolbar">
                         <thead>
                             <tr>
                                 <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
@@ -109,7 +110,7 @@ Unique Aspect: Adds a serial number (#) for each row, but does not include the "
         })
     </main>
 
-    @@include('./CrudStaticColumn/_scriptsWithBSTable.html', {
+    @@include('./CrudStaticColumn/_scriptsBSTableFilter.html', {
     "path": "../.."
     })
 
@@ -119,7 +120,7 @@ Unique Aspect: Adds a serial number (#) for each row, but does not include the "
         };
     </script>
 
-    <script type="module" src="../../Js/CrudStaticColumn/ShowOnlyWithSerial/entryFile.js"></script>
+    <script type="module" src="../../Js/CrudStaticColumn/ShowWSPageFilterControl/entryFile.js"></script>
 </body>
 
 </html>
