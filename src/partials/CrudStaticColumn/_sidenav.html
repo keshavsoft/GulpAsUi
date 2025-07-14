@@ -133,6 +133,24 @@
                                 <span class="sidebar-text">WithSerialAndPage</span>
                             </a>
                         </li>
+                        
+                        <li class="nav-item @@if (context.page === 'showOnlyWSAndPage') { active }">
+                            <a class="nav-link d-flex align-items-center"
+                                href="./showOnlyWSAndPage.html">
+
+                                <span class="sidebar-text-contracted text-warning">WSP</span>
+                                <span class="sidebar-text">WSAndPage</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item @@if (context.page === 'showWSPageFilterControl') { active }">
+                            <a class="nav-link d-flex align-items-center"
+                                href="./showWSPageFilterControl.html">
+
+                                <span class="sidebar-text-contracted text-warning">WFC</span>
+                                <span class="sidebar-text">WSPageFilterControl</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
