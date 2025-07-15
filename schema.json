@@ -1,41 +1,33 @@
 {
-    "tableName": "GpsTable",
+    "tableName": "ReceiptsTable",
     "columns": [
         {
-            "field": "DateTime",
-            "title": "Date Time",
-            "isInput": true,
-            "type": "STRING"
+            "field": "AccountName",
+            "title": "Account Name",
+            "isInput": true
         },
         {
-            "field": "TreeName",
-            "title": "Tree Name",
-            "isInput": true,
-            "filterControl": "input"
+            "field": "Date",
+            "title": "Date",
+            "type": "date",
+            "isInput": true
         },
         {
-            "field": "Latitude",
-            "isInput": true,
-            "title": "Latitude",
-            "type": "STRING"
+            "field": "Description",
+            "title": "Description",
+            "isInput": true
         },
         {
-            "field": "Longitude",
-            "title": "Longitude",
+            "field": "Amount",
+            "title": "Amount",
+            "type": "number",
             "isInput": true,
-            "type": "STRING"
-        },
-        {
-            "field": "UserName",
-            "title": "UserName",
-            "isInput": true,
-            "filterControl": "select"
-        },
-        {
-            "field": "pk",
-            "title": "pk",
-            "isInput": true,
-            "type": "STRING"
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            },
+            "footerFormatter": "TotalFormatter"
         }
     ],
     "data": [],
