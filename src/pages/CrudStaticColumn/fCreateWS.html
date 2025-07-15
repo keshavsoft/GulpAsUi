@@ -93,6 +93,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
           <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar">
             <thead>
               <tr>
+                <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableNoFFormat.html',
                   `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
                   Options
@@ -101,6 +102,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
             </thead>
             <tfoot>
               <tr>
+                <th></th>
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFoot.html',
                   `+(JSON.stringify(columns[i]))+`) } <th>
                   <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
@@ -124,7 +126,13 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
   "path": "../.."
   })
 
-  <script type="module" src="../../Js/CrudStaticColumn/FootCreateInput/entryFile.js"></script>
+  <script>
+    window.GlobalSerialFormatter = (value, row, index) => {
+      return index + 1;
+    };
+  </script>
+
+  <script type="module" src="../../Js/CrudStaticColumn/FCreateWS/entryFile.js"></script>
 </body>
 
 </html>
