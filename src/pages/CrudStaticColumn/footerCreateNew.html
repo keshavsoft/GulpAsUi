@@ -92,7 +92,7 @@ Displays a table with a footer row containing input fields and a "Save" button f
           <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar">
             <thead>
               <tr>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
+                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableWithoutFF.html',
                   `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
                   Options
                   </th>
