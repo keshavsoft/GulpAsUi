@@ -1,0 +1,8 @@
+<th data-field="@@field" @@if (context.align) { data-align="@@align" } @@if (!context.align && context.forceRightAlign)
+  { data-align="right" } @@if (context.footerFormatter && !context.ignoreFooterFormatter) {
+  data-footer-formatter="@@footerFormatter" } @@if (!context.align && context.forceRightAlign) { data-align="right" }
+  @@if (context.filterControl) { data-filter-control="@@filterControl" }>
+  @@if (context.title) {
+  @@title
+  }
+</th>

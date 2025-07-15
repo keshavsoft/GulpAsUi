@@ -114,7 +114,6 @@ Purpose: Displays a static table with only the main data columns: Account Name, 
     <script>
         function TotalFormatter(data, k1, k2) {
             var field = this.field;
-            console.log("field : ", field, this, k1, k2);
             const LocalReturnValue = data.map(function (row) {
                 return +row[field]
             }).reduce(function (sum, i) {
