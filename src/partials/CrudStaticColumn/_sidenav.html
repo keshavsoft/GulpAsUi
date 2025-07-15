@@ -124,10 +124,9 @@
                                 <span class="sidebar-text">Totals</span>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item @@if (context.page === 'showOnlyWSAndPage') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="./showOnlyWSAndPage.html">
+                            <a class="nav-link d-flex align-items-center" href="./showOnlyWSAndPage.html">
 
                                 <span class="sidebar-text-contracted text-warning">WSP</span>
                                 <span class="sidebar-text">WSAndPage</span>
@@ -135,8 +134,7 @@
                         </li>
 
                         <li class="nav-item @@if (context.page === 'showWSPageFilterControl') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="./showWSPageFilterControl.html">
+                            <a class="nav-link d-flex align-items-center" href="./showWSPageFilterControl.html">
 
                                 <span class="sidebar-text-contracted text-warning">WFC</span>
                                 <span class="sidebar-text">WSPageFilterControl</span>
@@ -171,6 +169,13 @@
                             <a href="@@path/pages/CrudStaticColumn/FootCreateInput.html" class="nav-link">
                                 <span class="sidebar-text-contracted text-danger">F</span>
                                 <span class="sidebar-text">FootCreateInput</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item @@if (context.page === 'fCreateWS') { active }">
+                            <a href="./fCreateWS.html" class="nav-link">
+                                <span class="sidebar-text-contracted text-danger">F</span>
+                                <span class="sidebar-text">With Serial</span>
                             </a>
                         </li>
                     </ul>
