@@ -31,5 +31,6 @@
         }
     ],
     "data": [],
-    "Vertical": []
+    "Vertical": [],
+    "ApiVersion": "V1"
 }

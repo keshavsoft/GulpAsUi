@@ -27,6 +27,9 @@ var fileinclude = require("gulp-file-include");
 const fse = require("fs-extra");
 const { StartFunc: CommonGulpCode } = require("./GulpCode/entryFile");
 
+var dotenv = require("dotenv");
+dotenv.config();
+
 // Load and enhance schema.json
 const CommonColumns = require("./schema.json");
 

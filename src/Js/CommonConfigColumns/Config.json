@@ -1,24 +1,10 @@
 {
-    "TableName": "/V2/$TableName",
+    "TableName": "/$ApiVersion/$TableName",
     "columns": [
         {
             "field": "KS-Serial",
             "title": "#",
             "formatter": "jFLocalSerialColumn"
-        }
-    ],
-    "columns": [
-        {
-            "field": "PARTYNAME",
-            "title": "Farmer Name",
-            "unique": true,
-            "type": "STRING"
-        },
-        {
-            "field": "DATE",
-            "title": "Date",
-            "unique": false,
-            "type": "STRING"
         }
     ]
 }

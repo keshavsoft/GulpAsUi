@@ -19,7 +19,7 @@ const LocalFuncReplaceSchema = ({ inDistPath }) => {
     const contentAsJson = JSON.parse(content);
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
-
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
 
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
