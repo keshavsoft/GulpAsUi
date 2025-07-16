@@ -1,5 +1,5 @@
 {
-    "TableName": "/V2/$TableName",
+    "TableName": "/$ApiVersion/$TableName",
     "showFooter": true,
     "toolbar": "#toolbar",
     "searchable": true,
