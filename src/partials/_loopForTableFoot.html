@@ -1,10 +1,8 @@
 <th>
 
   @@if (context.isInput) {
-  <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" name="@@field"
-    autocomplete="off" @@if (context.required) { @@required } @@if (context.numberConfig) { step="@@numberConfig.step" }
-    @@if (context.numberConfig) { min="@@numberConfig.min" } @@if (context.numberConfig) { max="@@numberConfig.max" }
-    @@if (context.dateConfig) { min="@@dateConfig.min" } @@if (context.dateConfig) { max="@@dateConfig.max" } />
+  <input class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if (context.required) { @@required
+    } />
   }
 
   @@if (context.isNumber) {
