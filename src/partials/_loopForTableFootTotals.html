@@ -1,0 +1,51 @@
+<th class="align-top p-1">
+  <div class="d-flex flex-column gap-1">
+
+    @@if (context.isInput) {
+    <input class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if (context.required) {
+      @@required } />
+    <div class="invisible"><small>placeholder</small></div>
+    }
+
+    @@if (context.isNumber) {
+    <input type="number" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if
+      (context.required) { @@required } @@if (context.numberConfig) { step="@@numberConfig.step" } @@if
+      (context.numberConfig) { min="@@numberConfig.min" } @@if (context.numberConfig) { max="@@numberConfig.max" } />
+    @@if (context.ShowTotal) {
+    <small id="HtmlTotalId-@@field" class="form-text text-muted">Total: 0</small>
+    }
+    @@if (!context.ShowTotal) {
+    <div class="invisible"><small>placeholder</small></div>
+    }
+    }
+
+    @@if (context.isDate) {
+    <input type="date" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if
+      (context.required) { @@required } @@if (context.dateConfig) { min="@@dateConfig.min" } @@if (context.dateConfig) {
+      max="@@dateConfig.max" } />
+    <div class="invisible"><small>placeholder</small></div>
+    }
+
+    @@if (context.isSelect) {
+    <select name="@@field" id="HtmlId-@@field" class="form-select">
+      @@for (var i = 0; i < context.selectOptions.length; i++) { <option value="@@selectOptions[i].value">
+        @@selectOptions[i].text</option>
+        }
+    </select>
+    <div class="invisible"><small>placeholder</small></div>
+    }
+
+    @@if (context.isDataList || context.isDataListEmpty) {
+    <input class="form-control" id="HtmlId-@@field" name="@@field"
+      list="@@if (context.isDataList) { HtmlDLId-@@field } @@if (context.isDataListEmpty) { HtmlDLEId-@@field }" />
+    <datalist id="@@if (context.isDataList) { HtmlDLId-@@field } @@if (context.isDataListEmpty) { HtmlDLEId-@@field }">
+      @@if (context.isDataList) {
+      @@for (var i = 0; i < context.selectOptions.length; i++) { <option value="@@selectOptions[i].value">
+        @@selectOptions[i].text</option>
+        }
+        }
+    </datalist>
+    }
+
+  </div>
+</th>
