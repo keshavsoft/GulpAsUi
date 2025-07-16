@@ -55,151 +55,23 @@
                 </a>
             </li>
             <li class="nav-item @@if (context.page === 'index') { active }">
-                <a href="@@path/pages/CrudStaticColumn/index.html" class="nav-link">
+                <a href="@@path/pages/CrudOnObject/index.html" class="nav-link">
                     <span class="sidebar-icon text-danger">
                         <i class="bi bi-speedometer2"></i>
                     </span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-showOnly">
-                    <span>
-                        <span class="sidebar-icon text-success"><i class="bi bi-plus-circle-fill"></i></span>
-                        <span class="sidebar-text">ShowOnly</span>
-                    </span>
-                    <span class="link-arrow text-muted">
-                        <i class="bi bi-chevron-right"></i>
-                    </span>
-                </span>
-                <div class="multi-level collapse @@if (context.page_group === 'showOnly') { show }"
-                    id="submenu-showOnly" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
-                    <ul class="flex-column nav">
-                        <li class="nav-item @@if (context.page === 'showOnly') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="@@path/pages/CrudStaticColumn/showOnly.html">
-                                <span class="sidebar-text-contracted text-secondary">S</span>
-
-                                <span class="sidebar-text">AsIs</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'ShowOnlyWithOpts') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="@@path/pages/CrudStaticColumn/showOnlyWithOpts.html">
-                                <span class="sidebar-text-contracted text-success">WO</span>
-                                <span class="sidebar-text">Opts</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'ShowOnlyWithSerial') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="@@path/pages/CrudStaticColumn/showOnlyWithSerial.html">
-                                <span class="sidebar-text-contracted text-info">WS</span>
-                                <span class="sidebar-text">Serial</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'ShowOnlyWithOptsAndSrNo') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="@@path/pages/CrudStaticColumn/showOnlyWithOptsAndSrNo.html">
-
-                                <span class="sidebar-text-contracted text-gray-400">OS</span>
-                                <span class="sidebar-text">OptsAndSrNo</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'showOnlyWithTotals') { active }">
-                            <a class="nav-link d-flex align-items-center"
-                                href="@@path/pages/CrudStaticColumn/showOnlyWithTotals.html">
-
-                                <span class="sidebar-text-contracted text-warning">ST</span>
-                                <span class="sidebar-text">Totals</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'showOnlyWSAndPage') { active }">
-                            <a class="nav-link d-flex align-items-center" href="./showOnlyWSAndPage.html">
-
-                                <span class="sidebar-text-contracted text-warning">WSP</span>
-                                <span class="sidebar-text">WSAndPage</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'showWSPageFilterControl') { active }">
-                            <a class="nav-link d-flex align-items-center" href="./showWSPageFilterControl.html">
-
-                                <span class="sidebar-text-contracted text-warning">WFC</span>
-                                <span class="sidebar-text">WSPageFilterControl</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'fCreateWS') { active }">
-                            <a class="nav-link d-flex align-items-center" href="./fCreateWS.html">
-
-                                <span class="sidebar-text-contracted text-warning">fC</span>
-                                <span class="sidebar-text">fCreateWS</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'fCreateWSTotal') { active }">
-                            <a class="nav-link d-flex align-items-center" href="./fCreateWSTotal.html">
-
-                                <span class="sidebar-text-contracted text-warning">fC</span>
-                                <span class="sidebar-text">fCreateWSTotal</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#submenu-FooterCreate" aria-expanded="false">
-                    <span>
-                        <span class="sidebar-icon text-info"><i class="bi bi-eye-fill"></i></span>
-                        <span class="sidebar-text">FooterCreate</span>
-                    </span>
-                    <span class="link-arrow text-muted">
-                        <i class="bi bi-chevron-right"></i>
-                    </span>
-                </span>
-                <div class="multi-level collapse @@if (context.page_group === 'FooterCreate') { show }"
-                    id="submenu-FooterCreate" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
-                    <ul class="flex-column nav">
-                        <li class="nav-item @@if (context.page === 'footerCreateNew') { active }">
-                            <a href="@@path/pages/CrudStaticColumn/footerCreateNew.html" class="nav-link">
-                                <span class="sidebar-text-contracted text-warning">f</span>
-                                <span class="sidebar-text">footerCreateNew</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'FootCreateInput') { active }">
-                            <a href="@@path/pages/CrudStaticColumn/FootCreateInput.html" class="nav-link">
-                                <span class="sidebar-text-contracted text-danger">F</span>
-                                <span class="sidebar-text">FootCreateInput</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item @@if (context.page === 'fCreateWS') { active }">
-                            <a href="./fCreateWS.html" class="nav-link">
-                                <span class="sidebar-text-contracted text-danger">F</span>
-                                <span class="sidebar-text">With Serial</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            
 
 
 
-            <li class="nav-item @@if (context.page === 'crudStaticColDL') { active }">
-                <a href="@@path/pages/CrudStaticColumn/crudStaticColDL.html" class="nav-link">
+            <li class="nav-item @@if (context.page === 'fCreateWS') { active }">
+                <a href="@@path/pages/CrudOnObject/fCreateWS.html" class="nav-link">
                     <span class="sidebar-icon text-danger">
                         <i class="bi bi-card-list" style="color:aqua;"></i>
                     </span>
-                    <span class="sidebar-text">CrudStaticColumn</span>
+                    <span class="sidebar-text">FCreateWS</span>
                 </a>
             </li>
 
