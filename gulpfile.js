@@ -79,7 +79,8 @@ const getFileIncludeContext = (environment) => ({
   environment: environment,
   name: "KeshavSoft",
   columns: CommonColumns.columns,
-  Vertical: CommonColumns.Vertical
+  Vertical: CommonColumns.Vertical,
+  TableName: CommonColumns.tableName
 });
 
 // Gulp tasks
