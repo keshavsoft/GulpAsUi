@@ -40,7 +40,8 @@
         @@include('./Calendar/_topbarWithEntry.html', {
         "path": "../.."
         })
-
+        @@include('./_forBreadCrumb.html', { "page":
+        "Simple","BreadCrumbItems": [{name:'Pages'},{name:'Simple',isLast:true}] })
         <div class="row mt-2">
             <div class="col-7">
                 <div id='calendar'></div>
