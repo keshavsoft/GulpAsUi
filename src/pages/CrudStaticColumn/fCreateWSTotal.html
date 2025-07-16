@@ -102,7 +102,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
             <tfoot>
               <tr>
                 <th></th>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFootDateMinMax.html',
+                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFoot.html',
                   `+(JSON.stringify(columns[i]))+`) } <th>
                   <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
                     data-index="${index}">Save</button>
