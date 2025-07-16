@@ -33,6 +33,8 @@ const LocalFuncReplaceInSubTable = ({ inDistPath }) => {
 
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
+
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
 
@@ -45,6 +47,8 @@ const LocalFuncFromConfig = ({ inDistPath }) => {
     const contentAsJson = JSON.parse(content);
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
+
 
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
@@ -58,6 +62,8 @@ const LocalFuncForCrudStaticColumn = ({ inDistPath }) => {
     const contentAsJson = JSON.parse(content);
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
+
 
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
@@ -71,6 +77,8 @@ const LocalFuncForCrudDynamicCol = ({ inDistPath }) => {
     const contentAsJson = JSON.parse(content);
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
+
 
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
@@ -84,6 +92,8 @@ const LocalFuncForCalendar = ({ inDistPath }) => {
     const contentAsJson = JSON.parse(content);
     contentAsJson.columns = CommonColumns.columns;
     contentAsJson.TableName = contentAsJson.TableName.replace("$TableName", CommonColumns.tableName);
+    contentAsJson.TableName = contentAsJson.TableName.replace("$ApiVersion", process.env.VERSION);
+
 
     fse.writeFileSync(filePath, JSON.stringify(contentAsJson), 'utf-8');
 };
