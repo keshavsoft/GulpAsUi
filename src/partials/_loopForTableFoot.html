@@ -6,6 +6,19 @@
     @@if (context.numberConfig) { min="@@numberConfig.min" } @@if (context.numberConfig) { max="@@numberConfig.max" } />
   }
 
+  @@if (context.isNumber) {
+  <input type="number" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off"
+   @@if (context.required) { @@required }
+    @@if (context.numberConfig) { step="@@numberConfig.step" min="@@numberConfig.min" max="@@numberConfig.max" }
+    />
+  }
+
+  @@if (context.isDate) {
+  <input type="date" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off"
+   @@if (context.required) { @@required }
+    @@if (context.dateConfig) { min="@@dateConfig.min" max="@@dateConfig.max" }
+    />
+  }
 
   @@if (context.isSelect) {
   <select name="@@field" id="HtmlId-@@field" class="form-select">
