@@ -1,0 +1,32 @@
+<th>
+  @@if (context.isInput) {
+  <input @@if (context.type) { type="@@type" } class="form-control" id="HtmlId-@@field" name="@@field"
+    autocomplete="off" @@if (context.required) { @@required } @@if (context.type==='number' ) { @@if
+    (context.numberConfig && context.numberConfig.step) { step="@@numberConfig.step" } @@if (context.numberConfig &&
+    context.numberConfig.min) { min="@@numberConfig.min" } @@if (context.numberConfig && context.numberConfig.max) {
+    max="@@numberConfig.max" } } @@if (context.type==='date' ) { @@if (context.dateConfig && context.dateConfig.min) {
+    min="@@dateConfig.min" } @@if (context.dateConfig && context.dateConfig.max) { max="@@dateConfig.max" } } />
+  }
+
+  @@if (context.isSelect) {
+  <select name="@@field" id="HtmlId-@@field" class="form-select">
+    @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+      `+selectOptions[i].text+`</option>
+      }
+  </select>
+  }
+
+  @@if (context.isDataList) {
+  <input class="form-control" id="HtmlId-@@field" name="@@field" list="HtmlDLId-@@field" />
+  <datalist id="HtmlDLId-@@field">
+    @@for (var i = 0; i < context.selectOptions.length; i++) { <option value=`+selectOptions[i].value+`>
+      `+selectOptions[i].text+`</option>
+      }
+  </datalist>
+  }
+
+  @@if (context.isDataListEmpty) {
+  <input class="form-control" id="HtmlId-@@field" name="@@field" list="HtmlDLEId-@@field" />
+  <datalist id="HtmlDLEId-@@field"></datalist>
+  }
+</th>

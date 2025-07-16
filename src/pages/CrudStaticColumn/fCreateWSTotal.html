@@ -95,15 +95,14 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
               <tr>
                 <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableNoFFormat.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">
-                  Options
-                  </th>
+                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">Options</th>
               </tr>
             </thead>
+
             <tfoot>
               <tr>
                 <th></th>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFoot.html',
+                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFootDateMinMax.html',
                   `+(JSON.stringify(columns[i]))+`) } <th>
                   <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
                     data-index="${index}">Save</button>
@@ -111,6 +110,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
               </tr>
             </tfoot>
           </table>
+
         </div>
       </div>
     </div>
