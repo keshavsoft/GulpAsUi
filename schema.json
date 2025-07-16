@@ -11,8 +11,8 @@
             "title": "Date",
             "isDate": true,
             "dateConfig": {
-                "min": "2025-01-01",
-                "max": "2025-12-31"
+                "min": "2025-07-01",
+                "max": "2025-07-25"
             }
         },
         {
@@ -30,7 +30,8 @@
                 "min": "0",
                 "max": "999999999"
             },
-            "footerFormatter": "TotalFormatter"
+            "footerFormatter": "TotalFormatter",
+            "ShowTotal": true
         }
     ],
     "data": [],

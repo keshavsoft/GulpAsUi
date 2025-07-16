@@ -6,9 +6,20 @@
   }
 
   @@if (context.isNumber) {
+  @@if (context.ShowTotal) {
+  <div class="input-group">
+    <input type="number" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if
+      (context.required) { @@required } @@if (context.numberConfig) { step="@@numberConfig.step" } @@if
+      (context.numberConfig) { min="@@numberConfig.min" } @@if (context.numberConfig) { max="@@numberConfig.max" } />
+    <span class="input-group-text" id="HtmlTotalId-@@field">Total</span>
+  </div>
+  }
+
+  @@if (!context.ShowTotal) {
   <input type="number" class="form-control" id="HtmlId-@@field" name="@@field" autocomplete="off" @@if
     (context.required) { @@required } @@if (context.numberConfig) { step="@@numberConfig.step" } @@if
     (context.numberConfig) { min="@@numberConfig.min" } @@if (context.numberConfig) { max="@@numberConfig.max" } />
+  }
   }
 
   @@if (context.isDate) {
