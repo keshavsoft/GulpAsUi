@@ -10,7 +10,11 @@
             "field": "Date",
             "title": "Date",
             "type": "date",
-            "isInput": true
+            "isInput": true,
+            "dateConfig": {
+                "min": "2025-01-01",
+                "max": "2025-12-31"
+            }
         },
         {
             "field": "Description",
@@ -31,6 +35,5 @@
         }
     ],
     "data": [],
-    "Vertical": [],
-    "ApiVersion": "V1"
+    "Vertical": []
 }
