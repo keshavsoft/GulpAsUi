@@ -19,16 +19,8 @@
                     <li class="breadcrumb-item"><a href="#"></a>@@TableName</li>
                     }
 
-                    @@for (var i = 0; i < BreadCrumbItems.length; i++) { 
-            <li class="breadcrumb-item">bbbbbb</li>
-
-  @@if(`+i+` == `+(BreadCrumbItems.length-1)+`){
-            <li class="breadcrumb-item">aaaaaaaaaaaaaaa</li>
-          }
-
-
-                        <li class="breadcrumb-item">`+BreadCrumbItems[i]+`  `+i+` `+(BreadCrumbItems.length-1)+` </li>
-                        }
+                         @@for (var i = 0; i < BreadCrumbItems.length; i++) { @@include('./_loopBreadCrumb.html',
+                  `+(JSON.stringify(BreadCrumbItems[i]))+`) }
                 </ol>
             </nav>
             <!-- <p class="mb-0">Show all the students.</p> -->

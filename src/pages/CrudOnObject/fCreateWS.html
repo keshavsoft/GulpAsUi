@@ -48,7 +48,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
         })
 
         @@include('./_forBreadCrumb.html', { "page":
-        "fCreateWS","BreadCrumbItems":["Pages","CrudOnObject","FCreateWS"]})
+        "fCreateWS","BreadCrumbItems": [{name:'Pages'},{name:'CrudOnObject',isLast:true}] })
 
         <div id="toolbar">
             <a id="RefreshATagId" href="#"
