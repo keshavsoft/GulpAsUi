@@ -1,5 +1,5 @@
 {
-    "TableName": "/V2/$TableName",
+    "TableName": "/V1/TasksTable",
     "showFooter": true,
     "toolbar": "#toolbar",
     "searchable": true,
