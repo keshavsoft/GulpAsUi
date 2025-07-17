@@ -38,11 +38,12 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
 
     @@include('./CrudOnObject/_sidenav.html', {
     "path": "../..",
-    "page": "fCreateWS",
+    "page": "fCreate",
     "page_group":"fCreateWS",
     "SideBarItems": [
-    {name:'fCreateWS',DisplayName:'With Serial',IconClass:"bi bi-pencil-square",SpanClass:"text-info",isActive:true},
-    {name:'fCreate',DisplayName:"No Serial",IconClass:"bi bi-card-list",SpanClass:"text-success"}]
+    {name:'fCreateWS',DisplayName:'With Serial',IconClass:"bi bi-pencil-square",SpanClass:"text-info"},
+    {name:'fCreate',DisplayName:"No Serial",IconClass:"bi bi-card-list",SpanClass:"text-success",isActive:true}
+    ]
     })
 
     <main class="content">
@@ -75,7 +76,6 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
                         data-toolbar="#toolbar">
                         <thead>
                             <tr>
-                                <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
                                 <th data-field="Key">Key</th>
                                 <th data-field="Value">Value</th>
                                 <th data-field="KS-Save">
@@ -85,7 +85,6 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
                         </thead>
                         <tfoot>
                             <tr>
-                                <th></th>
                                 <th>
                                     <input type="text" class="form-control" id="HtmlKeyId" name="Key"
                                         autocomplete="off" />
@@ -116,13 +115,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
     "path": "../.."
     })
 
-    <script>
-        window.GlobalSerialFormatter = (value, row, index) => {
-            return index + 1;
-        };
-    </script>
-
-    <script type="module" src="../../Js/CrudOnObject/FCreateWS/entryFile.js"></script>
+    <script type="module" src="../../Js/CrudOnObject/FCreate/entryFile.js"></script>
 </body>
 
 </html>

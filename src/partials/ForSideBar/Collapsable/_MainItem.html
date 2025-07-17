@@ -1,0 +1,25 @@
+<li class="nav-item">
+    <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+        data-bs-target="#submenu-@@Name">
+        <span>
+            <span class="sidebar-icon text-success"><i class="bi bi-plus-circle-fill"></i></span>
+            <span class="sidebar-text">@@DisplayName</span>
+        </span>
+        <span class="link-arrow text-muted">
+            <i class="bi bi-chevron-right"></i>
+        </span>
+    </span>
+    <div class="multi-level collapse  @@if (context.isExpanded) { show }" id="submenu-@@Name"
+        role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
+        <ul class="flex-column nav">
+
+
+            @@if (context.SubItems) {
+                    @@for (var i = 0; i < SubItems.length; i++) { @@include('./ForSideBar/Collapsable/_SubItem.html',
+                        `+(JSON.stringify(SubItems[i]))+`) } 
+            }
+
+            
+        </ul>
+    </div>
+</li>

@@ -32,7 +32,12 @@
 
     @@include('./CrudOnObject/_sidenav.html', {
     "path": "../..",
-    "page": "index"
+    "page": "index",
+    "page_group":"fCreateWS",
+    "SideBarItems": [
+     {name:'fCreateWS',DisplayName:'With Serial',IconClass:"bi bi-pencil-square",SpanClass:"text-info"},
+    {name:'fCreate',DisplayName:"No Serial",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]
     })
 
     <main class="content">
@@ -40,9 +45,9 @@
         "path": "../.."
         })
 
-       @@include('./_forBreadCrumb.html', { "page":
-    "Dashboard","BreadCrumbItems":
-    [{name:'Pages'},{name:'CrudOnObject'},{name:'Index',isLast:true}] })
+        @@include('./_forBreadCrumb.html', { "page":
+        "Dashboard","BreadCrumbItems":
+        [{name:'Pages'},{name:'CrudOnObject'},{name:'Index',isLast:true}] })
 
         <div class="row">
             <div class="col-12 col-sm-6 col-xl-4 mb-4">
