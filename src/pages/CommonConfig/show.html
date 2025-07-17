@@ -40,6 +40,9 @@
         @@include('./CommonConfig/_topbarEmpty.html', {
         "path": "../.."
         })
+        @@include('./_forBreadCrumb.html', { "page":
+        "Show","BreadCrumbItems": [{name:'Pages'},{name:'CommonConfig'},{name:'Show',isLast:true}] })
+
         <div id="toolbar">
             <a id="RefreshATagId" href="#"
                 class="btn d-flex justify-content-center align-items-center RefreshBSTableClass bg-gray-700 text-white"
@@ -53,8 +56,6 @@
                 </svg>
             </a>
         </div>
-         @@include('./_forBreadCrumb.html', { "page":
-        "Show","BreadCrumbItems": [{name:'Pages'},{name:'CommonConfig'},{name:'Show',isLast:true}] })
         <div class="table-responsive">
             <table id="table" class="table table-bordered table-striped">
             </table>
