@@ -80,10 +80,14 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
               <tr>
                 <th></th>
                 @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFootTotals.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th>
-                  <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
-                    data-index="${index}">Save</button>
+                  `+(JSON.stringify(columns[i]))+`) } <th class="align-top p-1">
+                  <div class="d-flex flex-column gap-1">
+                    <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
+                      data-index="${index}">Save</button>
+                    <div class="invisible"><small>placeholder</small></div>
+                  </div>
                   </th>
+
               </tr>
             </tfoot>
           </table>
