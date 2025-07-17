@@ -63,23 +63,16 @@
                 </a>
             </li>
 
-
-
-            @@if (context.SideBarItems) {
-
-            @@for (var i = 0; i < SideBarItems.length; i++) { <li
-                class="nav-item @@if (context.page === 'fCreateWS') { active }">
+            <li class="nav-item @@if (context.page === 'fCreateWS') { active }">
                 <a href="@@path/pages/CrudOnObject/fCreateWS.html" class="nav-link">
                     <span class="sidebar-icon text-danger">
                         <i class="bi bi-card-list" style="color:aqua;"></i>
                     </span>
-                    <span class="sidebar-text">`+SideBarItems[i].name+`</span>
+                    <span class="sidebar-text">FCreateWS</span>
                 </a>
-                </li>
-                }
+            </li>
 
-                }
-                <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
+            <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
         </ul>
     </div>
