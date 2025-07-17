@@ -40,6 +40,10 @@
         @@include('./CrudDynamicCol/_topbarEmpty.html', {
         "path": "../.."
         })
+
+        @@include('./_forBreadCrumb.html', { "page":
+        "ShowOnly","BreadCrumbItems": [{name:'Pages'},{name:'CrudDynamicCol'},{name:'ShowOnly',isLast:true}] })
+
         <div id="toolbar">
             <a id="RefreshATagId" href="#"
                 class="btn d-flex justify-content-center align-items-center RefreshBSTableClass bg-gray-700 text-white"
@@ -53,9 +57,6 @@
                 </svg>
             </a>
         </div>
-         @@include('./_forBreadCrumb.html', { "page":
-        "ShowOnly","BreadCrumbItems": [{name:'Pages'},{name:'CrudDynamicCol'},{name:'ShowOnly',isLast:true}] })
-
 
         <div class="table-responsive">
             <table id="table" class="table table-bordered table-striped" data-search="true" data-show-footer="true">
