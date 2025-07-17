@@ -1,5 +1,5 @@
 {
-    "TableName": "/V4/GpsTable",
+    "TableName": "/$ApiVersion/$TableName",
     "Columns": [
         {
             "field": "KS-Serial",
