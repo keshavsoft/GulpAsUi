@@ -33,7 +33,21 @@
   @@include('./SubTable/_sidenav.html', {
   "path": "../..",
   "page": "crudStaticColDL",
-  "page_group":"crudStaticColDL"
+  "SideBarItems": [
+    {DisplayName:'Crud',Name:'Crud',IconClass:"bi bi-pencil-square",SpanClass:"text-info", isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Crud",Name:"crud",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+     ]
+    },
+    {DisplayName:"SubTable",Name:"SubTable",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"SubTableShow",Name:"subTableShow",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"CrudStaticColDL",Name:"CrudStaticColDL",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,isExpanded:true,
+    SubItems:[
+    {DisplayName:"CrudStaticColDL",Name:"crudStaticColDL",IconClass:"bi bi-card-list",SpanClass:"text-success",isActive:true}
+    ]}
+    ]
   })
 
   <main class="content">

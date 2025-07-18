@@ -61,82 +61,11 @@
         </a>
       </li>
 
-      <!-- CRUD Section -->
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-CRUD">
-          <span>
-            <span class="sidebar-icon text-secondary"><i class="bi bi-database-fill-gear"></i></span>
-            <span class="sidebar-text text-dark">Crud</span>
-          </span>
-          <span class="link-arrow text-muted">
-            <i class="bi bi-chevron-right"></i>
-          </span>
-        </span>
-        <div class="multi-level collapse @@if (context.page_group === 'CRUD') { show }" id="submenu-CRUD" role="list"
-          aria-expanded="false" data-bs-parent="#sidebarMenu">
-          <ul class="flex-column nav">
-            <li class="nav-item @@if (context.page === 'CRUD') { active }">
-              <a class="nav-link d-flex align-items-center" href="crud.html">
-                <span class="sidebar-text-contracted text-secondary">C</span>
-                <span class="sidebar-text text-dark">Crud</span>
-              </a>
-            </li>
-            
-          </ul>
-        </div>
-      </li>
-
-      <!-- SubTableShow Section -->
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-subTableShow">
-          <span>
-            <span class="sidebar-icon text-success"><i class="bi bi-table"></i></span>
-            <span class="sidebar-text text-dark">Sub Table</span>
-          </span>
-          <span class="link-arrow text-muted">
-            <i class="bi bi-chevron-right"></i>
-          </span>
-        </span>
-        <div class="multi-level collapse @@if (context.page_group === 'subTableShow') { show }"
-          id="submenu-subTableShow" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
-          <ul class="flex-column nav">
-            <li class="nav-item @@if (context.page === 'subTableShow') { active }">
-              <a class="nav-link d-flex align-items-center" href="subTableShow.html">
-                <span class="sidebar-text-contracted text-success">S</span>
-                <span class="sidebar-text text-dark">Sub Table</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-crudStaticColDL">
-          <span>
-            <span class="sidebar-icon text-success"><i class="bi bi-table"></i></span>
-            <span class="sidebar-text text-dark">CrudStaticColDL</span>
-          </span>
-          <span class="link-arrow text-muted">
-            <i class="bi bi-chevron-right"></i>
-          </span>
-        </span>
-        <div class="multi-level collapse @@if (context.page_group === 'crudStaticColDL') { show }"
-          id="submenu-crudStaticColDL" role="list" aria-expanded="false" data-bs-parent="#sidebarMenu">
-          <ul class="flex-column nav">
-            <li class="nav-item @@if (context.page === 'crudStaticColDL') { active }">
-              <a class="nav-link d-flex align-items-center" href="crudStaticColDL.html">
-                <span class="sidebar-text-contracted text-warning">C</span>
-                <span class="sidebar-text text-dark">CrudStaticColDL</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-
-
+     
+@@if (context.SideBarItems) {
+                    @@for (var i = 0; i < SideBarItems.length; i++) { @@include('./ForSideBar/Collapsable/_MainItem.html',
+                        `+(JSON.stringify(SideBarItems[i]))+`) } 
+            }
       <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
 
     </ul>
