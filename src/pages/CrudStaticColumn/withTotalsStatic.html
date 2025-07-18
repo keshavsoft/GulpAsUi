@@ -1,0 +1,126 @@
+<!--
+
+=========================================================
+* Volt Free - Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+
+
+<!--
+KeshavSoft
+
+Purpose: Displays a static table with only the main data columns: Account Name, Date, Description, and Amount.
+ Unique Aspect: No serial number or options column. Purely for viewing data, no actions or row numbers. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./_headWithBSTable.html', {
+    "path": "../..",
+    "title": "Volt Free Bootstrap Dashboard - Bootstrap FixedCol"
+    })
+</head>
+
+<body>
+    @@include('./CrudStaticColumn/_nav.html', {
+    "path": "../.."
+    })
+
+    @@include('./CrudStaticColumn/_sidenav.html', {
+    "path": "../..",
+    "page": "showOnlyWithTotals",
+    "page_group":"showOnly"
+    })
+
+    <main class="content">
+        @@include('./CrudStaticColumn/_topbarEmpty.html', {
+        "path": "../.."
+        })
+
+        @@include('./_forBreadCrumb.html', { "page":
+        "Totals","BreadCrumbItems":
+        [{name:'Pages'},{name:'CrudStaticColumn'},{name:'ShowOnly'},{name:'Totals',isLast:true}]
+        })
+        <div id="toolbar">
+            <a id="RefreshATagId" href="#"
+                class="btn d-flex justify-content-center align-items-center RefreshBSTableClass bg-gray-700 text-white"
+                style="width: 40px; height: 40px; border-radius: 50%;">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"
+                    style="width: 20px; height: 20px; flex-shrink: 0;">
+                    <path
+                        d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.8 6.8 0 0 0 1.16 8z" />
+                    <path
+                        d="M6.641 11.671V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352zm0-3.75V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324z" />
+                </svg>
+            </a>
+        </div>
+        <div class="card ">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="table" class="table table-bordered table-striped" data-show-footer="true"
+                        data-search="true" data-show-footer="true" data-toolbar="#toolbar">
+                        <thead>
+                            <tr>
+                                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
+                                    `+(JSON.stringify(columns[i]))+`) } </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                @@for (var i = 0; i < columns.length; i++) { <th>
+                                    <input type="text" class="form-control" value="Total">
+                                    </th>
+                                    }
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @@include('./Students/_footer.html', {
+        "path": "../..",
+        "classes": "bg-gray-800 text-white"
+        })
+    </main>
+
+    @@include('./CrudStaticColumn/_scriptsWithBSTable.html', {
+    "path": "../.."
+    })
+    <script>
+        function TotalFormatter(data, currentHtml) {
+            var field = this.field;
+            console.log("field : ", field, this, currentHtml);
+
+            // const LocalReturnValue = data.map(function (row) {
+            //     return +row[field]
+            // }).reduce(function (sum, i) {
+            //     return sum + i
+            // }, 0);
+
+            // return LocalReturnValue;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(currentHtml, 'text/html');
+            const paragraphElement = doc.querySelector("input");
+            paragraphElement.setAttribute('value', '1234567890');
+            // Output: Hello, World!
+            const k1 = doc.documentElement.html;
+            console.log(paragraphElement.outerHTML, k1);
+
+            return paragraphElement.outerHTML;
+        };
+    </script>
+    <script type="module" src="../../Js/CrudStaticColumn/WithTotalsStatic/entryFile.js"></script>
+</body>
+
+</html>
