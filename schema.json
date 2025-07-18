@@ -31,7 +31,8 @@
                 "max": "999999999"
             },
             "footerFormatter": "TotalFormatter",
-            "ShowTotal": true
+            "ShowTotal": true,
+            "ShowDifference":true
         },
         {
             "field": "Debit",
@@ -44,7 +45,8 @@
                 "max": "999999999"
             },
             "footerFormatter": "TotalFormatter",
-            "ShowTotal": true
+            "ShowTotal": true,
+            "ShowDifference":true
         }
     ],
     "data": [],

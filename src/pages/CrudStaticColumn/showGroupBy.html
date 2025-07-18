@@ -16,11 +16,12 @@
 
 -->
 
+
 <!--
 KeshavSoft
 
-Footer input values are sent as numbers for numeric fields (like Amount) and as strings for others.
- It provides a table with input fields in the footer for new data entry. -->
+Purpose: Displays a static table with only the main data columns: Account Name, Date, Description, and Amount.
+ Unique Aspect: No serial number or options column. Purely for viewing data, no actions or row numbers. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +39,8 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
 
   @@include('./CrudStaticColumn/_sidenav.html', {
   "path": "../..",
-  "page": "fCreateWSTWOInput",
-  "page_group":"FooterCreate"
+  "page": "showOnly",
+  "page_group":"showOnly"
   })
 
   <main class="content">
@@ -48,8 +49,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
     })
 
     @@include('./_forBreadCrumb.html', { "page":
-    "fCreateWSTWOInput","BreadCrumbItems": [{name:'Pages'},{name:'CrudStaticCol'},{name:'Footer Create'},{name:'fCreateWSTWOInput',isLast:true}] })
-
+    "AsIs","BreadCrumbItems": [{name:'Pages'},{name:'CrudStaticColumn'},{name:'Show Only'},{name:'As Is',isLast:true}] })
     <div id="toolbar">
       <a id="RefreshATagId" href="#"
         class="btn d-flex justify-content-center align-items-center RefreshBSTableClass bg-gray-700 text-white"
@@ -66,56 +66,17 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
     <div class="card ">
       <div class="card-body">
         <div class="table-responsive">
-
-          <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar">
+          <table id="table" class="table table-bordered table-striped" data-show-footer="true" data-toolbar="#toolbar"data-search="true"data-show-footer="true" 
+           data-group-by="true"data-group-by-field="AccountName">
             <thead>
               <tr>
-                <th data-field="KS-Serial" data-formatter="window.GlobalSerialFormatter">#</th>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableNoFFormat.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th data-field="KS-Save">Options</th>
-              </tr>
+                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTable.html',
+                  `+(JSON.stringify(columns[i]))+`) } </tr>
             </thead>
-
-      <tfoot>
-  <!-- Row 1: Totals -->
-  <tr>
-    <th></th>
-    @@for (var i = 0; i < columns.length; i++) {
-      @@include('./_loopForTableFootTotals.html', `+(JSON.stringify(columns[i]))+`)
-    }
-    <th class="align-top p-1">
-      <div class="d-flex flex-column gap-1">
-        <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId" data-index="${index}">Save</button>
-        <div class="invisible"><small>placeholder</small></div>
-      </div>
-    </th>
-  </tr>
-
-   <tr>
-    <th></th>
-    @@for (var i = 0; i < columns.length; i++) {
-      @@include('./_loopForTableFootTotals.html', `+(JSON.stringify(columns[i]))+`)
-    }
-    <th></th>
-  </tr>
-
-  <!-- Row 2: Differences -->
-  <!-- <tr>
-    <th></th>
-    @@for (var i = 0; i < columns.length; i++) {
-      @@include('./_loopForTableFootDiff.html', `+(JSON.stringify(columns[i]))+`)
-    }
-    <th></th>
-  </tr> -->
-</tfoot>
-
-
           </table>
-
         </div>
       </div>
     </div>
-
 
     @@include('./Students/_footer.html', {
     "path": "../..",
@@ -127,26 +88,7 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
   "path": "../.."
   })
 
-  <script>
-    window.GlobalSerialFormatter = (value, row, index) => {
-      return index + 1;
-    };
-
-  const UpdateDifference = () => {
-  const credit = parseFloat(document.getElementById("HtmlTotalId-Credit")?.innerText || 0);
-  const debit = parseFloat(document.getElementById("HtmlTotalId-Debit")?.innerText || 0);
-
-  const creditDiffEl = document.getElementById("HtmlDiffId-Credit");
-  const debitDiffEl = document.getElementById("HtmlDiffId-Debit");
-
-  if (creditDiffEl) creditDiffEl.innerText = (credit - debit).toFixed(2);
-  if (debitDiffEl) debitDiffEl.innerText = (debit - credit).toFixed(2);
-};
-
-
-  </script>
-
-  <script type="module" src="../../Js/CrudStaticColumn/fCreateWSTWOInput/entryFile.js"></script>
+  <script type="module" src="../../Js/CrudStaticColumn/showGroupBy/entryFile.js"></script>
 </body>
 
 </html>
