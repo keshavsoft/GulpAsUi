@@ -38,11 +38,27 @@ Footer contains input fields for each column and a save button.
   })
 
   @@include('./CrudDynamicCol/_sidenav.html', {
-  "path": "../..",
-  "page": "CrudDynamicCol",
-  "page_group":"CrudDynamicCol"
-  })
-
+    "path": "../..",
+    "page": "index",
+    "page_group":"fCreateWS",
+    "SideBarItems": [
+        {DisplayName:'Show Only',Name:'ShowOnly',IconClass:"bi bi-pencil-square",SpanClass:"text-info", isCollapsable:true,
+        SubItems:[
+            {DisplayName:"AsIs",Name:"showOnly",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+            {DisplayName:"WithOpts",Name:"showOnlyWithOpts",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+            {DisplayName:"WithSerial",Name:"showOnlyWithSerial",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+            {DisplayName:"WithOptsAndSerial",Name:"showOnlyWithOptsAndSrNo",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+        ]
+        },
+        {DisplayName:"Footer Create",Name:"FooterCreate",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+        SubItems:[
+            {DisplayName:"FootCreateInput",Name:"FootCreateInput",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+            {DisplayName:"footerCreateNew",Name:"footerCreateNew",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+        ]},
+          {DisplayName:"crudStaticColDL",Name:"crudStaticColDL",IconClass:"bi bi-card-list",SpanClass:"text-success",isActive:true},
+          {DisplayName:"importFromExcel",Name:"importFromExcel",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]
+    })
   <main class="content">
     @@include('./CrudDynamicCol/_topbarEmpty.html', {
     "path": "../.."
