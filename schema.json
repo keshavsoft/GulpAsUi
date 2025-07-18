@@ -21,8 +21,8 @@
             "isInput": true
         },
         {
-            "field": "Credit",
-            "title": "Credit",
+            "field": "Amount",
+            "title": "Amount",
             "type": "number",
             "isNumber": true,
             "numberConfig": {
@@ -31,22 +31,7 @@
                 "max": "999999999"
             },
             "footerFormatter": "TotalFormatter",
-            "ShowTotal": true,
-            "ShowDifference":true
-        },
-        {
-            "field": "Debit",
-            "title": "Debit",
-            "type": "number",
-            "isNumber": true,
-            "numberConfig": {
-                "step": "0.01",
-                "min": "0",
-                "max": "999999999"
-            },
-            "footerFormatter": "TotalFormatter",
-            "ShowTotal": true,
-            "ShowDifference":true
+            "ShowTotal": true
         }
     ],
     "data": [],
