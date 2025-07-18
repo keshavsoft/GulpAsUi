@@ -76,20 +76,40 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
               </tr>
             </thead>
 
-            <tfoot>
-              <tr>
-                <th></th>
-                @@for (var i = 0; i < columns.length; i++) { @@include('./_loopForTableFootTotals.html',
-                  `+(JSON.stringify(columns[i]))+`) } <th class="align-top p-1">
-                  <div class="d-flex flex-column gap-1">
-                    <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId"
-                      data-index="${index}">Save</button>
-                    <div class="invisible"><small>placeholder</small></div>
-                  </div>
-                  </th>
+      <tfoot>
+  <!-- Row 1: Totals -->
+  <tr>
+    <th></th>
+    @@for (var i = 0; i < columns.length; i++) {
+      @@include('./_loopForTableFootTotals.html', `+(JSON.stringify(columns[i]))+`)
+    }
+    <th class="align-top p-1">
+      <div class="d-flex flex-column gap-1">
+        <button class="btn btn-sm btn-success save-btn" id="TableFooterSaveButtonId" data-index="${index}">Save</button>
+        <div class="invisible"><small>placeholder</small></div>
+      </div>
+    </th>
+  </tr>
 
-              </tr>
-            </tfoot>
+   <tr>
+    <th></th>
+    @@for (var i = 0; i < columns.length; i++) {
+      @@include('./_loopForTableFootTotals.html', `+(JSON.stringify(columns[i]))+`)
+    }
+    <th></th>
+  </tr>
+
+  <!-- Row 2: Differences -->
+  <!-- <tr>
+    <th></th>
+    @@for (var i = 0; i < columns.length; i++) {
+      @@include('./_loopForTableFootDiff.html', `+(JSON.stringify(columns[i]))+`)
+    }
+    <th></th>
+  </tr> -->
+</tfoot>
+
+
           </table>
 
         </div>
@@ -111,6 +131,19 @@ Footer input values are sent as numbers for numeric fields (like Amount) and as 
     window.GlobalSerialFormatter = (value, row, index) => {
       return index + 1;
     };
+
+  const UpdateDifference = () => {
+  const credit = parseFloat(document.getElementById("HtmlTotalId-Credit")?.innerText || 0);
+  const debit = parseFloat(document.getElementById("HtmlTotalId-Debit")?.innerText || 0);
+
+  const creditDiffEl = document.getElementById("HtmlDiffId-Credit");
+  const debitDiffEl = document.getElementById("HtmlDiffId-Debit");
+
+  if (creditDiffEl) creditDiffEl.innerText = (credit - debit).toFixed(2);
+  if (debitDiffEl) debitDiffEl.innerText = (debit - credit).toFixed(2);
+};
+
+
   </script>
 
   <script type="module" src="../../Js/CrudStaticColumn/fCreateWSTWOInput/entryFile.js"></script>
