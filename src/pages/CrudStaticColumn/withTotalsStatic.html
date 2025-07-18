@@ -97,29 +97,21 @@ Purpose: Displays a static table with only the main data columns: Account Name, 
     @@include('./CrudStaticColumn/_scriptsWithBSTable.html', {
     "path": "../.."
     })
-    <script>
-        function TotalFormatter(data, currentHtml) {
+    <script>function TotalFormatter(data, currentHtml) {
             var field = this.field;
-            console.log("field : ", field, this, currentHtml);
 
-            // const LocalReturnValue = data.map(function (row) {
-            //     return +row[field]
-            // }).reduce(function (sum, i) {
-            //     return sum + i
-            // }, 0);
+            const LocalReturnValue = data.map(function (row) {
+                return +row[field]
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0);
 
-            // return LocalReturnValue;
             const parser = new DOMParser();
             const doc = parser.parseFromString(currentHtml, 'text/html');
             const paragraphElement = doc.querySelector("input");
-            paragraphElement.setAttribute('value', '1234567890');
-            // Output: Hello, World!
-            const k1 = doc.documentElement.html;
-            console.log(paragraphElement.outerHTML, k1);
-
+            paragraphElement.setAttribute('value', LocalReturnValue);
             return paragraphElement.outerHTML;
-        };
-    </script>
+        };</script>
     <script type="module" src="../../Js/CrudStaticColumn/WithTotalsStatic/entryFile.js"></script>
 </body>
 
