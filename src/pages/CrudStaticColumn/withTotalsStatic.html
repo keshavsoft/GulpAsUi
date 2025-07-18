@@ -78,11 +78,12 @@ Purpose: Displays a static table with only the main data columns: Account Name, 
                         <tfoot>
                             <tr>
                                 @@for (var i = 0; i < columns.length; i++) { <th>
-                                    <input type="text" class="form-control" value="Total">
+                                    @@include('./_footerCell.html', ` + JSON.stringify(columns[i]) + `)
                                     </th>
                                     }
                             </tr>
                         </tfoot>
+
                     </table>
                 </div>
             </div>
