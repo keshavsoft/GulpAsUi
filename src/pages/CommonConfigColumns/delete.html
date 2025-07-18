@@ -33,7 +33,33 @@
     @@include('./CommonConfigColumns/_sidenav.html', {
     "path": "../..",
     "page": "delete",
-    "page_group":"delete"
+    "SideBarItems": [
+    {DisplayName:"Create",Name:"Create",IconClass:"bi bi-pencil-square",SpanClass:"text-info", isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Create",Name:"create",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+    {DisplayName:"No Validations",Name:"createNoValis",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]
+    },
+    {DisplayName:"Show",Name:"Show",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Show",Name:"show",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+    {DisplayName:"Static Column Show",Name:"staticColumnsShow",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Filter",Name:"Filter",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Simple",Name:"simple",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Alter",Name:"Alter",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Alter",Name:"alter",IconClass:"bi bi-card-list",SpanClass:"text-success"},
+    {DisplayName:"Static Column Alter",Name:"staticColumnsalter",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Delete",Name:"Delete",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,isExpanded:true,
+    SubItems:[
+    {DisplayName:"Delete",Name:"delete",IconClass:"bi bi-card-list",SpanClass:"text-success",isActive:true},
+    {DisplayName:"Static Columns Delete",Name:"staticColumnsDelete",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]}
+    ]
     })
 
     <main class="content">
