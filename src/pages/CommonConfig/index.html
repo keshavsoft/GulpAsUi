@@ -32,7 +32,30 @@
 
     @@include('./CommonConfig/_sidenav.html', {
     "path": "../..",
-    "page": "index"
+    "page": "index",
+    "SideBarItems": [
+    {DisplayName:"Create",Name:"Create",IconClass:"bi bi-pencil-square",SpanClass:"text-info", isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Create",Name:"create",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]
+    },
+    {DisplayName:"Show",Name:"Show",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Show",Name:"show",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Filter",Name:"Filter",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Simple",Name:"simple",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Alter",Name:"Alter",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Alter",Name:"alter",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]},
+    {DisplayName:"Delete",Name:"Delete",IconClass:"bi bi-card-list",SpanClass:"text-success",isCollapsable:true,
+    SubItems:[
+    {DisplayName:"Delete",Name:"delete",IconClass:"bi bi-card-list",SpanClass:"text-success"}
+    ]}
+    ]
     })
 
     <main class="content">
@@ -43,7 +66,7 @@
         <div class="py-4">
 
             @@include('./_forBreadCrumb.html', { "page":
-        "Dashboard","BreadCrumbItems": [{name:'Pages'},{name:'CommonConfig'},{name:'index',isLast:true}] })
+            "Dashboard","BreadCrumbItems": [{name:'Pages'},{name:'CommonConfig'},{name:'index',isLast:true}] })
         </div>
 
         <div class="row">
