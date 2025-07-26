@@ -1,10 +1,11 @@
 {
-    "tableName": "ReceiptsTable",
+    "tableName": "JournalsTable",
     "columns": [
         {
             "field": "AccountName",
             "title": "Account Name",
-            "isInput": true
+            "isInput": true,
+            "filterControl":true
         },
         {
             "field": "Date",
@@ -21,9 +22,8 @@
             "isInput": true
         },
         {
-            "field": "Amount",
-            "align": "right",
-            "title": "Amount",
+            "field": "Credit",
+            "title": "Credit",
             "type": "number",
             "isNumber": true,
             "numberConfig": {
@@ -32,7 +32,22 @@
                 "max": "999999999"
             },
             "footerFormatter": "TotalFormatter",
-            "ShowTotal": true
+            "ShowTotal": true,
+            "ShowDifference":true
+        },
+        {
+            "field": "Debit",
+            "title": "Debit",
+            "type": "number",
+            "isNumber": true,
+            "numberConfig": {
+                "step": "0.01",
+                "min": "0",
+                "max": "999999999"
+            },
+            "footerFormatter": "TotalFormatter",
+            "ShowTotal": true,
+            "ShowDifference":true
         }
     ],
     "data": [],
